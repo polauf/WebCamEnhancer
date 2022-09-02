@@ -33,8 +33,7 @@ class Config:
     LIFETIME = -1
     # Background path or RGB color tuple
     #TODO: Add gif support.
-    # Pics: atom1 GSSAC GSSACname wallpaper vectors interview atlantropa
-    BACKGROUND = "img/GSSAC.png"
+    BACKGROUND = "img/interview.png"
     # Background fallback color
     BACKGROUND_FALLBACK = (0,200,0)
     # Pixelate size
