@@ -30,6 +30,8 @@ def resolve_away(changer, mask, state=[Config.PRESENT_FILTER, 0, True]):
     state: Internal. (State storage)
     """
     # TODO: Optimize conditions. To mutch gunk.
+    if state[0] != changer._filter:
+        state[0] = changer._filter
     if state[1] > Config.AWAY_FRAMES and state[0] == Config.PRESENT_FILTER:
         state[0] = Config.AWAY_FILTER
         state[1] = 0
