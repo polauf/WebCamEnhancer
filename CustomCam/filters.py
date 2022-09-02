@@ -3,18 +3,16 @@
 Each class defines a specific frame manipulation and all classes are discovered upon launch.
 Therefore, additional filters can be added here by simply creating a new class that:
 - Inherits from `filters.Filter`
-- Implements a `__str__` method that return string containing a short description of the filter.
 - Implements an `apply` method which takes a frame (as a `np.array`), applies filter logic and returns that a `np.array`.
 - Does not share a name with any existing class or input command.
 """
-
-import logging
-from typing import Union
+import sys
 
 import cv2
-import mediapipe as mp
 import numpy as np
 
+from config import Config, get_background
+from middleware import Filter, Cascade, Selfie, SelfieCascade
 
 CASCADE_FACE = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
 SELFIE_SEGMENTATION = mp.solutions.selfie_segmentation.SelfieSegmentation(model_selection=1)
