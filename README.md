@@ -8,6 +8,10 @@ CustomCam uses [pyvirtualcamera](https://github.com/letmaik/pyvirtualcam) to int
 
 ## Usage
 ### On-Launch
+
+Temporarly if you want to run it, got `CustomCam` directory and run `python __main__.py` and args. (Need work to become package again ... TODO for now.)
+
+
 ```text
 CustomCam. Extendable webcam modification on your commandline.
 
