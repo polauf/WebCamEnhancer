@@ -50,7 +50,6 @@ class CameraModifier:
         self.logger = logger
         self.input_camera = input_camera
         self.output_camera = output_camera
-        self.show_fps = show_fps
         self.pref_fps = pref_fps
 
         self.pref_width = pref_width
@@ -62,6 +61,7 @@ class CameraModifier:
         self.zoom = Config.ZOOM
 
         self.filters = filters
+        self.filter_keys = {k.lower():k for k in self.filters.keys()}
         self._filter = initial_filter
 
         self.in_cam = None
@@ -136,7 +136,7 @@ class CameraModifier:
         Returns:
             numpy array with the same shape as frame and the current filter effect applied.
         """
-        frame = self.filters[self._filter].apply(frame)
+        frame = self.filters[self._filter].apply(self, frame)
         return frame
 
     def start_input_camera(self, input_device: str) -> cv2.VideoCapture:
@@ -149,31 +149,21 @@ class CameraModifier:
             cv2.VideoCapture
         """
 
-        # Set up webcam capture.
         in_cam = cv2.VideoCapture(input_device)
 
-        # Verify input device
         if not in_cam.isOpened():
             self.logger.critical(f"Unable to capture input device '{input_device}'")
             self.logger.critical(f'Is your webcam currently in use?')
             sys.exit()
-
-        # Incoming config
         if self.pref_width is not None:
             self.logger.debug(f"Setting input camera width to {self.pref_width}")
-            in_cam.set(cv2.CAP_PROP_FRAME_WIDTH, self.pref_width)
+            in_cam.set(cv2.CAP_PROP_FRAME_WIDTH, int(self.pref_width))
         if self.pref_height is not None:
             self.logger.debug(f"Setting input camera height to {self.pref_height}")
-            in_cam.set(cv2.CAP_PROP_FRAME_HEIGHT, self.pref_height)
+            in_cam.set(cv2.CAP_PROP_FRAME_HEIGHT, int(self.pref_height))
         if self.pref_fps is not None:
             self.logger.debug(f"Setting input camera fps to {self.pref_fps}")
             in_cam.set(cv2.CAP_PROP_FPS, self.pref_fps)
-
-        # Outgoing config
-        self.width = int(in_cam.get(cv2.CAP_PROP_FRAME_WIDTH))
-        self.height = int(in_cam.get(cv2.CAP_PROP_FRAME_HEIGHT))
-        self.fps = in_cam.get(cv2.CAP_PROP_FPS)
-        self.logger.info(f"Input camera '{input_device}' started: ({self.width}x{self.height} @ {self.fps}fps)")
 
         return in_cam
 
@@ -204,8 +194,6 @@ class CameraModifier:
             self.logger.critical(f"Failed to connect to output device: '{output_device}' - "
                                  f"have you created a virtual camera with 'sudo modprobe v4l2loopback devices=1'?")
             sys.exit()
-        self.logger.info(f"Output camera '{out_cam.device}' started: "
-                         f"({out_cam.width}x{out_cam.height} @ {out_cam.fps}fps)")
 
         return out_cam
 
@@ -215,25 +203,30 @@ class CameraModifier:
         Returns:
             str
         """
-        if self.show_stats:
-            text = f"FPS: {int(1 / (time.time() - self.last_time))}\n"
+        text = f"FPS: {int(1 / (time.perf_counter() - self.last_time))}\n"
         text += f"Filter: {self._filter}\n"
         text += f"Resolution: {self.out_cam.width}x{self.out_cam.height}\n"
-        else:
-            text = ''
-        self.last_time = time.time()
+        self.last_time = time.perf_counter()
 
         return text
 
     def run(self) -> None:
         """Launch input & output cameras and enter primary filter loop."""
 
-        # Set up feeds
+        # Set input feed
         self.in_cam = self.start_input_camera(self.input_camera)
-        self.out_cam = self.start_output_camera(self.output_camera, self.width, self.height, self.fps,
-                                                show_fps=self.show_fps, fmt=pyvirtualcam.PixelFormat.BGR)
 
-        self.logger.info(f"{utils.Colors.GREEN}All set! Type 'h' or 'help' for commands.{utils.Colors.RESET}")
+        self.width = int(self.in_cam.get(cv2.CAP_PROP_FRAME_WIDTH))
+        self.height = int(self.in_cam.get(cv2.CAP_PROP_FRAME_HEIGHT))
+        self.fps = self.in_cam.get(cv2.CAP_PROP_FPS)
+        self.logger.info(f"Input camera '{self.input_camera}' started: ({self.width}x{self.height} @ {self.fps}fps)")
+
+        # Set output feed
+        self.out_cam = self.start_output_camera(self.output_camera, self.width, self.height, self.fps,
+                                                fmt=pyvirtualcam.PixelFormat.BGR)
+
+        self.logger.info(f"Output camera '{self.out_cam.device}' started: "
+                    f"({self.out_cam.width}x{self.out_cam.height} @ {self.out_cam.fps}fps)")
 
         self.logger.info(f"{Colors.GREEN}All set! Type 'h' or 'help' for commands.{Colors.RESET}")
 
