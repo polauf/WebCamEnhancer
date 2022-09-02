@@ -14,64 +14,100 @@ import numpy as np
 from config import Config, get_background
 from middleware import Filter, Cascade, Selfie, SelfieCascade
 
-CASCADE_FACE = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
-SELFIE_SEGMENTATION = mp.solutions.selfie_segmentation.SelfieSegmentation(model_selection=1)
+def resolve_away(changer, mask, state=[Config.PRESENT_FILTER, 0, True]):
+    """
+    Resolves if user is away from cam.
+    Uses from config:
+    - Config.AWAY_TRESHOLD
+    - Config.AWAY_FRAMES
+    - Config.PRESET_FRAMES
+    - Config.PRESENT_FILTER
+    - Config.AWAY_FILTER
+
+    params:
+    changer: CameraModifier
+    mask: Segmentation result
+    state: Internal. (State storage)
+    """
+    # TODO: Optimize conditions. To mutch gunk.
+    if state[1] > Config.AWAY_FRAMES and state[0] == Config.PRESENT_FILTER:
+        state[0] = Config.AWAY_FILTER
+        state[1] = 0
+        changer._filter = state[0]
+    elif state[1] > Config.PRESET_FRAMES and state[0] == Config.AWAY_FILTER:
+        state[0] = Config.PRESENT_FILTER
+        state[1] = 0
+        changer._filter = state[0]
+    elif state[0] == Config.PRESENT_FILTER:
+        val = np.average(mask) < Config.AWAY_TRESHOLD
+        if val and state[2]:
+            state[1] += 1
+            state[2] = val
+        else:
+            state[1] = 0
+    elif state[0] == Config.AWAY_FILTER:
+        val = np.average(mask) > Config.AWAY_TRESHOLD
+        if val and state[2]:
+            state[1] += 1
+            state[2] = val
+        else:
+            state[1] = 0
+    # Prints warning
+    frames = Config.AWAY_FRAMES if state[0] == Config.PRESENT_FILTER else Config.PRESET_FRAMES
+    if state[1] and state[1] > (frames - changer.fps*Config.WARNING_SECS) and not (state[1]%changer.fps):
+        changer.logger.info(f"Changing {state[0]} in {int((frames - state[1])/changer.fps)}.")
 
 
-class Filter:
-    """Camera filter class. Takes in frame, modifies and returns frame."""
-    def __init__(self, logger: Union[None, logging.Logger] = None, *args, **kwargs):
-        super(Filter, self).__init__(*args, **kwargs)
-        self.logger = logger
-        self.switch_log = f"Switching to {self.__class__.__name__} filter."
+def rotate_image(image: np.array, angle: float) -> np.array:
+  return cv2.warpAffine(
+      image,
+      cv2.getRotationMatrix2D(
+          tuple(np.array(image.shape[1::-1]) / 2),
+          angle,
+          1.0
+          ),
+        image.shape[1::-1],
+        flags=cv2.INTER_LINEAR
+        )
 
-    def __str__(self):
-        """String representation, to be applied in descendant classes."""
-        raise NotImplementedError
-
-    def apply(self, frame: np.array) -> np.array:
-        """Filter function, to be applied in descendant classes."""
-        raise NotImplementedError
+def draw_on_image(bottom: np.array, top: np.array, x=0, y=0):
+    (h, w) = top.shape[:2]
+    y1, y2 = y, y + h
+    x1, x2 = x, x + w
     
+    x_lim = 0
+    y_lim = 0
+    if x2 >= bottom.shape[1]:
+        x_lim = x2 - bottom.shape[1] + 1
+        w -= x_lim
+        x2 -= x_lim
+    if y2 >= bottom.shape[0]:
+        y_lim = y2 - bottom.shape[0] + 1
+        h -= y_lim
+        y2 -= y_lim
+
+    alpha_top = top[:h, :w, 3] / 255.0
+    alpha_bottom = 1.0 - alpha_top
+    for c in range(0, 3):
+        bottom[y1:y2, x1:x2, c] = (alpha_top * top[:h, :w, c] +
+                                   alpha_bottom * bottom[y1:y2, x1:x2, c])
+    if bottom.shape[2] == 4:
+        bottom[y1:y2, x1:x2, 3] = np.maximum(top[:h, :w, 3], bottom[y1:y2, x1:x2, 3])
 
 class NoFilter(Filter):
-    """Apply no filter effect."""
-    def __init__(self, *args, **kwargs):
-        super(NoFilter, self).__init__(*args, **kwargs)
+    "Nothing."
 
-    def __str__(self):
-        return f"Applies no filters."
-
-    def apply(self, frame: np.array) -> np.array:
-        """Return frame without any alteration.
-
-        Args:
-            frame (np.array): Frame from input camera.
-
-        Returns:
-            frame
-        """
+    def apply(self, changer, frame):
         return frame
         
 
 class Shake(Filter):
-    """Shake two channels horizontally every frame."""
+    "Shake two channels horizontally every frame."
     def __init__(self, *args, **kwargs):
-        super(Shake, self).__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
         self._frame_count = 0
 
-    def __str__(self):
-        return f"Shake two channels horizontally."
-
-    def apply(self, frame: np.array) -> np.array:
-        """Apply shake effect to provided frame.
-
-        Args:
-            frame (np.array): Frame from input camera.
-
-        Returns:
-            'Filtered' frame
-        """
+    def apply(self, changer, frame):
         # Shake two channels horizontally each frame.
         channels = [[0, 1], [0, 2], [1, 2]]
 
@@ -85,212 +121,40 @@ class Shake(Filter):
         return frame
 
 
-class BlurSat(Filter):
-    """Blur background according to saturation.
+class Pixel(Selfie):
+    "Blur foreground person."
+    # Based on: # Docs: https://google.github.io/mediapipe/solutions/selfie_segmentation.html
 
-    Based on:
-        https://www.learnpythonwithrune.org/opencv-python-a-simple-approach-to-blur-the-background-from-webcam/
-    """
-    def __init__(self, *args, **kwargs):
-        super(BlurSat, self).__init__(*args, **kwargs)
-
-    def __str__(self):
-        return f"Blur background via saturation detection."
-
-    def apply(self, frame: np.array) -> np.array:
-        """Apply saturation-based blur effect to provided frame.
-
-        Args:
-            frame (np.array): Frame from input camera.
-
-        Returns:
-            'Filtered' frame
-        """
-        # TODO: Fix, doesn't seem to work properly
-        hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
-        mask = cv2.inRange(hsv, (0, 75, 40), (180, 255, 255))
-        mask_3d = np.repeat(mask[:, :, np.newaxis], 3, axis=2)
-        blurred_frame = cv2.blur(frame, (25, 25), 0)
-        frame = np.where(mask_3d == (255, 255, 255), frame, blurred_frame)
-
-        return frame
-
-
-class BlurBox(Filter):
-    """Detect face with cascade, blur everything else.
-
-    Based on:
-        https://www.data-stats.com/blurring-background-and-foreground-in-images-using-opencv/
-    """
-    def __init__(self, *args, **kwargs):
-        super(BlurBox, self).__init__(*args, **kwargs)
-        self._frame_count = 0
-        self.faces = []
-    
-    def __str__(self):
-        return f"Blur background via single face detection."
-
-    def apply(self, frame: np.array) -> np.array:
-        """Apply facial recognition-based blur effect to provided frame.
-
-        Args:
-            frame (np.array): Frame from input camera.
-
-        Returns:
-            'Filtered' frame
-        """
-        # Detects face, as square based on cascade_face xml, and rewrites over pixelated
-        self._frame_count += 1
-
-        grayscale = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY) 
-
-        # Improve performance by update face identification every X frames
-        if self._frame_count % 30 == 0 or len(self.faces) == 0:
-            self.faces = CASCADE_FACE.detectMultiScale(grayscale, 1.3, 5)
-
-        # Save faces
-        roi_faces = [frame[y:y+h, x:x+w].copy() for x, y, w, h in self.faces]
-            
-        # Pixelate frame
-        px_w, px_h = (128, 128)
-        height, width, n_channels = frame.shape
-        temp = cv2.resize(frame, (px_w, px_h), interpolation=cv2.INTER_LINEAR)
-        frame = cv2.resize(temp, (width, height), interpolation=cv2.INTER_NEAREST)
-
-        # Restore faces
-        for i, (x, y, w, h) in enumerate(self.faces):
-            frame[y:y+h, x:x+w] = roi_faces[i]
-
-        return frame
-
-
-class Segment(Filter):
-    """Blur background with mediapipe selfie segmentation.
-
-    Based on:
-        # Docs: https://google.github.io/mediapipe/solutions/selfie_segmentation.html
-    """
-    def __init__(self, *args, **kwargs):
-        super(Segment, self).__init__(*args, **kwargs)
-
-    def __str__(self):
-        return f"Blur background using SelfieSegmentation by mediapipe."
-
-    def apply(self, frame: np.array) -> np.array:
-        """Apply segmentation-based background blurring to provided frame.
-    
-        Args:
-            frame (np.array): Frame from input camera.
-
-        Returns:
-            'Filtered' frame
-        """
-        # To improve performance, optionally mark the image as not writeable
-        frame.flags.writeable = False
-        segment = SELFIE_SEGMENTATION.process(frame)
-        frame.flags.writeable = True
-
+    def apply(self, changer, frame):
         # Identify foreground segment
-        foreground = np.stack((segment.segmentation_mask,) * 3, axis=-1) > 0.1
-        
+        foreground = np.stack((super().apply(changer, frame),) * 3, axis=-1) > 0.1
+
         # Pixelate for background
-        px_w, px_h = (128, 128)
+        px_w, px_h = Config.PIXELATE_SIZE
         height, width, n_channels = frame.shape
         temp = cv2.resize(frame, (px_w, px_h), interpolation=cv2.INTER_LINEAR)
         pixelated = cv2.resize(temp, (width, height), interpolation=cv2.INTER_NEAREST)
 
         # Fill segments as required
-        frame = np.where(foreground, frame, pixelated)
-
-        return frame   
-
-
-class Pixel(Filter):
-    """Blur foreground with mediapipe selfie segmentation.
-
-    Based on:
-        # Docs: https://google.github.io/mediapipe/solutions/selfie_segmentation.html
-    """
-    def __init__(self, *args, **kwargs):
-        super(Pixel, self).__init__(*args, **kwargs)
-
-    def __str__(self):
-        return f"Pixelate individuals in the foreground."
-
-    def apply(self, frame: np.array) -> np.array:
-        """Apply segmentation-based foreground blurring to provided frame.
-    
-        Args:
-            frame (np.array): Frame from input camera.
-
-        Returns:
-            'Filtered' frame
-        """
-        # To improve performance, optionally mark the image as not writeable
-        frame.flags.writeable = False
-        segment = SELFIE_SEGMENTATION.process(frame)
-        frame.flags.writeable = True
-
-        # Identify foreground segment
-        foreground = np.stack((segment.segmentation_mask,) * 3, axis=-1) > 0.1
-        
-        # Pixelate for background
-        px_w, px_h = (128, 128)
-        height, width, n_channels = frame.shape
-        temp = cv2.resize(frame, (px_w, px_h), interpolation=cv2.INTER_LINEAR)
-        pixelated = cv2.resize(temp, (width, height), interpolation=cv2.INTER_NEAREST)
-
-        # Fill segments as required
-        frame = np.where(foreground, pixelated, frame)
-
-        return frame
+        return np.where(foreground, pixelated, frame)
 
 
 class Gray(Filter):
-    """Convert frame to grayscale."""
-    def __init__(self, *args, **kwargs):
-        super(Gray, self).__init__(*args, **kwargs)
+    "Grayscale image."
 
-    def __str__(self):
-        return f"Apply grayscale."
-
-    def apply(self, frame: np.array) -> np.array:
-        """Apply simple grayscale effect to provided frame.
-
-        Args:
-            frame (np.array): Frame from input camera.
-
-        Returns:
-            'Filtered' frame
-        """
-        grayscale = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-        frame = np.repeat(grayscale, 3).reshape(frame.shape)
-        return frame
+    def apply(self, changer, frame):
+        return np.repeat(cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY), 3).reshape(frame.shape)
 
 
 class Sepia(Filter):
-    """Apply classic sepia filter.
+    "Classic sepia filter."
+    # Based on: https://gist.github.com/FilipeChagasDev/bb63f46278ecb4ffe5429a84926ff812
 
-    Based on:
-        https://gist.github.com/FilipeChagasDev/bb63f46278ecb4ffe5429a84926ff812
-    """
     def __init__(self, *args, **kwargs):
-        super(Sepia, self).__init__(*args, **kwargs)
-
-    def __str__(self):
-        return f"Apply sepia effect."
-            
-    def apply(self, frame: np.array) -> np.array:
-        """Apply sepia effect to provided frame.
-
-        Args:
-            frame (np.array): Frame from input camera.
-
-        Returns:
-            'Filtered' frame
-        """
-        grayscale = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-        grayscale_norm = np.array(grayscale, np.float32)/255
+        super().__init__(*args, **kwargs)
+    
+    def apply(self, changer, frame):
+        grayscale_norm = np.array(cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY), np.float32)/255
 
         # Solid color
         sepia = np.ones(frame.shape)
@@ -303,6 +167,233 @@ class Sepia(Filter):
         sepia[:, :, 1] *= grayscale_norm  # Green channel
         sepia[:, :, 2] *= grayscale_norm  # Red channel
 
-        sepia = np.array(sepia, np.uint8)
-        return sepia
+        return np.array(sepia, np.uint8)
+
+class LaughingMan(Cascade):
+    "Only Laughing man overlay."
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.rotation = 0.0
+        self.face_img = cv2.imread(Config.FACE_IMAGE_PATH, -1)
+        self.text_img = cv2.imread(Config.TEXT_IMAGE_PATH, -1)
+        self.previous_coords = []
+        self.previous_lifetime = 0
     
+    def apply(self, changer, frame):
+        faces = super().apply(changer, frame)
+        
+        if Config.LIFETIME != -1 and self.previous_lifetime > Config.LIFETIME:
+            self.previous_coords = ()
+
+        if len(faces):
+            self.previous_lifetime = 0
+
+        if not len(faces) and len(self.previous_coords):
+            faces = self.previous_coords
+            self.previous_lifetime +=1
+
+        for (x, y, w, h) in faces:
+            # Scale image to be larger then detected face
+            ws = int(w * Config.SCALE)
+            hs = int(h * Config.SCALE)
+            ratio = ws/self.face_img.shape[0]
+            size = (int(self.face_img.shape[1]*ratio), int(self.face_img.shape[0]*ratio))
+            
+            # TODO: Wrong hadling of negaitve corners in draw_on_image()
+            xs = int(x - hs/4)
+            if xs < 0: xs = 0
+            ys = int(y - ws/4)
+            if ys < 0: ys = 0
+
+            combo = np.zeros(self.face_img.shape)
+            draw_on_image(combo, rotate_image(self.text_img, self.rotation), 0, 0)
+            draw_on_image(combo, self.face_img)
+            draw_on_image(frame, cv2.resize(combo, size), xs, ys)
+
+            # Debug rectangle
+            # cv2.rectangle(frame, (x,y), (x+w, y+h), (0,255,0),2)
+            
+            self.previous_coords = faces
+
+        self.rotation += Config.ROTATION_RATE
+
+        return frame
+
+
+class Background(Selfie):
+    "Repleaces background with a picture."
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.bg = get_background()
+        self._frame_count = 0
+        self.mask = None
+
+    
+    def apply(self, changer, frame):
+        # simple 2-sample running average filter
+        mask = super().apply(changer, frame)
+        if self.mask is None:
+            self.mask = mask
+        else:
+            self.mask = (self.mask/2 + mask)/1.5
+        
+        resolve_away(changer, mask)
+        
+        # resize background if needed
+        if self.bg.shape != frame.shape:
+            self.bg = cv2.resize(self.bg, (frame.shape[1], frame.shape[0]))
+
+        # blend images with segmentation mask (fg*mask + bg*(1-mask))
+        for i in range(3):
+            frame[:,:,i] = frame[:,:,i]*self.mask + self.bg[:,:,i]*(1.-self.mask)
+        
+        
+        self._frame_count += 1
+        return frame
+
+
+class Anonymous(Selfie):
+    """Pixalated person with background picture."""
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.bg = get_background()
+        self.mask = None
+        self._frame_count = 0
+    
+    def apply(self, changer, frame):
+        mask = super().apply(changer, frame)
+        # simple 2-sample running average filter
+        if self.mask is None:
+            self.mask = mask
+        else:
+            self.mask = (self.mask + mask)/2.
+
+        # resize background if needed
+        if self.bg.shape != frame.shape:
+            self.bg = cv2.resize(self.bg, (frame.shape[1], frame.shape[0]))
+
+        # blend images with segmentation mask (fg*mask + bg*(1-mask))
+        for i in range(3):
+            frame[:,:,i] = frame[:,:,i]*self.mask + self.bg[:,:,i]*(1.-self.mask)
+        
+        # Pixelate for background
+        foreground = np.stack((self.mask,) * 3, axis=-1) > 0.1
+        px_w, px_h = Config.PIXELATE_SIZE
+        height, width, n_channels = frame.shape
+        temp = cv2.resize(frame, (px_w, px_h), interpolation=cv2.INTER_LINEAR)
+        pixelated = cv2.resize(temp, (width, height), interpolation=cv2.INTER_NEAREST)
+
+        # Fill segments as required
+        frame = np.where(foreground, pixelated, frame)
+
+        self._frame_count += 1
+        return frame   
+
+class LMan(SelfieCascade):
+    "Pixalated rest of the person with background picture and Laughing man overlay."
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.rotation = 0.0
+        self.bg = get_background()
+        self.face_img = cv2.imread(Config.FACE_IMAGE_PATH, -1)
+        self.text_img = cv2.imread(Config.TEXT_IMAGE_PATH, -1)
+        self.previous_coords = []
+        self.previous_lifetime = 0
+        self.mask = None
+        self._frame_count = 0
+    
+    def apply(self, changer, frame):
+        mask, faces = super().apply(changer, frame)
+        # simple 2-sample running average filter
+        if self.mask is None:
+            self.mask = mask
+        else:
+            self.mask = (self.mask + mask)/2.
+
+        # resize background if needed
+        if self.bg.shape != frame.shape:
+            self.bg = cv2.resize(self.bg, (frame.shape[1], frame.shape[0]))
+
+        # blend images with segmentation mask (fg*mask + bg*(1-mask))
+        for i in range(3):
+            frame[:,:,i] = frame[:,:,i]*self.mask + self.bg[:,:,i]*(1.-self.mask)
+        
+        # Pixelate for background
+        foreground = np.stack((self.mask,) * 3, axis=-1) > 0.1
+        px_w, px_h = Config.PIXELATE_SIZE
+        height, width, n_channels = frame.shape
+        temp = cv2.resize(frame, (px_w, px_h), interpolation=cv2.INTER_LINEAR)
+        pixelated = cv2.resize(temp, (width, height), interpolation=cv2.INTER_NEAREST)
+
+        # Fill segments as required
+        frame = np.where(foreground, pixelated, frame)
+
+        self._frame_count += 1
+
+        if Config.LIFETIME != -1 and self.previous_lifetime > Config.LIFETIME:
+            self.previous_coords = ()
+
+        if len(faces):
+            self.previous_lifetime = 0
+
+        if not len(faces) and len(self.previous_coords):
+            faces = self.previous_coords
+            self.previous_lifetime +=1
+
+        for (x, y, w, h) in faces:
+            # Scale image to be larger then detected face
+            ws = int(w * Config.SCALE)
+            hs = int(h * Config.SCALE)
+            ratio = ws/self.face_img.shape[0]
+            size = (int(self.face_img.shape[1]*ratio), int(self.face_img.shape[0]*ratio))
+
+            xs = int(x - hs/4)
+            if xs < 0: xs = 0
+            ys = int((y - ws/4)*(0.75+(changer.zoom/2.75)))
+            if ys < 0: ys = 0
+
+            combo = np.zeros(self.face_img.shape)
+            draw_on_image(combo, rotate_image(self.text_img, self.rotation), 0, 0)
+            draw_on_image(combo, self.face_img)
+            draw_on_image(frame, cv2.resize(combo, size), xs, ys)
+
+            # Debug rectangle
+            # cv2.rectangle(frame, (x,y), (x+w, y+h), (0,255,0),2)
+            
+            self.previous_coords = faces
+
+        self.rotation += Config.ROTATION_RATE
+
+        return frame
+
+
+class Away(Selfie):
+    "Away sign with background picture."
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.frame = get_background().copy()
+        self._made = False
+        self.away = cv2.imread(Config.AWAY_IMG, cv2.IMREAD_UNCHANGED)
+    
+    def apply(self, changer, frame: np.array) -> np.array:
+        if not self._made:
+            self.frame = cv2.resize(self.frame, (frame.shape[1], frame.shape[0]))
+            yoff = round((self.frame.shape[0]-self.away.shape[0])/2)
+            xoff = round((self.frame.shape[1]-self.away.shape[1])/2)
+            mask = self.away[:,:,3] / 255.0
+            try:
+                for i in range(3):
+                    self.frame[yoff:yoff+self.away.shape[0], xoff:xoff+self.away.shape[1],i] =\
+                        mask*self.away[:,:,i] + (
+                            1 - mask)*self.frame[yoff:yoff+self.away.shape[0], xoff:xoff+self.away.shape[1],i]
+            except ValueError:
+                print("Can't add away to background. probably away is bigger. fix that.")
+                sys.exit(1)
+            self._made = True
+        resolve_away(changer, super().apply(changer, frame))
+        return self.frame
