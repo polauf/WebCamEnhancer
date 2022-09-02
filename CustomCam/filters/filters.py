@@ -411,7 +411,8 @@ class ASCII(Selfie):
         # Black Background
         self.bg = np.array([[[0,0,0]]],np.uint8)
         self.mask = None
-        self.box = (6, 8)
+        self.coeficient = 1
+        self.box = (6*self.coeficient, 8*self.coeficient)
         self.images = self.generate_ascii_letters(*self.box)
 
     @staticmethod
@@ -432,13 +433,13 @@ class ASCII(Selfie):
         return frame
 
     @staticmethod
-    def generate_ascii_letters(height, width):
+    def generate_ascii_letters(height, width,):
         images = []
-        #letters = "# $%&\\'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[]^_`abcdefghijklmnopqrstuvwxyz{|}~"
-        letters = " \\'(),-./:;[]_`{|}~"
+        # letters = "# $%&\\'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[]^_`abcdefghijklmnopqrstuvwxyz{|}~"
+        letters = " \\()-./:[]_`|~=ˇ´¯<>€ŧ¶ø#°15973"
         for letter in letters:
             img = np.zeros((height, width), np.uint8)
-            img = cv2.putText(img, letter, (0, 5), cv2.FONT_HERSHEY_SIMPLEX, 0.5, 255)
+            img = cv2.putText(img, letter, (0, 5), cv2.FONT_HERSHEY_SIMPLEX, int(height/6), 255)
             images.append(img)
         return np.stack(images)
     
@@ -454,9 +455,9 @@ class ASCII(Selfie):
 
         return np.stack((self.to_ascii_art(
             cv2.Canny(
-                cv2.GaussianBlur(frame, (7, 7), 0),
-                30,
-                15),
+                cv2.GaussianBlur(frame, (5, 5), 1),
+                48,
+                16),
             self.images,
             *self.box
             ),) * 3, axis=-1)
