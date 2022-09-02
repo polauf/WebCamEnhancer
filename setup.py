@@ -4,13 +4,13 @@ from setuptools import setup
 
 
 setup(
-    name='CustomCam',
-    version='0.0.2',
+    name='CamEnhancer',
+    version='0.1.0',
     description='Extendable webcam customisation in Python.',
     long_description=open("README.md", 'r').read(),
     long_description_content_type="text/markdown",
-    author='Matt Ravenhall',
-    url='https://github.com/mattravenhall/CustomCam',
+    authors=('Matous Polauf', 'Matt Ravenhall'),
+    url='https://github.com/polauf/webvamenhancer',
     # package_dir={"CustomCam": "src"},
     packages=['CustomCam'],
     classifiers=[
@@ -29,5 +29,5 @@ setup(
         ]
     },
     install_requires=open('requirements.txt', 'r').readlines(),
-    python_requires='>=3.7',
+    python_requires='>=3.9',
 )
