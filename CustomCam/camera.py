@@ -1,7 +1,3 @@
-#!/usr/bin/env python3
-
-"""Implements the CameraModifier class, which sets up and maintains the primary command loop."""
-
 import logging
 import os
 import select
@@ -171,8 +167,8 @@ class CameraModifier:
         """
         if self.show_stats:
             text = f"FPS: {int(1 / (time.time() - self.last_time))}\n"
-            text += f"Filter: {self._filter}\n"
-            text += f"Resolution: {self.out_cam.width}x{self.out_cam.height}\n"
+        text += f"Filter: {self._filter}\n"
+        text += f"Resolution: {self.out_cam.width}x{self.out_cam.height}\n"
         else:
             text = ''
         self.last_time = time.time()
@@ -202,10 +198,10 @@ class CameraModifier:
             frame = self.apply_filter(frame)
 
             # Add text overlap
-            stats_text = self.build_stats()
-            y0, dy = 50, 30
-            for i, line in enumerate(stats_text.split('\n')):
-                y = y0 + i*dy
+                stats_text = self.build_stats()
+                y0, dy = 50, 30
+                for i, line in enumerate(stats_text.split('\n')):
+                    y = y0 + i*dy
                 cv2.putText(frame, line, (10, y), cv2.FONT_HERSHEY_PLAIN, 2, (0, 255, 0), 2)
 
             # Flip frame

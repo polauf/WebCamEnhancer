@@ -1,7 +1,3 @@
-#!/usr/bin/env python3
-
-"""Primary entry point to CustomCam from the command line."""
-
 import inspect
 import logging
 
@@ -49,6 +45,6 @@ def run():
     # Start modifier
     modifier.run()
 
-
+        
 if __name__ == '__main__':
     run()

@@ -1,6 +1,4 @@
-#!/usr/bin/env python3
-
-"""Stand-alone utility functions & classes for CustomCam."""
+"""Utility functions & classes for CustomCam."""
 
 from pathlib import Path
 import argparse

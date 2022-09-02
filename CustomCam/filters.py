@@ -1,5 +1,3 @@
-#!/usr/bin/env python3
-
 """Camera filter classes, for applying various per-frame effects.
 
 Each class defines a specific frame manipulation and all classes are discovered upon launch.
@@ -36,7 +34,7 @@ class Filter:
     def apply(self, frame: np.array) -> np.array:
         """Filter function, to be applied in descendant classes."""
         raise NotImplementedError
-
+    
 
 class NoFilter(Filter):
     """Apply no filter effect."""
@@ -100,7 +98,7 @@ class BlurSat(Filter):
 
     def __str__(self):
         return f"Blur background via saturation detection."
-    
+
     def apply(self, frame: np.array) -> np.array:
         """Apply saturation-based blur effect to provided frame.
 
@@ -130,10 +128,10 @@ class BlurBox(Filter):
         super(BlurBox, self).__init__(*args, **kwargs)
         self._frame_count = 0
         self.faces = []
-
+    
     def __str__(self):
         return f"Blur background via single face detection."
-    
+
     def apply(self, frame: np.array) -> np.array:
         """Apply facial recognition-based blur effect to provided frame.
 
@@ -154,7 +152,7 @@ class BlurBox(Filter):
 
         # Save faces
         roi_faces = [frame[y:y+h, x:x+w].copy() for x, y, w, h in self.faces]
-
+            
         # Pixelate frame
         px_w, px_h = (128, 128)
         height, width, n_channels = frame.shape
@@ -179,10 +177,10 @@ class Segment(Filter):
 
     def __str__(self):
         return f"Blur background using SelfieSegmentation by mediapipe."
-    
+
     def apply(self, frame: np.array) -> np.array:
         """Apply segmentation-based background blurring to provided frame.
-
+    
         Args:
             frame (np.array): Frame from input camera.
 
@@ -196,7 +194,7 @@ class Segment(Filter):
 
         # Identify foreground segment
         foreground = np.stack((segment.segmentation_mask,) * 3, axis=-1) > 0.1
-
+        
         # Pixelate for background
         px_w, px_h = (128, 128)
         height, width, n_channels = frame.shape
@@ -206,7 +204,7 @@ class Segment(Filter):
         # Fill segments as required
         frame = np.where(foreground, frame, pixelated)
 
-        return frame
+        return frame   
 
 
 class Pixel(Filter):
@@ -223,7 +221,7 @@ class Pixel(Filter):
 
     def apply(self, frame: np.array) -> np.array:
         """Apply segmentation-based foreground blurring to provided frame.
-
+    
         Args:
             frame (np.array): Frame from input camera.
 
@@ -237,7 +235,7 @@ class Pixel(Filter):
 
         # Identify foreground segment
         foreground = np.stack((segment.segmentation_mask,) * 3, axis=-1) > 0.1
-
+        
         # Pixelate for background
         px_w, px_h = (128, 128)
         height, width, n_channels = frame.shape
@@ -283,7 +281,7 @@ class Sepia(Filter):
 
     def __str__(self):
         return f"Apply sepia effect."
-    
+            
     def apply(self, frame: np.array) -> np.array:
         """Apply sepia effect to provided frame.
 
@@ -309,3 +307,4 @@ class Sepia(Filter):
 
         sepia = np.array(sepia, np.uint8)
         return sepia
+    
