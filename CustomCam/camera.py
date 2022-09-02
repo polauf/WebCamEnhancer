@@ -9,7 +9,29 @@ import cv2
 import numpy as np
 import pyvirtualcam
 
-import CustomCam.utils as utils
+from utils import setup_logger, Colors
+from config import Config
+
+def zoom_at(img, zoom, coord=None, method=cv2.INTER_CUBIC):
+    """
+    Simple image zooming without boundary checking.
+    Centered at "coord", if given, else the image center.
+
+    img: numpy.ndarray of shape (h,w,:)
+    zoom: float
+    coord: (float, float)
+    """
+    # Translate to zoomed coordinates
+    h, w, _ = [ zoom * i for i in img.shape ]
+    
+    if coord is None: cx, cy = w/2, h/2
+    else: cx, cy = [ zoom*c for c in coord ]
+    
+    img = cv2.resize( img, (0, 0), fx=zoom, fy=zoom, interpolation=method)
+    return img[ int(round(cy - h/zoom * .5)) : int(round(cy + h/zoom * .5)),
+               int(round(cx - w/zoom * .5)) : int(round(cx + w/zoom * .5)),
+               : ]
+    
 
 
 class CameraModifier:
@@ -36,6 +58,8 @@ class CameraModifier:
         self.width = None
         self.height = None
         self.fps = None
+
+        self.zoom = Config.ZOOM
 
         self.filters = filters
         self._filter = initial_filter
