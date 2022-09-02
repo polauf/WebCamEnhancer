@@ -75,13 +75,17 @@ class CameraModifier:
     def print_help(self) -> None:
         """Print command help to logger."""
         self.logger.warning(f"Filters:")
+        length = 15
         for filter_key in sorted(self.filters.keys()):
-            self.logger.warning(f"• '{filter_key}': {self.filters[filter_key]}")
+            self.logger.warning(f"\t{filter_key:<{length}} {self.filters[filter_key]}")
         self.logger.warning(f"\nOptions:")
-        self.logger.warning(f"• 'f', 'flip': Flip camera")
-        self.logger.warning(f"• 's', stats': Display statistics")
-        self.logger.warning(f"• 'h', 'help': Get this help")
-        self.logger.warning(f"• 'q', 'quit': Exit CustomCam")
+        self.logger.warning(f"\t{'f, flip':<{length}} Flip the camera.")
+        self.logger.warning(f"\t{'s, stats':<{length}} Display information about stream.")
+        self.logger.warning(f"\t{'z+, z-':<{length}} Zoom picture.")
+        self.logger.warning(f"\t{'a, p':<{length}} Fast switch between default filters: Away ({Config.AWAY_FILTER}) or Present ({Config.PRESENT_FILTER}).")
+        self.logger.warning(f"\t{'h, help':<{length}} Get this help.")
+        self.logger.warning(f"\t{'q, quit':<{length}} Exits the application.")
+        
 
     def handle_user_input(self, key: str) -> None:
         """Process user commands. Primarily by updating self_.filter.
