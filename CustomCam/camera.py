@@ -3,7 +3,7 @@ import os
 import select
 import sys
 import time
-from typing import Union
+from typing import Optional
 
 import cv2
 import numpy as np
@@ -14,9 +14,17 @@ import CustomCam.utils as utils
 
 class CameraModifier:
     """Camera stream modification class."""
-    def __init__(self, input_camera: str, output_camera: str, filters: dict, show_fps: bool = False,
-                 pref_width: Union[None, int] = None, pref_height: Union[None, int] = None, pref_fps: bool = None,
-                 initial_filter: str = "NoFilter", logger: logging.Logger = utils.setup_logger('CameraModifier')):
+    def __init__(
+        self,
+        input_camera: str,
+        output_camera: str,
+        filters: dict,
+        pref_width:  Optional[int] = None,
+        pref_height: Optional[int] = None,
+        pref_fps: bool = None,
+        initial_filter: str = Config.PRESENT_FILTER,
+        logger: logging.Logger = setup_logger('CameraModifier')
+    ):
         self.logger = logger
         self.input_camera = input_camera
         self.output_camera = output_camera
@@ -58,18 +66,32 @@ class CameraModifier:
             key: User-provided command for processing.
         """
         if key is not None:
-            if key.lower() in {'q', 'quit'}:
+            key = key.lower()
+            if key in {'q', 'quit'}:
                 self.logger.info('Exiting...')
                 sys.exit()
-            elif key.lower() in {'h', 'help'}:
+            elif key in {'h', 'help'}:
                 self.print_help()
-            elif key in self.filters.keys():
+            elif key in {'f', 'flip'}:
+                self.flip_cam = not self.flip_cam
+            elif key in {'s', 'stats'}:
+                self.show_stats = not self.show_stats
+            elif key in {'a', 'away'}:
+                self._filter = Config.AWAY_FILTER
+                self.logger.info("User away")
+            elif key in {'p', 'present'}:
+                self._filter = Config.PRESENT_FILTER
+                self.logger.info("User present")
+            elif key == 'z+':
+                self.zoom += 0.1
+                self.logger.info(f"Zoom {self.zoom:.1f}x")
+            elif key == 'z-':
+                if self.zoom > 1:
+                    self.zoom -= 0.1
+                self.logger.info(f"Zoom {self.zoom:.1f}x")
+            elif key := self.filter_keys.get(key, None):
                 self._filter = key
                 self.logger.info(self.filters[self._filter].switch_log)
-            elif key.lower() in {'f', 'flip'}:
-                self.flip_cam = not self.flip_cam
-            elif key.lower() in {'s', 'stats'}:
-                self.show_stats = not self.show_stats
             else:
                 self.logger.error(f"Key '{key}' not recognised.")
                 self.logger.debug(f"Valid keys: {self.filters.keys()}")

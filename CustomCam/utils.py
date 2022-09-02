@@ -7,7 +7,8 @@ import logging
 import sys
 import inspect
 
-import CustomCam.filters as filters
+import filters as filters
+from config import Config
 
 
 class Colors:
@@ -127,19 +128,18 @@ def setup_argparse() -> argparse.Namespace:
         argparse.Namespace
     """
     parser = argparse.ArgumentParser(
-        description=f"{Colors.YELLOW}🎥 CustomCam. Extendable webcam customisation in Python.{Colors.RESET}",
+        description=f"{Colors.YELLOW}Camera enhancement app.{Colors.RESET}",
         formatter_class=argparse.ArgumentDefaultsHelpFormatter
     )
-    parser.add_argument("--input_camera", type=int, default=0, help="ID of webcam device")
-    parser.add_argument("--output_camera", type=str, default="/dev/video2", help="Dummy output device")
-    parser.add_argument("--pref_width", type=int, help="Overwrite camera width.", default=None)
-    parser.add_argument("--pref_height", type=int, help="Overwrite camera height.", default=None)
-    parser.add_argument("--pref_fps", type=int, help="Overwrite camera fps.", default=None)
-    parser.add_argument("--filter", choices=dict(inspect.getmembers(filters, inspect.isclass)).keys()-{'Filter'},
-                        default="NoFilter")
-    parser.add_argument("--fps", action="store_true", help=argparse.SUPPRESS)
-    parser.add_argument("--verbose", action="store_true", help="Enable verbose logging.")
-    parser.add_argument("--logfile", action="store_true", help="Write log to disk.")
+    parser.add_argument("--input", "-i", type=int, default=0, help="ID of webcam device")
+    parser.add_argument("--output", "-o", type=str, default="/dev/video2", help="Dummy output device")
+    parser.add_argument("--width", "-cw", type=int, help="Overwrite camera width.", default=1024)
+    parser.add_argument("--height", "-ch", type=int, help="Overwrite camera height.", default=768)
+    parser.add_argument("--fps", type=int, help="Overwrite camera fps.", default=None)
+    parser.add_argument("--filter", "-f", choices=dict(inspect.getmembers(filters, inspect.isclass)).keys()-{'Filter'},
+                        default=Config.PRESENT_FILTER)
+    parser.add_argument("--verbose", "-v", action="store_true", help="Enable verbose logging.")
+    parser.add_argument("--logfile", "-lf", action="store_true", help="Write log to disk.")
     args = parser.parse_args()
 
     return args
