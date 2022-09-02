@@ -235,36 +235,72 @@ class CameraModifier:
 
         self.logger.info(f"{utils.Colors.GREEN}All set! Type 'h' or 'help' for commands.{utils.Colors.RESET}")
 
-        self.last_time = time.time()
+        self.logger.info(f"{Colors.GREEN}All set! Type 'h' or 'help' for commands.{Colors.RESET}")
+
+        self.last_time = time.perf_counter()
+
+        # lookup table for gamma correction
+        lookUpTable = np.empty((1,256), np.uint8)
+        for i in range(256):
+            lookUpTable[0,i] = np.clip(pow(i / 255., Config.GAMMA) * 255., 0, 255)
 
         while True:
             # Read frame from webcam.
             ret, frame = self.in_cam.read()
+
             if not ret:
                 self.logger.critical('Unable to fetch frame')
                 sys.exit()
+            
+            if Config.SHARPEN:
+                frame = cv2.filter2D(frame, -1, np.array([[0,-1,0], [-1,5,-1], [0,-1,0]]))
 
-            # Create functions for each of these
+            frame = zoom_at(frame, self.zoom)
+
+            frame = cv2.LUT(frame, lookUpTable)
+
+            if Config.HUE != 1. or Config.SATURATION != 1. or Config.VALUE != 1:
+                (h, s, v) = cv2.split(cv2.cvtColor(frame, cv2.COLOR_BGR2HSV).astype("float32"))
+
+                if Config.HUE != 1.:
+                    h = np.clip(h*Config.HUE,0,255)
+                if Config.SATURATION != 1.:
+                    s = np.clip(s*Config.SATURATION,0,255)
+                if Config.VALUE != 1.:
+                    v = np.clip(v*Config.VALUE,0,255)
+
+                frame = cv2.cvtColor(cv2.merge([h,s,v]).astype("uint8"), cv2.COLOR_HSV2BGR)
+
+            if Config.RED != 1. or Config.GREEN != 1. or Config.BLUE != 1:
+                (b, g, r) = cv2.split(frame.astype("float32"))
+                
+                if Config.RED != 1.:
+                    r = np.clip(r*Config.RED,0,255)
+                if Config.GREEN != 1.:
+                    g = np.clip(g*Config.GREEN,0,255)
+                if Config.BLUE != 1.:
+                    b = np.clip(b*Config.BLUE,0,255)
+
+                frame = cv2.merge([b,g,r]).astype("uint8")
+
             frame = self.apply_filter(frame)
 
-            # Add text overlap
+            # Adds info
+            if self.show_stats:
                 stats_text = self.build_stats()
                 y0, dy = 50, 30
                 for i, line in enumerate(stats_text.split('\n')):
                     y = y0 + i*dy
-                cv2.putText(frame, line, (10, y), cv2.FONT_HERSHEY_PLAIN, 2, (0, 255, 0), 2)
+                    cv2.putText(frame, line, (5, y), cv2.FONT_HERSHEY_PLAIN, 1, (0, 255, 255), 2)
 
             # Flip frame
             if self.flip_cam:
                 frame = np.fliplr(frame)
 
-            # Send modified frame to virtual cam
             self.out_cam.send(frame)
 
-            # Capture for user input
-            i, o, e = select.select([sys.stdin], [], [], 0.001)
+            # Handle user input
+            i, _, _ = select.select([sys.stdin], [], [], 0.001)
             key = sys.stdin.readline().strip() if i else None
-
-            # Change filter
             if key is not None:
                 self.handle_user_input(key)
