@@ -1,7 +1,8 @@
 import cv2
-import pathlib
+from pathlib import Path
 import numpy as np
 
+base = Path(__file__).parent
 
 class Config:
 
@@ -24,22 +25,22 @@ class Config:
     # LMan How fast it will rotate
     ROTATION_RATE = -2.5
     # LMan Where is face picture. 
-    FACE_IMAGE_PATH = "img/face.png"
+    FACE_IMAGE_PATH = str(Path(base, "img/face.png").absolute())
     # LMan Where is rolling background picture.
-    TEXT_IMAGE_PATH = "img/plate.png"
+    TEXT_IMAGE_PATH = str(Path(base, "img/plate.png").absolute())
     # LMan Upscale RAAL rectangle. (Cover face)
     SCALE = 1.65
     # LMan Stop blocking after n frames. -1 is don't stop.
     LIFETIME = -1
     # Background path or RGB color tuple
     #TODO: Add gif support.
-    BACKGROUND = "img/interview.png"
+    BACKGROUND = str(Path(base, "img/GSSAC.png").absolute())
     # Background fallback color
     BACKGROUND_FALLBACK = (0,200,0)
     # Pixelate size
     PIXELATE_SIZE = (45, 45)
     # Away overlay
-    AWAY_IMG = "img/away.png"
+    AWAY_IMG = str(Path(base, "img/away.png").absolute())
 
     # Away switch treshold
     AWAY_TRESHOLD = 0.2
@@ -62,7 +63,7 @@ def get_background(background_img=[]):
     if not len(background_img):
         if Config.BACKGROUND is not None and len(Config.BACKGROUND) == 3: # color
             background_img.append(np.array([[list(Config.BACKGROUND)]],dtype='uint8'))
-        elif isinstance(Config.BACKGROUND, str) and pathlib.Path(Config.BACKGROUND).is_file(): # path
+        elif isinstance(Config.BACKGROUND, (str, Path)) and Path(Config.BACKGROUND).is_file(): # path
             background_img.append(cv2.imread(Config.BACKGROUND))
         else:
             background_img.append(np.array([[list(Config.BACKGROUND_FALLBACK)]],dtype='uint8'))

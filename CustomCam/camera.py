@@ -9,8 +9,8 @@ import cv2
 import numpy as np
 import pyvirtualcam
 
-from utils import setup_logger, Colors
-from config import Config
+from .utils import setup_logger, Colors
+from .config import Config
 
 def zoom_at(img, zoom, coord=None, method=cv2.INTER_CUBIC):
     """

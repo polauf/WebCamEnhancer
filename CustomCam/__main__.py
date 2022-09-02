@@ -1,9 +1,8 @@
 import inspect
 import logging
-from camera import CameraModifier
-from utils import setup_logger, setup_argparse
-import filters as filters
-import middleware
+from .camera import CameraModifier
+from .utils import setup_logger, setup_argparse
+from .filters import filters, middleware
 
 
 try:

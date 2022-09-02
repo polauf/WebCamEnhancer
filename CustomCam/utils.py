@@ -7,8 +7,8 @@ import logging
 import sys
 import inspect
 
-import filters as filters
-from config import Config
+from .filters import filters
+from .config import Config
 
 
 class Colors:

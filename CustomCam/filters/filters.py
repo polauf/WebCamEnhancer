@@ -11,8 +11,8 @@ import sys
 import cv2
 import numpy as np
 
-from config import Config, get_background
-from middleware import Filter, Cascade, Selfie, SelfieCascade
+from ..config import Config, get_background
+from .middleware import Filter, Cascade, Selfie, SelfieCascade
 
 def resolve_away(changer, mask, state=[Config.PRESENT_FILTER, 0, True]):
     """
