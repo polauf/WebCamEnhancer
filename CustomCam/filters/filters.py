@@ -410,6 +410,7 @@ class ASCII(Selfie):
         super().__init__(*args, **kwargs)
         # Black Background
         self.bg = np.array([[[0,0,0]]],np.uint8)
+        self.color = (0,1,0) # bgr
         self.mask = None
         self.coeficient = 1
         self.box = (6*self.coeficient, 8*self.coeficient)
@@ -453,11 +454,13 @@ class ASCII(Selfie):
         for i in range(3):
             frame[:,:,i] = frame[:,:,i]*mask + self.bg[:,:,i]*(1.-mask)
 
-        return np.stack((self.to_ascii_art(
+        ascii = self.to_ascii_art(
             cv2.Canny(
-                cv2.GaussianBlur(frame, (5, 5), 1),
-                48,
-                16),
+                cv2.GaussianBlur(frame, (5, 5), 4),
+                38,
+                14),
             self.images,
             *self.box
-            ),) * 3, axis=-1)
+        )
+
+        return np.stack([c*ascii for c in self.color], axis=-1)
