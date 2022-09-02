@@ -1,14 +1,12 @@
 import inspect
 import logging
+from camera import CameraModifier
+from utils import setup_logger, setup_argparse
+import filters as filters
+import middleware
 
-from CustomCam.camera import CameraModifier
-from CustomCam.utils import setup_logger, setup_argparse
-import CustomCam.filters as filters
 
-
-def run():
-    """Command line run function."""
-
+try:
     # Set up argparse and logger
     args = setup_argparse()
     logger = setup_logger(
@@ -16,35 +14,27 @@ def run():
         log_to_file=args.logfile,
         level=logging.DEBUG if args.verbose else logging.INFO
     )
+    # Identify all filters anf filter out middleware classes
+    middleware_classes = dict(inspect.getmembers(middleware, lambda x: inspect.isclass(x) and issubclass(x, middleware.Filter))).values()
+    filter_classes = dict(inspect.getmembers(filters, lambda x: inspect.isclass(x) and issubclass(x, middleware.Filter) and x not in middleware_classes))
 
-    # Identify all filters
-    filter_classes = dict(inspect.getmembers(filters, inspect.isclass))
-    known_filters = {
-        key: filter_classes[key](logger=logger) for key in filter_classes.keys()
-        if key != 'Filter'
-    }
-
-    # Create cam-modifier
+    # Main thing
     modifier = CameraModifier(
-        args.input_camera,
-        args.output_camera,
+        args.input,
+        args.output,
         logger=logger,
-        show_fps=args.fps,
-        pref_width=args.pref_width,
-        pref_height=args.pref_height,
-        pref_fps=args.pref_fps,
+        pref_width=args.width,
+        pref_height=args.height,
+        pref_fps=args.fps,
         initial_filter=args.filter,
-        filters=known_filters
+        filters={n: c() for n,c in filter_classes.items()}
     )
 
     logger.debug(args)
 
-    logger.info(f"🎥 Welcome to CustomCam! 🎥")
-    logger.info(f"---------------------------")
-
-    # Start modifier
+    # Run main thing
     modifier.run()
 
+except KeyboardInterrupt:
+    logger.info("Ending streams. Good bye!")
         
-if __name__ == '__main__':
-    run()
