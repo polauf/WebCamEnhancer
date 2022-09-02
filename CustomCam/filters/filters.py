@@ -10,6 +10,7 @@ import sys
 
 import cv2
 import numpy as np
+from numba import jit
 
 from ..config import Config, get_background
 from .middleware import Filter, Cascade, Selfie, SelfieCascade
@@ -399,3 +400,63 @@ class Away(Selfie):
             self._made = True
         resolve_away(changer, super().apply(changer, frame))
         return self.frame
+
+
+class ASCII(Selfie):
+    "Change person to ASCIIart."
+    # Based on: https://www.learnpythonwithrune.org/ascii-art-of-live-webcam-stream-with-opencv/ 
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        # Black Background
+        self.bg = np.array([[[0,0,0]]],np.uint8)
+        self.mask = None
+        self.box = (6, 8)
+        self.images = self.generate_ascii_letters(*self.box)
+
+    @staticmethod
+    @jit(nopython=True)
+    def to_ascii_art(frame, images, box_height=12, box_width=16):
+        height, width = frame.shape
+        for i in range(0, height, box_height):
+            for j in range(0, width, box_width):
+                roi = frame[i:i + box_height, j:j + box_width]
+                best_match = np.inf
+                best_match_index = 0
+                for k in range(1, images.shape[0]):
+                    total_sum = np.sum(np.absolute(np.subtract(roi, images[k])))
+                    if total_sum < best_match:
+                        best_match = total_sum
+                        best_match_index = k
+                roi[:,:] = images[best_match_index]
+        return frame
+
+    @staticmethod
+    def generate_ascii_letters(height, width):
+        images = []
+        #letters = "# $%&\\'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[]^_`abcdefghijklmnopqrstuvwxyz{|}~"
+        letters = " \\'(),-./:;[]_`{|}~"
+        for letter in letters:
+            img = np.zeros((height, width), np.uint8)
+            img = cv2.putText(img, letter, (0, 5), cv2.FONT_HERSHEY_SIMPLEX, 0.5, 255)
+            images.append(img)
+        return np.stack(images)
+    
+    def apply(self, changer, frame: np.array) -> np.array:
+        mask = super().apply(changer, frame)
+        # resize background if needed
+        if self.bg.shape != frame.shape:
+            self.bg = cv2.resize(self.bg, (frame.shape[1], frame.shape[0]))
+
+        # blend images with segmentation mask (fg*mask + bg*(1-mask))
+        for i in range(3):
+            frame[:,:,i] = frame[:,:,i]*mask + self.bg[:,:,i]*(1.-mask)
+
+        return np.stack((self.to_ascii_art(
+            cv2.Canny(
+                cv2.GaussianBlur(frame, (7, 7), 0),
+                30,
+                15),
+            self.images,
+            *self.box
+            ),) * 3, axis=-1)
