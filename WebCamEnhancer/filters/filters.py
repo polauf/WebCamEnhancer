@@ -457,7 +457,7 @@ class ASCII(Selfie):
         ascii = self.to_ascii_art(
             cv2.Canny(
                 cv2.GaussianBlur(frame, (5, 5), 4),
-                38,
+                35,
                 14),
             self.images,
             *self.box

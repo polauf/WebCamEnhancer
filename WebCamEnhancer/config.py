@@ -34,7 +34,7 @@ class Config:
     LIFETIME = -1
     # Background path or RGB color tuple
     #TODO: Add gif support.
-    BACKGROUND = str(Path(base, "img/interview.png").absolute())
+    BACKGROUND = str(Path(base, "img/atlantropa.png").absolute())
     # Background fallback color
     BACKGROUND_FALLBACK = (0,200,0)
     # Pixelate size
