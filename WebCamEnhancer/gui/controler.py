@@ -5,7 +5,7 @@ from .preview import WebcamPreview
 from ..core.camera import CamerasWorker, CameraError
 from ..core.base import ModuleController
 from ..config import Configuration
-from .settings import cfg, tt
+from .settings import Setting
 
 
 class Controler:
@@ -25,11 +25,12 @@ class Controler:
         self._worker = None
         self.config = Configuration.get_custom_config(self.__class__)
         self.previewer = None
+        self.settings = None
         self.active_filters = self.config["active_filters"]
         self.build(master)
 
     def build(self, master=None):
-        self.root = tk.Tk() if master is None else tk.Toplevel(master)
+        self.root = tk.Tk() if master is None else tk.Toplevel(master.root)
         self.root.configure(height=400, width=600)
         self.root.geometry(self.config["geometry"])
         self.root.maxsize(800, 600)
@@ -50,7 +51,7 @@ class Controler:
         self.preview_button = ttk.Button(buttom_frame, state="disabled", text=tt("Preview"), width=15, command=self.toggle_preview)
         self.preview_button.pack(pady=2, side="top")
 
-        self.config_button = ttk.Button(buttom_frame, text=tt("Configuration"), width=15)
+        self.config_button = ttk.Button(buttom_frame, text=tt("Configuration"), width=15, command=self.toggle_setting)
         self.config_button.pack(pady=2, side="top")
 
         status_frame = ttk.Frame(buttom_frame)
@@ -209,37 +210,39 @@ class Controler:
             self.label_fps["text"] = "? FPS"
 
     def toggle_worker(self):
-        if self._worker is None:
+        if self._worker is not None:
+            self._worker.stop()
+            self._worker = None
+            self.resolve_state()
+            self.start_button["text"] = tt("Start")
+            self.right_status["text"] = tt("Stoped")
+        else:
             try:
+                setting = Configuration.get_custom_config(Setting)
                 self._worker = CamerasWorker(
-                    in_cam = int(cfg["input_cam"]),
-                    out_cam = cfg["output_cam"],
-                    width = cfg["width"],
-                    height = cfg["height"],
-                    fps = cfg["fps"],
+                    in_cam = int(setting["input_cam"]),
+                    out_cam = setting["output_cam"],
+                    width = setting["width"] or None,
+                    height = setting["height"] or None,
+                    fps = setting["fps"] or None,
                     preview = self.config["preview"],
                     stream = self.config["stream"]
                     )
                 self._update_filters()
                 self._worker.start()
                 self.resolve_state()
+                if self.previewer:
+                    self._worker.preview = True
+                    self.previewer._camera_worker = self._worker
                 self.start_button["text"] = tt("Stop")
                 self.right_status["text"] = tt("Running")
             except CameraError as e:
                 self.right_status["text"] = f"{tt('Error')}: {e.args[0]}"
                 self._worker = None
 
-        else:
-            self.toggle_preview(stop=True)
-            self._worker.stop()
-            self._worker = None
-            self.resolve_state()
-            self.start_button["text"] = tt("Start")
-            self.right_status["text"] = tt("Stoped")
-
-    def toggle_stream(self):
+    def toggle_stream(self,stop=False):
         if self._worker is not None:
-            if self._worker.streaming:
+            if self._worker.streaming or stop:
                 self._worker.streaming = False
                 self.stream_button["text"] = tt("Stream")
             else:
@@ -250,7 +253,7 @@ class Controler:
         if self._worker is not None:
             if not stop and (self.previewer is None or not self.previewer.opened):
                 self._worker.preview = True
-                self.previewer = WebcamPreview(self._worker, self.root)
+                self.previewer = WebcamPreview(self._worker, self)
                 self.preview_button["text"] = tt("Close Preview")
                 self.previewer.run()
             else:
@@ -258,6 +261,20 @@ class Controler:
                 if self.previewer:
                     self.previewer._exit()
                 self.preview_button["text"] = tt("Preview")
+
+    def settings_changed(self):
+        if self._worker:
+            self.toggle_worker()
+            self.toggle_worker()
+
+
+    def toggle_setting(self, ):
+            if self.settings is None or not self.settings.opened:
+                self.settings = Setting(self)
+                self.settings.run()
+            else:
+                if self.settings:
+                    self.settings._exit()
 
     def _exit(self):
         if self._worker is not None:

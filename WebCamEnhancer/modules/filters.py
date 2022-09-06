@@ -55,11 +55,12 @@ class Pixel(Filter):
     """
 
     CONFIG_TEMPLATE = {
-        "size": (48,48)
+        "size_x": 48,
+        "size_y": 48
     }
 
     def prepare(self,*_):
-        self.size = self.config["size"]
+        self.size = (self.config["size_x"], self.config["size_y"])
 
     def apply(self, frame):
         foreground = np.stack((self.middleware["Selfie"].get(),) * 3, axis=-1) > 0.1

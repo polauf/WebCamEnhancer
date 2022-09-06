@@ -75,6 +75,10 @@ class Config(ConfigGroup):
     def get_custom_config(self, klass) -> dict:
         return self.get(klass.__name__, {})
 
+    def get_module_config(self, klass) -> dict: 
+        group = self[klass.__mro__[1].__name__]
+        return group.get(klass.__name__, {})
+
     def _make_user_setting(self):
         CONFIG_DIR.mkdir(parents=True, exist_ok=True)
         distutils.dir_util.copy_tree(str(FALLBACK_PICTURES_DIR), str(PICTURES_DIR))
@@ -88,9 +92,13 @@ class Config(ConfigGroup):
             try:
                 with open(path or BASE_CONFIG) as fh:
                     data = json.JSONDecoder(object_hook=config_decoder).decode(fh.read())
-                    merge(defaults, dict(data)) # Develop merge config with new items
-                    with self._lock:
-                        self.data = defaults
+                    try:
+                        merge(defaults, dict(data)) # Develop merge config with new items
+                        with self._lock:
+                            self.data = defaults
+                    except TypeError:
+                        with self._lock:
+                            self.data = data
             except json.JSONDecodeError:
                 self._make_user_setting()
                 raise ValueError("Corrupted config file. Re-run the applicattion.")

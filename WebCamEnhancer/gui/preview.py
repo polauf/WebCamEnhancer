@@ -7,7 +7,6 @@ import cv2, io
 
 from ..core.utils import logger
 from ..config import Configuration
-from .settings import tt
 
 class WebcamPreview:
     """
@@ -29,7 +28,7 @@ class WebcamPreview:
 
     def build(self, master=None):
         # build ui
-        self.root = tk.Tk() if master is None else tk.Toplevel(master)
+        self.root = tk.Tk() if master is None else tk.Toplevel(master.root)
         self.root.configure(borderwidth=5)
         self.root.resizable(False, False)
         self.root.title(tt("Webcam preview"))

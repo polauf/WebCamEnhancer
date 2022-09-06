@@ -12,7 +12,8 @@ class Cascade(Middleware):
     CONFIG_TEMPLATE = {
         "scale_factor": 1.1,
         "min_neighbors": 7,
-        "min_size": (100,100)
+        "min_size_x": 100,
+        "min_size_y": 100
     }
 
     def apply(self, frame):
@@ -20,7 +21,7 @@ class Cascade(Middleware):
             cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY),
             scaleFactor=self.config['scale_factor'],
             minNeighbors=self.config['min_neighbors'],
-            minSize=self.config['min_size'],
+            minSize=(self.config['min_size_x'], self.config['min_size_y']),
             flags=cv2.CASCADE_SCALE_IMAGE
         )
 

@@ -1,8 +1,26 @@
-import cv2, sys
+import cv2, sys, gettext
 import numpy as np
 import logging
 import logging.handlers
-from ..constants import APP_NAME
+from ..constants import APP_NAME, TRANSLATIONS_DIR
+
+gettext.bindtextdomain(APP_NAME, TRANSLATIONS_DIR)
+gettext.textdomain(APP_NAME)
+
+def init_gettext(lang=None):
+    import builtins
+    if not lang:
+        builtins.__dict__['tt'] = gettext.gettext
+    else:
+        try:
+            builtins.__dict__['tt'] = gettext.translation(
+                'base',
+                localedir=TRANSLATIONS_DIR,
+                languages=[lang]
+                ).gettext
+        except FileNotFoundError:
+            pass
+
 
 
 class LoggingFormater(logging.Formatter):
