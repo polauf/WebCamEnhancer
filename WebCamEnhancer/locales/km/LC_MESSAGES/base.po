@@ -1,0 +1,112 @@
+# Translation for WebCam Enhancer.
+# Copyleft. Provided AS IS.
+# Matouš Polauf <matous@polauf.cz>, 2022.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: 0.5.0\n"
+"POT-Creation-Date: 2022-09-06 11:32+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: GOOGLE-TRANSLATOR-khmer <KM@km.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: pygettext.py 1.5\n"
+
+
+#: ../gui/controler.py:39
+msgid "Webcam Enhancer"
+msgstr "Webcamer enhancer"
+#: ../gui/controler.py:45 ../gui/controler.py:217 ../gui/preview.py:48
+#: ../gui/preview.py:83
+msgid "Start"
+msgstr "បហ្ចេហ"
+#: ../gui/controler.py:48 ../gui/controler.py:247
+msgid "Stream"
+msgstr "តន្លេ"
+#: ../gui/controler.py:51 ../gui/controler.py:263
+msgid "Preview"
+msgstr "បុរេតសសន៍"
+#: ../gui/controler.py:54
+msgid "Configuration"
+msgstr "ការកំណត់​រចនាសម្ព័ន្ធ"
+#: ../gui/controler.py:61
+msgid "Input"
+msgstr "បហ្ចូល"
+#: ../gui/controler.py:64 ../gui/controler.py:70 ../gui/controler.py:177
+#: ../gui/controler.py:204 ../gui/controler.py:206
+msgid "None"
+msgstr "ឥតមានអវីសោហ"
+#: ../gui/controler.py:67
+msgid "Output"
+msgstr "ផលិតផល"
+#: ../gui/controler.py:76
+msgid "FPS"
+msgstr "FPS"
+#: ../gui/controler.py:85
+msgid "Filters"
+msgstr "រុរ៉ូ"
+#: ../gui/controler.py:97
+msgid "name"
+msgstr "ឈ្ផោហ"
+#: ../gui/controler.py:98
+msgid "order"
+msgstr "ការដឹកនាម"
+#: ../gui/controler.py:117
+msgid "Status"
+msgstr "ច្បាប់"
+#: ../gui/controler.py:117
+msgid "loading"
+msgstr "កំពុងផ្ទុក"
+#: ../gui/controler.py:120 ../gui/controler.py:218
+msgid "Stoped"
+msgstr "បានឈប់"
+#: ../gui/controler.py:124
+msgid "Ready"
+msgstr "រ្យេបចមចារេសច"
+#: ../gui/controler.py:237 ../gui/preview.py:48 ../gui/preview.py:86
+msgid "Stop"
+msgstr "ការឈប់"
+#: ../gui/controler.py:238
+msgid "Running"
+msgstr "ការរត់"
+#: ../gui/controler.py:240
+msgid "Error"
+msgstr "កមហុស"
+#: ../gui/controler.py:250
+msgid "Stop Stream"
+msgstr "បញ្ឈប់ស្ទ្រីម"
+#: ../gui/controler.py:257
+msgid "Close Preview"
+msgstr "បិទការមើលជាមុន"
+#: ../gui/preview.py:34
+msgid "Webcam preview"
+msgstr "ការមើល Webcam ជាមុន"
+#: ../gui/preview.py:52
+msgid "Save"
+msgstr "សរេង្គាហ"
+#: ../gui/preview.py:57 ../gui/preview.py:69
+msgid "Zoom"
+msgstr "ធេវីអាេយ"
+#: ../gui/preview.py:106
+msgid "Images"
+msgstr "រូបភាព"
+#: ../gui/preview.py:107
+msgid "Save Screenshot As"
+msgstr "រក្សាទុក Screenshot ដូច"
+#: ../gui/settings.py:31
+msgid "Webcam Setting"
+msgstr "ការកំណត់វេបខេម"
+#: ../gui/settings.py:38
+msgid "Main config"
+msgstr "កំណត់រចនាសម្ព័ន្ធមេ"
+#: ../gui/settings.py:44
+msgid "language"
+msgstr "ផាសា"
+#: ../gui/settings.py:54
+msgid "Implement"
+msgstr "របតិបត្ដិ"
+#: ../gui/settings.py:57
+msgid "Revert"
+msgstr "រតលប់តោដុចដើម"

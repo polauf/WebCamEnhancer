@@ -1,0 +1,112 @@
+# Translation for WebCam Enhancer.
+# Copyleft. Provided AS IS.
+# Matouš Polauf <matous@polauf.cz>, 2022.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: 0.5.0\n"
+"POT-Creation-Date: 2022-09-06 11:32+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: GOOGLE-TRANSLATOR-lao <LO@lo.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: pygettext.py 1.5\n"
+
+
+#: ../gui/controler.py:39
+msgid "Webcam Enhancer"
+msgstr "ປັບປຸງປັບປຸງເວັບໄຊຕ໌"
+#: ../gui/controler.py:45 ../gui/controler.py:217 ../gui/preview.py:48
+#: ../gui/preview.py:83
+msgid "Start"
+msgstr "ຊູບ"
+#: ../gui/controler.py:48 ../gui/controler.py:247
+msgid "Stream"
+msgstr "ແສ"
+#: ../gui/controler.py:51 ../gui/controler.py:263
+msgid "Preview"
+msgstr "ການສະແດງຕົວຢ່າງ"
+#: ../gui/controler.py:54
+msgid "Configuration"
+msgstr "ການຕັ້ງຄ່າ"
+#: ../gui/controler.py:61
+msgid "Input"
+msgstr "ການປ້ອນຂໍ້ມູນ"
+#: ../gui/controler.py:64 ../gui/controler.py:70 ../gui/controler.py:177
+#: ../gui/controler.py:204 ../gui/controler.py:206
+msgid "None"
+msgstr "ບໍ່ມີ"
+#: ../gui/controler.py:67
+msgid "Output"
+msgstr "ຜົນໄດ້ຮັບ"
+#: ../gui/controler.py:76
+msgid "FPS"
+msgstr "ຊູດ"
+#: ../gui/controler.py:85
+msgid "Filters"
+msgstr "ໂຕກອງ"
+#: ../gui/controler.py:97
+msgid "name"
+msgstr "ຊື່"
+#: ../gui/controler.py:98
+msgid "order"
+msgstr "ການສັ່ງຊື້"
+#: ../gui/controler.py:117
+msgid "Status"
+msgstr "ສະຖານະພາບ"
+#: ../gui/controler.py:117
+msgid "loading"
+msgstr "ກໍາລັງໂຫລດ"
+#: ../gui/controler.py:120 ../gui/controler.py:218
+msgid "Stoped"
+msgstr "ຢຸດຢູ່"
+#: ../gui/controler.py:124
+msgid "Ready"
+msgstr "ກຽມພ້ອມ"
+#: ../gui/controler.py:237 ../gui/preview.py:48 ../gui/preview.py:86
+msgid "Stop"
+msgstr "ຢຸດ"
+#: ../gui/controler.py:238
+msgid "Running"
+msgstr "ແລ່ນ"
+#: ../gui/controler.py:240
+msgid "Error"
+msgstr "ຜິດ"
+#: ../gui/controler.py:250
+msgid "Stop Stream"
+msgstr "ຢຸດ້ໍາ"
+#: ../gui/controler.py:257
+msgid "Close Preview"
+msgstr "ເບິ່ງຕົວຢ່າງໃກ້ຊິດ"
+#: ../gui/preview.py:34
+msgid "Webcam preview"
+msgstr "ເບິ່ງຕົວຢ່າງ WebCam"
+#: ../gui/preview.py:52
+msgid "Save"
+msgstr "ປະຢັດ"
+#: ../gui/preview.py:57 ../gui/preview.py:69
+msgid "Zoom"
+msgstr "ຊູມ"
+#: ../gui/preview.py:106
+msgid "Images"
+msgstr "ຮູບພາບຕ່າງໆ"
+#: ../gui/preview.py:107
+msgid "Save Screenshot As"
+msgstr "ບັນທຶກພາບຫນ້າຈໍເປັນ"
+#: ../gui/settings.py:31
+msgid "Webcam Setting"
+msgstr "ການຕັ້ງຄ່າເວັບແຄມ"
+#: ../gui/settings.py:38
+msgid "Main config"
+msgstr "config ຕົ້ນຕໍ"
+#: ../gui/settings.py:44
+msgid "language"
+msgstr "ພາສາ"
+#: ../gui/settings.py:54
+msgid "Implement"
+msgstr "ປະຕິບັດການ"
+#: ../gui/settings.py:57
+msgid "Revert"
+msgstr "ສົ່ງລາງວັນໄດ້"

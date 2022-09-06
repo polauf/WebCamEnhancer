@@ -1,0 +1,112 @@
+# Translation for WebCam Enhancer.
+# Copyleft. Provided AS IS.
+# Matouš Polauf <matous@polauf.cz>, 2022.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: 0.5.0\n"
+"POT-Creation-Date: 2022-09-06 11:32+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: GOOGLE-TRANSLATOR-hmong <HMN@hmn.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: pygettext.py 1.5\n"
+
+
+#: ../gui/controler.py:39
+msgid "Webcam Enhancer"
+msgstr "Webcam Enhancer"
+#: ../gui/controler.py:45 ../gui/controler.py:217 ../gui/preview.py:48
+#: ../gui/preview.py:83
+msgid "Start"
+msgstr "Pib"
+#: ../gui/controler.py:48 ../gui/controler.py:247
+msgid "Stream"
+msgstr "Tus me nyuam dej"
+#: ../gui/controler.py:51 ../gui/controler.py:263
+msgid "Preview"
+msgstr "Saib ua ntej"
+#: ../gui/controler.py:54
+msgid "Configuration"
+msgstr "Kev teeb tsa"
+#: ../gui/controler.py:61
+msgid "Input"
+msgstr "Ntxiv rau"
+#: ../gui/controler.py:64 ../gui/controler.py:70 ../gui/controler.py:177
+#: ../gui/controler.py:204 ../gui/controler.py:206
+msgid "None"
+msgstr "Tsis muaj"
+#: ../gui/controler.py:67
+msgid "Output"
+msgstr "Khoom uas tsim tau lawm"
+#: ../gui/controler.py:76
+msgid "FPS"
+msgstr "FPS"
+#: ../gui/controler.py:85
+msgid "Filters"
+msgstr "Ntxaij Lim Dej"
+#: ../gui/controler.py:97
+msgid "name"
+msgstr "lub npe"
+#: ../gui/controler.py:98
+msgid "order"
+msgstr "txib"
+#: ../gui/controler.py:117
+msgid "Status"
+msgstr "Nyob li cas"
+#: ../gui/controler.py:117
+msgid "loading"
+msgstr "qho chaw thau khoom"
+#: ../gui/controler.py:120 ../gui/controler.py:218
+msgid "Stoped"
+msgstr "Tsum"
+#: ../gui/controler.py:124
+msgid "Ready"
+msgstr "Npaj"
+#: ../gui/controler.py:237 ../gui/preview.py:48 ../gui/preview.py:86
+msgid "Stop"
+msgstr "Nres"
+#: ../gui/controler.py:238
+msgid "Running"
+msgstr "Noj mov"
+#: ../gui/controler.py:240
+msgid "Error"
+msgstr "Yuam kev"
+#: ../gui/controler.py:250
+msgid "Stop Stream"
+msgstr "Nres dej"
+#: ../gui/controler.py:257
+msgid "Close Preview"
+msgstr "Kaw saib ua ntej"
+#: ../gui/preview.py:34
+msgid "Webcam preview"
+msgstr "Lub Vev Xaib Webcam"
+#: ../gui/preview.py:52
+msgid "Save"
+msgstr "Cawm"
+#: ../gui/preview.py:57 ../gui/preview.py:69
+msgid "Zoom"
+msgstr "Ze"
+#: ../gui/preview.py:106
+msgid "Images"
+msgstr "Dluab"
+#: ../gui/preview.py:107
+msgid "Save Screenshot As"
+msgstr "Txuag cov screenshot li"
+#: ../gui/settings.py:31
+msgid "Webcam Setting"
+msgstr "Lub Vev Xaib Webcam"
+#: ../gui/settings.py:38
+msgid "Main config"
+msgstr "Main config"
+#: ../gui/settings.py:44
+msgid "language"
+msgstr "yam lus"
+#: ../gui/settings.py:54
+msgid "Implement"
+msgstr "Hloov kev"
+#: ../gui/settings.py:57
+msgid "Revert"
+msgstr "Rov mus"

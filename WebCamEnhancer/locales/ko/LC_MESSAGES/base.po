@@ -1,0 +1,112 @@
+# Translation for WebCam Enhancer.
+# Copyleft. Provided AS IS.
+# Matouš Polauf <matous@polauf.cz>, 2022.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: 0.5.0\n"
+"POT-Creation-Date: 2022-09-06 11:32+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: GOOGLE-TRANSLATOR-korean <KO@ko.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: pygettext.py 1.5\n"
+
+
+#: ../gui/controler.py:39
+msgid "Webcam Enhancer"
+msgstr "웹캠 인핸서"
+#: ../gui/controler.py:45 ../gui/controler.py:217 ../gui/preview.py:48
+#: ../gui/preview.py:83
+msgid "Start"
+msgstr "시작"
+#: ../gui/controler.py:48 ../gui/controler.py:247
+msgid "Stream"
+msgstr "개울"
+#: ../gui/controler.py:51 ../gui/controler.py:263
+msgid "Preview"
+msgstr "시사"
+#: ../gui/controler.py:54
+msgid "Configuration"
+msgstr "구성"
+#: ../gui/controler.py:61
+msgid "Input"
+msgstr "입력"
+#: ../gui/controler.py:64 ../gui/controler.py:70 ../gui/controler.py:177
+#: ../gui/controler.py:204 ../gui/controler.py:206
+msgid "None"
+msgstr "없음"
+#: ../gui/controler.py:67
+msgid "Output"
+msgstr "산출"
+#: ../gui/controler.py:76
+msgid "FPS"
+msgstr "fps"
+#: ../gui/controler.py:85
+msgid "Filters"
+msgstr "필터"
+#: ../gui/controler.py:97
+msgid "name"
+msgstr "이름"
+#: ../gui/controler.py:98
+msgid "order"
+msgstr "주문하다"
+#: ../gui/controler.py:117
+msgid "Status"
+msgstr "상태"
+#: ../gui/controler.py:117
+msgid "loading"
+msgstr "로딩"
+#: ../gui/controler.py:120 ../gui/controler.py:218
+msgid "Stoped"
+msgstr "중지"
+#: ../gui/controler.py:124
+msgid "Ready"
+msgstr "준비가 된"
+#: ../gui/controler.py:237 ../gui/preview.py:48 ../gui/preview.py:86
+msgid "Stop"
+msgstr "중지"
+#: ../gui/controler.py:238
+msgid "Running"
+msgstr "달리기"
+#: ../gui/controler.py:240
+msgid "Error"
+msgstr "오류"
+#: ../gui/controler.py:250
+msgid "Stop Stream"
+msgstr "중지 스트림"
+#: ../gui/controler.py:257
+msgid "Close Preview"
+msgstr "닫기 미리보기"
+#: ../gui/preview.py:34
+msgid "Webcam preview"
+msgstr "웹캠 미리보기"
+#: ../gui/preview.py:52
+msgid "Save"
+msgstr "구하다"
+#: ../gui/preview.py:57 ../gui/preview.py:69
+msgid "Zoom"
+msgstr "줌"
+#: ../gui/preview.py:106
+msgid "Images"
+msgstr "이미지"
+#: ../gui/preview.py:107
+msgid "Save Screenshot As"
+msgstr "스크린 샷을 저장하십시오"
+#: ../gui/settings.py:31
+msgid "Webcam Setting"
+msgstr "웹캠 설정"
+#: ../gui/settings.py:38
+msgid "Main config"
+msgstr "메인 구성"
+#: ../gui/settings.py:44
+msgid "language"
+msgstr "언어"
+#: ../gui/settings.py:54
+msgid "Implement"
+msgstr "구현하다"
+#: ../gui/settings.py:57
+msgid "Revert"
+msgstr "돌아가는 것"

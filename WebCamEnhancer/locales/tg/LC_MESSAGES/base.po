@@ -1,0 +1,112 @@
+# Translation for WebCam Enhancer.
+# Copyleft. Provided AS IS.
+# Matouš Polauf <matous@polauf.cz>, 2022.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: 0.5.0\n"
+"POT-Creation-Date: 2022-09-06 11:32+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: GOOGLE-TRANSLATOR-tajik <TG@tg.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: pygettext.py 1.5\n"
+
+
+#: ../gui/controler.py:39
+msgid "Webcam Enhancer"
+msgstr "Веб-камера"
+#: ../gui/controler.py:45 ../gui/controler.py:217 ../gui/preview.py:48
+#: ../gui/preview.py:83
+msgid "Start"
+msgstr "Оғоз"
+#: ../gui/controler.py:48 ../gui/controler.py:247
+msgid "Stream"
+msgstr "Ҷараён"
+#: ../gui/controler.py:51 ../gui/controler.py:263
+msgid "Preview"
+msgstr "Саньиши пешакӣ"
+#: ../gui/controler.py:54
+msgid "Configuration"
+msgstr "Конфигуратсия"
+#: ../gui/controler.py:61
+msgid "Input"
+msgstr "Вуруд"
+#: ../gui/controler.py:64 ../gui/controler.py:70 ../gui/controler.py:177
+#: ../gui/controler.py:204 ../gui/controler.py:206
+msgid "None"
+msgstr "Ҳеь"
+#: ../gui/controler.py:67
+msgid "Output"
+msgstr "Барориш"
+#: ../gui/controler.py:76
+msgid "FPS"
+msgstr "FPS"
+#: ../gui/controler.py:85
+msgid "Filters"
+msgstr "Филтрҳо"
+#: ../gui/controler.py:97
+msgid "name"
+msgstr "ном"
+#: ../gui/controler.py:98
+msgid "order"
+msgstr "фармон"
+#: ../gui/controler.py:117
+msgid "Status"
+msgstr "Вазъият"
+#: ../gui/controler.py:117
+msgid "loading"
+msgstr "боркунӣ"
+#: ../gui/controler.py:120 ../gui/controler.py:218
+msgid "Stoped"
+msgstr "Истодан"
+#: ../gui/controler.py:124
+msgid "Ready"
+msgstr "Тайёр"
+#: ../gui/controler.py:237 ../gui/preview.py:48 ../gui/preview.py:86
+msgid "Stop"
+msgstr "Ист"
+#: ../gui/controler.py:238
+msgid "Running"
+msgstr "Давидан"
+#: ../gui/controler.py:240
+msgid "Error"
+msgstr "Хатогӣ"
+#: ../gui/controler.py:250
+msgid "Stop Stream"
+msgstr "Ҷараёнро бас кунед"
+#: ../gui/controler.py:257
+msgid "Close Preview"
+msgstr "Пешнамоиши пӯшида"
+#: ../gui/preview.py:34
+msgid "Webcam preview"
+msgstr "Пешнамоиши веб-камера"
+#: ../gui/preview.py:52
+msgid "Save"
+msgstr "Пул захира кардан"
+#: ../gui/preview.py:57 ../gui/preview.py:69
+msgid "Zoom"
+msgstr "Калон"
+#: ../gui/preview.py:106
+msgid "Images"
+msgstr "Тасвирҳо"
+#: ../gui/preview.py:107
+msgid "Save Screenshot As"
+msgstr "Скриншотро сарфа кунед"
+#: ../gui/settings.py:31
+msgid "Webcam Setting"
+msgstr "Танзими веб-камера"
+#: ../gui/settings.py:38
+msgid "Main config"
+msgstr "Шарҳи асосӣ"
+#: ../gui/settings.py:44
+msgid "language"
+msgstr "забон"
+#: ../gui/settings.py:54
+msgid "Implement"
+msgstr "Татбищ кардан"
+#: ../gui/settings.py:57
+msgid "Revert"
+msgstr "Баргаштан"

@@ -1,0 +1,112 @@
+# Translation for WebCam Enhancer.
+# Copyleft. Provided AS IS.
+# Matouš Polauf <matous@polauf.cz>, 2022.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: 0.5.0\n"
+"POT-Creation-Date: 2022-09-06 11:32+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: GOOGLE-TRANSLATOR-hungarian <HU@hu.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: pygettext.py 1.5\n"
+
+
+#: ../gui/controler.py:39
+msgid "Webcam Enhancer"
+msgstr "Webkamera -fokozó"
+#: ../gui/controler.py:45 ../gui/controler.py:217 ../gui/preview.py:48
+#: ../gui/preview.py:83
+msgid "Start"
+msgstr "Rajt"
+#: ../gui/controler.py:48 ../gui/controler.py:247
+msgid "Stream"
+msgstr "Folyam"
+#: ../gui/controler.py:51 ../gui/controler.py:263
+msgid "Preview"
+msgstr "Előnézet"
+#: ../gui/controler.py:54
+msgid "Configuration"
+msgstr "Konfiguráció"
+#: ../gui/controler.py:61
+msgid "Input"
+msgstr "Bemenet"
+#: ../gui/controler.py:64 ../gui/controler.py:70 ../gui/controler.py:177
+#: ../gui/controler.py:204 ../gui/controler.py:206
+msgid "None"
+msgstr "Egyik sem"
+#: ../gui/controler.py:67
+msgid "Output"
+msgstr "Kimenet"
+#: ../gui/controler.py:76
+msgid "FPS"
+msgstr "FPS"
+#: ../gui/controler.py:85
+msgid "Filters"
+msgstr "Szűrők"
+#: ../gui/controler.py:97
+msgid "name"
+msgstr "név"
+#: ../gui/controler.py:98
+msgid "order"
+msgstr "rendelés"
+#: ../gui/controler.py:117
+msgid "Status"
+msgstr "Állapot"
+#: ../gui/controler.py:117
+msgid "loading"
+msgstr "Betöltés"
+#: ../gui/controler.py:120 ../gui/controler.py:218
+msgid "Stoped"
+msgstr "Leállt"
+#: ../gui/controler.py:124
+msgid "Ready"
+msgstr "Kész"
+#: ../gui/controler.py:237 ../gui/preview.py:48 ../gui/preview.py:86
+msgid "Stop"
+msgstr "Állj meg"
+#: ../gui/controler.py:238
+msgid "Running"
+msgstr "Futó"
+#: ../gui/controler.py:240
+msgid "Error"
+msgstr "Hiba"
+#: ../gui/controler.py:250
+msgid "Stop Stream"
+msgstr "Stop patak"
+#: ../gui/controler.py:257
+msgid "Close Preview"
+msgstr "Bezárja az előnézetet"
+#: ../gui/preview.py:34
+msgid "Webcam preview"
+msgstr "Webkamera előnézet"
+#: ../gui/preview.py:52
+msgid "Save"
+msgstr "Megment"
+#: ../gui/preview.py:57 ../gui/preview.py:69
+msgid "Zoom"
+msgstr "Zoomolás"
+#: ../gui/preview.py:106
+msgid "Images"
+msgstr "Képek"
+#: ../gui/preview.py:107
+msgid "Save Screenshot As"
+msgstr "Mentse el a képernyőképet"
+#: ../gui/settings.py:31
+msgid "Webcam Setting"
+msgstr "Webkamera beállítás"
+#: ../gui/settings.py:38
+msgid "Main config"
+msgstr "Fő konfiguráció"
+#: ../gui/settings.py:44
+msgid "language"
+msgstr "nyelv"
+#: ../gui/settings.py:54
+msgid "Implement"
+msgstr "Megvalósít"
+#: ../gui/settings.py:57
+msgid "Revert"
+msgstr "Visszaszáll"

@@ -1,0 +1,112 @@
+# Translation for WebCam Enhancer.
+# Copyleft. Provided AS IS.
+# Matouš Polauf <matous@polauf.cz>, 2022.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: 0.5.0\n"
+"POT-Creation-Date: 2022-09-06 11:32+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: GOOGLE-TRANSLATOR-sinhala <SI@si.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: pygettext.py 1.5\n"
+
+
+#: ../gui/controler.py:39
+msgid "Webcam Enhancer"
+msgstr "වෙබ් කැමරාව වැඩි දියුණු කිරීම"
+#: ../gui/controler.py:45 ../gui/controler.py:217 ../gui/preview.py:48
+#: ../gui/preview.py:83
+msgid "Start"
+msgstr "ආරම්භ කරන්න"
+#: ../gui/controler.py:48 ../gui/controler.py:247
+msgid "Stream"
+msgstr "ධාරාව"
+#: ../gui/controler.py:51 ../gui/controler.py:263
+msgid "Preview"
+msgstr "පෙරදසුන"
+#: ../gui/controler.py:54
+msgid "Configuration"
+msgstr "වින්යාසය"
+#: ../gui/controler.py:61
+msgid "Input"
+msgstr "ආදානය"
+#: ../gui/controler.py:64 ../gui/controler.py:70 ../gui/controler.py:177
+#: ../gui/controler.py:204 ../gui/controler.py:206
+msgid "None"
+msgstr "කිසිවක් නැත"
+#: ../gui/controler.py:67
+msgid "Output"
+msgstr "ප්රතිදානය"
+#: ../gui/controler.py:76
+msgid "FPS"
+msgstr "Fps"
+#: ../gui/controler.py:85
+msgid "Filters"
+msgstr "පෙරහන්"
+#: ../gui/controler.py:97
+msgid "name"
+msgstr "නාමය"
+#: ../gui/controler.py:98
+msgid "order"
+msgstr "නියෝග"
+#: ../gui/controler.py:117
+msgid "Status"
+msgstr "තත්ත්වය"
+#: ../gui/controler.py:117
+msgid "loading"
+msgstr "පැටවීම"
+#: ../gui/controler.py:120 ../gui/controler.py:218
+msgid "Stoped"
+msgstr "නැවතුණා"
+#: ../gui/controler.py:124
+msgid "Ready"
+msgstr "සූදානම්"
+#: ../gui/controler.py:237 ../gui/preview.py:48 ../gui/preview.py:86
+msgid "Stop"
+msgstr "නවත්වන්න"
+#: ../gui/controler.py:238
+msgid "Running"
+msgstr "ධාවනය"
+#: ../gui/controler.py:240
+msgid "Error"
+msgstr "දෝෂයකි"
+#: ../gui/controler.py:250
+msgid "Stop Stream"
+msgstr "ප්රවාහය නැවතුම"
+#: ../gui/controler.py:257
+msgid "Close Preview"
+msgstr "පෙරදසුන වසා දමන්න"
+#: ../gui/preview.py:34
+msgid "Webcam preview"
+msgstr "වෙබ් කැමරාව පෙරදසුන"
+#: ../gui/preview.py:52
+msgid "Save"
+msgstr "සුරකින්න"
+#: ../gui/preview.py:57 ../gui/preview.py:69
+msgid "Zoom"
+msgstr "විශාලනය"
+#: ../gui/preview.py:106
+msgid "Images"
+msgstr "රූප"
+#: ../gui/preview.py:107
+msgid "Save Screenshot As"
+msgstr "තිර රුවක් සුරකින්න"
+#: ../gui/settings.py:31
+msgid "Webcam Setting"
+msgstr "වෙබ් කැමරාව සැකසුම"
+#: ../gui/settings.py:38
+msgid "Main config"
+msgstr "ප්රධාන වින්යාසය"
+#: ../gui/settings.py:44
+msgid "language"
+msgstr "භාෂාව"
+#: ../gui/settings.py:54
+msgid "Implement"
+msgstr "ක්රියාත්මක කිරීම"
+#: ../gui/settings.py:57
+msgid "Revert"
+msgstr "ආපසු යන්න"

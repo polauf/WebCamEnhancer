@@ -1,0 +1,254 @@
+# Translation for WebCam Enhancer.
+
+# Copyleft. Provided AS IS.
+
+# Matouš Polauf <matous@polauf.cz>, 2022.
+
+#
+
+msgid ""
+
+msgstr ""
+
+"Project-Id-Version: 0.5.0\n"
+
+"POT-Creation-Date: 2022-09-06 11:24+0200\n"
+
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+
+"Language-Team: GOOGLE-TRANSLATOR-esperanto <EO@eo.org>\n"
+
+"MIME-Version: 1.0\n"
+
+"Content-Type: text/plain; charset=UTF-8\n"
+
+"Content-Transfer-Encoding: 8bit\n"
+
+"Generated-By: pygettext.py 1.5\n"
+
+
+
+
+
+#: ../gui/controler.py:39
+
+msgid "Webcam Enhancer"
+
+msgstr "Webcam Enhancer"
+
+
+#: ../gui/controler.py:45 ../gui/controler.py:217 ../gui/preview.py:48
+
+#: ../gui/preview.py:83
+
+msgid "Start"
+
+msgstr "Komencu"
+
+
+#: ../gui/controler.py:48 ../gui/controler.py:247
+
+msgid "Stream"
+
+msgstr "Rivereto"
+
+
+#: ../gui/controler.py:51 ../gui/controler.py:263
+
+msgid "Preview"
+
+msgstr "Antaŭrigardo"
+
+
+#: ../gui/controler.py:54
+
+msgid "Configuration"
+
+msgstr "Agordo"
+
+
+#: ../gui/controler.py:61
+
+msgid "Input"
+
+msgstr "Enigo"
+
+
+#: ../gui/controler.py:64 ../gui/controler.py:70 ../gui/controler.py:177
+
+#: ../gui/controler.py:204 ../gui/controler.py:206
+
+msgid "None"
+
+msgstr "Neniu"
+
+
+#: ../gui/controler.py:67
+
+msgid "Output"
+
+msgstr "Eligo"
+
+
+#: ../gui/controler.py:76
+
+msgid "FPS"
+
+msgstr "FPS"
+
+
+#: ../gui/controler.py:85
+
+msgid "Filters"
+
+msgstr "Filtriloj"
+
+
+#: ../gui/controler.py:97
+
+msgid "name"
+
+msgstr "Nomo"
+
+
+#: ../gui/controler.py:98
+
+msgid "order"
+
+msgstr "ordo"
+
+
+#: ../gui/controler.py:117
+
+msgid "Status"
+
+msgstr "Statuso"
+
+
+#: ../gui/controler.py:117
+
+msgid "loading"
+
+msgstr "Ŝarĝante"
+
+
+#: ../gui/controler.py:120 ../gui/controler.py:218
+
+msgid "Stoped"
+
+msgstr "Starigita"
+
+
+#: ../gui/controler.py:124
+
+msgid "Ready"
+
+msgstr "Preta"
+
+
+#: ../gui/controler.py:237 ../gui/preview.py:48 ../gui/preview.py:86
+
+msgid "Stop"
+
+msgstr "Ĉesu"
+
+
+#: ../gui/controler.py:238
+
+msgid "Running"
+
+msgstr "Kuranta"
+
+
+#: ../gui/controler.py:240
+
+msgid "Error"
+
+msgstr "Eraro"
+
+
+#: ../gui/controler.py:250
+
+msgid "Stop Stream"
+
+msgstr "Ĉesu rivereton"
+
+
+#: ../gui/controler.py:257
+
+msgid "Close Preview"
+
+msgstr "Fermi Antaŭrigardon"
+
+
+#: ../gui/preview.py:34
+
+msgid "Webcam preview"
+
+msgstr "Webcam -Antaŭrigardo"
+
+
+#: ../gui/preview.py:52
+
+msgid "Save"
+
+msgstr "Savi"
+
+
+#: ../gui/preview.py:57 ../gui/preview.py:69
+
+msgid "Zoom"
+
+msgstr "Zoom"
+
+
+#: ../gui/preview.py:106
+
+msgid "Images"
+
+msgstr "Bildoj"
+
+
+#: ../gui/preview.py:107
+
+msgid "Save Screenshot As"
+
+msgstr "Konservu ekrankopion kiel"
+
+
+#: ../gui/settings.py:31
+
+msgid "Webcam Setting"
+
+msgstr "Retkamerao"
+
+
+#: ../gui/settings.py:38
+
+msgid "Main config"
+
+msgstr "Ĉefa agordo"
+
+
+#: ../gui/settings.py:44
+
+msgid "language"
+
+msgstr "Lingvo"
+
+
+#: ../gui/settings.py:54
+
+msgid "Implement"
+
+msgstr "Efektivigi"
+
+
+#: ../gui/settings.py:57
+
+msgid "Revert"
+
+msgstr "Revertu"
+

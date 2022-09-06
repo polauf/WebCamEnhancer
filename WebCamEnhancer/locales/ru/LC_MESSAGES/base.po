@@ -1,0 +1,112 @@
+# Translation for WebCam Enhancer.
+# Copyleft. Provided AS IS.
+# Matouš Polauf <matous@polauf.cz>, 2022.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: 0.5.0\n"
+"POT-Creation-Date: 2022-09-06 11:32+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: GOOGLE-TRANSLATOR-russian <RU@ru.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: pygettext.py 1.5\n"
+
+
+#: ../gui/controler.py:39
+msgid "Webcam Enhancer"
+msgstr "Улучшитель веб -камеры"
+#: ../gui/controler.py:45 ../gui/controler.py:217 ../gui/preview.py:48
+#: ../gui/preview.py:83
+msgid "Start"
+msgstr "Начинать"
+#: ../gui/controler.py:48 ../gui/controler.py:247
+msgid "Stream"
+msgstr "Ручей"
+#: ../gui/controler.py:51 ../gui/controler.py:263
+msgid "Preview"
+msgstr "Предварительный просмотр"
+#: ../gui/controler.py:54
+msgid "Configuration"
+msgstr "Конфигурация"
+#: ../gui/controler.py:61
+msgid "Input"
+msgstr "Вход"
+#: ../gui/controler.py:64 ../gui/controler.py:70 ../gui/controler.py:177
+#: ../gui/controler.py:204 ../gui/controler.py:206
+msgid "None"
+msgstr "Никто"
+#: ../gui/controler.py:67
+msgid "Output"
+msgstr "Выход"
+#: ../gui/controler.py:76
+msgid "FPS"
+msgstr "Кадр"
+#: ../gui/controler.py:85
+msgid "Filters"
+msgstr "Фильтры"
+#: ../gui/controler.py:97
+msgid "name"
+msgstr "имя"
+#: ../gui/controler.py:98
+msgid "order"
+msgstr "заказ"
+#: ../gui/controler.py:117
+msgid "Status"
+msgstr "Статус"
+#: ../gui/controler.py:117
+msgid "loading"
+msgstr "загрузка"
+#: ../gui/controler.py:120 ../gui/controler.py:218
+msgid "Stoped"
+msgstr "Остановился"
+#: ../gui/controler.py:124
+msgid "Ready"
+msgstr "Готовый"
+#: ../gui/controler.py:237 ../gui/preview.py:48 ../gui/preview.py:86
+msgid "Stop"
+msgstr "Останавливаться"
+#: ../gui/controler.py:238
+msgid "Running"
+msgstr "Бег"
+#: ../gui/controler.py:240
+msgid "Error"
+msgstr "Ошибка"
+#: ../gui/controler.py:250
+msgid "Stop Stream"
+msgstr "Остановите поток"
+#: ../gui/controler.py:257
+msgid "Close Preview"
+msgstr "Закрыть предварительный просмотр"
+#: ../gui/preview.py:34
+msgid "Webcam preview"
+msgstr "Предварительный просмотр веб -камеры"
+#: ../gui/preview.py:52
+msgid "Save"
+msgstr "Сохранять"
+#: ../gui/preview.py:57 ../gui/preview.py:69
+msgid "Zoom"
+msgstr "Зум"
+#: ../gui/preview.py:106
+msgid "Images"
+msgstr "Картинки"
+#: ../gui/preview.py:107
+msgid "Save Screenshot As"
+msgstr "Сохраните скриншот как"
+#: ../gui/settings.py:31
+msgid "Webcam Setting"
+msgstr "Настройка веб -камеры"
+#: ../gui/settings.py:38
+msgid "Main config"
+msgstr "Основная конфигурация"
+#: ../gui/settings.py:44
+msgid "language"
+msgstr "язык"
+#: ../gui/settings.py:54
+msgid "Implement"
+msgstr "Осуществлять"
+#: ../gui/settings.py:57
+msgid "Revert"
+msgstr "Возвращаться"

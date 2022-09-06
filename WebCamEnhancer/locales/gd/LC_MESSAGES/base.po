@@ -1,0 +1,112 @@
+# Translation for WebCam Enhancer.
+# Copyleft. Provided AS IS.
+# Matouš Polauf <matous@polauf.cz>, 2022.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: 0.5.0\n"
+"POT-Creation-Date: 2022-09-06 11:32+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: GOOGLE-TRANSLATOR-scots gaelic <GD@gd.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: pygettext.py 1.5\n"
+
+
+#: ../gui/controler.py:39
+msgid "Webcam Enhancer"
+msgstr "Leasachadh camara-camara-camara"
+#: ../gui/controler.py:45 ../gui/controler.py:217 ../gui/preview.py:48
+#: ../gui/preview.py:83
+msgid "Start"
+msgstr "Tòisich"
+#: ../gui/controler.py:48 ../gui/controler.py:247
+msgid "Stream"
+msgstr "Allt"
+#: ../gui/controler.py:51 ../gui/controler.py:263
+msgid "Preview"
+msgstr "Ro-shealladh"
+#: ../gui/controler.py:54
+msgid "Configuration"
+msgstr "Rèiteachadh"
+#: ../gui/controler.py:61
+msgid "Input"
+msgstr "Cuir a-steach"
+#: ../gui/controler.py:64 ../gui/controler.py:70 ../gui/controler.py:177
+#: ../gui/controler.py:204 ../gui/controler.py:206
+msgid "None"
+msgstr "Chan eil gin"
+#: ../gui/controler.py:67
+msgid "Output"
+msgstr "Toradh"
+#: ../gui/controler.py:76
+msgid "FPS"
+msgstr "FPS"
+#: ../gui/controler.py:85
+msgid "Filters"
+msgstr "Sìoltachain"
+#: ../gui/controler.py:97
+msgid "name"
+msgstr "Ainm"
+#: ../gui/controler.py:98
+msgid "order"
+msgstr "Òrdugh"
+#: ../gui/controler.py:117
+msgid "Status"
+msgstr "Inbhe"
+#: ../gui/controler.py:117
+msgid "loading"
+msgstr "A 'luchdachadh"
+#: ../gui/controler.py:120 ../gui/controler.py:218
+msgid "Stoped"
+msgstr "Stoped"
+#: ../gui/controler.py:124
+msgid "Ready"
+msgstr "Deiseil"
+#: ../gui/controler.py:237 ../gui/preview.py:48 ../gui/preview.py:86
+msgid "Stop"
+msgstr "Stad"
+#: ../gui/controler.py:238
+msgid "Running"
+msgstr "A 'ruith"
+#: ../gui/controler.py:240
+msgid "Error"
+msgstr "Mearachd"
+#: ../gui/controler.py:250
+msgid "Stop Stream"
+msgstr "Sruthadh sruthadh"
+#: ../gui/controler.py:257
+msgid "Close Preview"
+msgstr "Clì ro-shealladh"
+#: ../gui/preview.py:34
+msgid "Webcam preview"
+msgstr "Ro-shealladh camara-lìn"
+#: ../gui/preview.py:52
+msgid "Save"
+msgstr "Sàbhail"
+#: ../gui/preview.py:57 ../gui/preview.py:69
+msgid "Zoom"
+msgstr "Gluais"
+#: ../gui/preview.py:106
+msgid "Images"
+msgstr "Dealbhan"
+#: ../gui/preview.py:107
+msgid "Save Screenshot As"
+msgstr "Sàbhail glacadh-sgrìn mar"
+#: ../gui/settings.py:31
+msgid "Webcam Setting"
+msgstr "Suidheachadh camara-lìn"
+#: ../gui/settings.py:38
+msgid "Main config"
+msgstr "Prìomh config"
+#: ../gui/settings.py:44
+msgid "language"
+msgstr "Cànan"
+#: ../gui/settings.py:54
+msgid "Implement"
+msgstr "Cuir an gnìomh"
+#: ../gui/settings.py:57
+msgid "Revert"
+msgstr "Revert"

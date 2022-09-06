@@ -1,0 +1,112 @@
+# Translation for WebCam Enhancer.
+# Copyleft. Provided AS IS.
+# Matouš Polauf <matous@polauf.cz>, 2022.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: 0.5.0\n"
+"POT-Creation-Date: 2022-09-06 11:32+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: GOOGLE-TRANSLATOR-kannada <KN@kn.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: pygettext.py 1.5\n"
+
+
+#: ../gui/controler.py:39
+msgid "Webcam Enhancer"
+msgstr "ವೆಬ್‌ಕ್ಯಾಮ್ ವರ್ಧಕ"
+#: ../gui/controler.py:45 ../gui/controler.py:217 ../gui/preview.py:48
+#: ../gui/preview.py:83
+msgid "Start"
+msgstr "ಪ್ರಾರಂಭಿಸು"
+#: ../gui/controler.py:48 ../gui/controler.py:247
+msgid "Stream"
+msgstr "ತಳ"
+#: ../gui/controler.py:51 ../gui/controler.py:263
+msgid "Preview"
+msgstr "ಮುನ್ನೋಟ"
+#: ../gui/controler.py:54
+msgid "Configuration"
+msgstr "ಸಂರಚನೆ"
+#: ../gui/controler.py:61
+msgid "Input"
+msgstr "ಒಳಕ್ಕೆ"
+#: ../gui/controler.py:64 ../gui/controler.py:70 ../gui/controler.py:177
+#: ../gui/controler.py:204 ../gui/controler.py:206
+msgid "None"
+msgstr "ಯಾವುದೂ"
+#: ../gui/controler.py:67
+msgid "Output"
+msgstr "ಉತ್ಪಾದನೆ"
+#: ../gui/controler.py:76
+msgid "FPS"
+msgstr "ಎಫ್‌ಪಿಎಸ್"
+#: ../gui/controler.py:85
+msgid "Filters"
+msgstr "ಕವಚ"
+#: ../gui/controler.py:97
+msgid "name"
+msgstr "ಹೆಸರು"
+#: ../gui/controler.py:98
+msgid "order"
+msgstr "ಆಜ್ಞ"
+#: ../gui/controler.py:117
+msgid "Status"
+msgstr "ಸ್ಥಾನಮಾನ"
+#: ../gui/controler.py:117
+msgid "loading"
+msgstr "ಲೋಡ್ ಮಾಡುವುದು"
+#: ../gui/controler.py:120 ../gui/controler.py:218
+msgid "Stoped"
+msgstr "ನಿಲುಗಡೆ"
+#: ../gui/controler.py:124
+msgid "Ready"
+msgstr "ಸಿದ್ಧವಾದ"
+#: ../gui/controler.py:237 ../gui/preview.py:48 ../gui/preview.py:86
+msgid "Stop"
+msgstr "ನಿಲ್ಲಿಸು"
+#: ../gui/controler.py:238
+msgid "Running"
+msgstr "ಓಟ"
+#: ../gui/controler.py:240
+msgid "Error"
+msgstr "ದೋಷ"
+#: ../gui/controler.py:250
+msgid "Stop Stream"
+msgstr "ಸ್ಟ್ರೀಮ್ ನಿಲ್ಲಿಸಿ"
+#: ../gui/controler.py:257
+msgid "Close Preview"
+msgstr "ಪೂರ್ವವೀಕ್ಷಣೆ ಮುಚ್ಚಿ"
+#: ../gui/preview.py:34
+msgid "Webcam preview"
+msgstr "ವೆಬ್‌ಕ್ಯಾಮ್ ಪೂರ್ವವೀಕ್ಷಣೆ"
+#: ../gui/preview.py:52
+msgid "Save"
+msgstr "ಉಳಿಸು"
+#: ../gui/preview.py:57 ../gui/preview.py:69
+msgid "Zoom"
+msgstr "ಉಳಿಸು"
+#: ../gui/preview.py:106
+msgid "Images"
+msgstr "ಚಿತ್ರ"
+#: ../gui/preview.py:107
+msgid "Save Screenshot As"
+msgstr "ಸ್ಕ್ರೀನ್‌ಶಾಟ್ ಅನ್ನು ಹೀಗೆ ಉಳಿಸಿ"
+#: ../gui/settings.py:31
+msgid "Webcam Setting"
+msgstr "ವೆಬ್‌ಕ್ಯಾಮ್ ಸೆಟ್ಟಿಂಗ್"
+#: ../gui/settings.py:38
+msgid "Main config"
+msgstr "ಮುಖ್ಯ ಸಂರಚನೆ"
+#: ../gui/settings.py:44
+msgid "language"
+msgstr "ಭಾಷೆ"
+#: ../gui/settings.py:54
+msgid "Implement"
+msgstr "ಕಾರ್ಯರೂಪಕ್ಕೆ ತರು"
+#: ../gui/settings.py:57
+msgid "Revert"
+msgstr "ಮರಳು"

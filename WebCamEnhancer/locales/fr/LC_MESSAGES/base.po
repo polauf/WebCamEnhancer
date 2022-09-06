@@ -1,0 +1,112 @@
+# Translation for WebCam Enhancer.
+# Copyleft. Provided AS IS.
+# Matouš Polauf <matous@polauf.cz>, 2022.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: 0.5.0\n"
+"POT-Creation-Date: 2022-09-06 12:25+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: GOOGLE-TRANSLATOR-french <FR@fr.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: pygettext.py 1.5\n"
+
+
+#: ../gui/controler.py:39
+msgid "Webcam Enhancer"
+msgstr "Rehausteur webcam"
+#: ../gui/controler.py:45 ../gui/controler.py:217 ../gui/preview.py:48
+#: ../gui/preview.py:83
+msgid "Start"
+msgstr "Commencer"
+#: ../gui/controler.py:48 ../gui/controler.py:247
+msgid "Stream"
+msgstr "Flux"
+#: ../gui/controler.py:51 ../gui/controler.py:263
+msgid "Preview"
+msgstr "Aperçu"
+#: ../gui/controler.py:54
+msgid "Configuration"
+msgstr "Configuration"
+#: ../gui/controler.py:61
+msgid "Input"
+msgstr "Saisir"
+#: ../gui/controler.py:64 ../gui/controler.py:70 ../gui/controler.py:177
+#: ../gui/controler.py:204 ../gui/controler.py:206
+msgid "None"
+msgstr "Saisir"
+#: ../gui/controler.py:67
+msgid "Output"
+msgstr "Production"
+#: ../gui/controler.py:76
+msgid "FPS"
+msgstr "FPS"
+#: ../gui/controler.py:85
+msgid "Filters"
+msgstr "Filtres"
+#: ../gui/controler.py:97
+msgid "name"
+msgstr "Nom"
+#: ../gui/controler.py:98
+msgid "order"
+msgstr "ordre"
+#: ../gui/controler.py:117
+msgid "Status"
+msgstr "Statut"
+#: ../gui/controler.py:117
+msgid "loading"
+msgstr "Chargement en cours"
+#: ../gui/controler.py:120 ../gui/controler.py:218
+msgid "Stoped"
+msgstr "Arrêté"
+#: ../gui/controler.py:124
+msgid "Ready"
+msgstr "Prêt"
+#: ../gui/controler.py:237 ../gui/preview.py:48 ../gui/preview.py:86
+msgid "Stop"
+msgstr "Arrêt"
+#: ../gui/controler.py:238
+msgid "Running"
+msgstr "Fonctionnement"
+#: ../gui/controler.py:240
+msgid "Error"
+msgstr "Erreur"
+#: ../gui/controler.py:250
+msgid "Stop Stream"
+msgstr "Ruisseler"
+#: ../gui/controler.py:257
+msgid "Close Preview"
+msgstr "Fermer un aperçu"
+#: ../gui/preview.py:34
+msgid "Webcam preview"
+msgstr "Aperçu de la webcam"
+#: ../gui/preview.py:52
+msgid "Save"
+msgstr "sauvegarder"
+#: ../gui/preview.py:57 ../gui/preview.py:69
+msgid "Zoom"
+msgstr "Zoom"
+#: ../gui/preview.py:106
+msgid "Images"
+msgstr "Images"
+#: ../gui/preview.py:107
+msgid "Save Screenshot As"
+msgstr "Enregistrer la capture d'écran comme"
+#: ../gui/settings.py:31
+msgid "Webcam Setting"
+msgstr "Paramètre de webcam"
+#: ../gui/settings.py:38
+msgid "Main config"
+msgstr "Configuration principale"
+#: ../gui/settings.py:44
+msgid "language"
+msgstr "Langue"
+#: ../gui/settings.py:54
+msgid "Implement"
+msgstr "Mettre en place"
+#: ../gui/settings.py:57
+msgid "Revert"
+msgstr "Revenir"

@@ -1,0 +1,112 @@
+# Translation for WebCam Enhancer.
+# Copyleft. Provided AS IS.
+# Matouš Polauf <matous@polauf.cz>, 2022.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: 0.5.0\n"
+"POT-Creation-Date: 2022-09-06 11:32+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: GOOGLE-TRANSLATOR-punjabi <PA@pa.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: pygettext.py 1.5\n"
+
+
+#: ../gui/controler.py:39
+msgid "Webcam Enhancer"
+msgstr "ਵੈਬਕੈਮ ਵਧਾਉਣ ਵਾਲਾ"
+#: ../gui/controler.py:45 ../gui/controler.py:217 ../gui/preview.py:48
+#: ../gui/preview.py:83
+msgid "Start"
+msgstr "ਸ਼ੁਰੂ ਕਰੋ"
+#: ../gui/controler.py:48 ../gui/controler.py:247
+msgid "Stream"
+msgstr "ਸਟ੍ਰੀਮ"
+#: ../gui/controler.py:51 ../gui/controler.py:263
+msgid "Preview"
+msgstr "ਝਲਕ"
+#: ../gui/controler.py:54
+msgid "Configuration"
+msgstr "ਕੌਨਫਿਗਰੇਸ਼ਨ"
+#: ../gui/controler.py:61
+msgid "Input"
+msgstr "ਇੰਪੁੱਟ"
+#: ../gui/controler.py:64 ../gui/controler.py:70 ../gui/controler.py:177
+#: ../gui/controler.py:204 ../gui/controler.py:206
+msgid "None"
+msgstr "ਕੋਈ ਨਹੀਂ"
+#: ../gui/controler.py:67
+msgid "Output"
+msgstr "ਆਉਟਪੁੱਟ"
+#: ../gui/controler.py:76
+msgid "FPS"
+msgstr "FPS"
+#: ../gui/controler.py:85
+msgid "Filters"
+msgstr "ਫਿਲਟਰ"
+#: ../gui/controler.py:97
+msgid "name"
+msgstr "ਨਾਮ"
+#: ../gui/controler.py:98
+msgid "order"
+msgstr "ਆਰਡਰ"
+#: ../gui/controler.py:117
+msgid "Status"
+msgstr "ਸਥਿਤੀ"
+#: ../gui/controler.py:117
+msgid "loading"
+msgstr "ਲੋਡ ਹੋ ਰਿਹਾ ਹੈ"
+#: ../gui/controler.py:120 ../gui/controler.py:218
+msgid "Stoped"
+msgstr "ਚੋਰੀ ਹੋ ਗਿਆ"
+#: ../gui/controler.py:124
+msgid "Ready"
+msgstr "ਤਿਆਰ"
+#: ../gui/controler.py:237 ../gui/preview.py:48 ../gui/preview.py:86
+msgid "Stop"
+msgstr "ਰੂਕੋ"
+#: ../gui/controler.py:238
+msgid "Running"
+msgstr "ਚੱਲ ਰਿਹਾ ਹੈ"
+#: ../gui/controler.py:240
+msgid "Error"
+msgstr "ਗਲਤੀ"
+#: ../gui/controler.py:250
+msgid "Stop Stream"
+msgstr "ਸਟ੍ਰੀਮ ਸਟਾਪ"
+#: ../gui/controler.py:257
+msgid "Close Preview"
+msgstr "ਨੇੜੇ ਦਾ ਪੂਰਵ ਦਰਸ਼ਨ"
+#: ../gui/preview.py:34
+msgid "Webcam preview"
+msgstr "ਵੈਬਕੈਮ ਪੂਰਵਦਰਸ਼ਨ"
+#: ../gui/preview.py:52
+msgid "Save"
+msgstr "ਸੇਵ"
+#: ../gui/preview.py:57 ../gui/preview.py:69
+msgid "Zoom"
+msgstr "ਜ਼ੂਮ"
+#: ../gui/preview.py:106
+msgid "Images"
+msgstr "ਚਿੱਤਰ"
+#: ../gui/preview.py:107
+msgid "Save Screenshot As"
+msgstr "ਸਕਰੀਨ ਸ਼ਾਟ ਨੂੰ ਸੇਵ ਕਰੋ"
+#: ../gui/settings.py:31
+msgid "Webcam Setting"
+msgstr "ਵੈਬਕੈਮ ਸੈਟਿੰਗ"
+#: ../gui/settings.py:38
+msgid "Main config"
+msgstr "ਮੁੱਖ ਸੰਰਚਨਾ"
+#: ../gui/settings.py:44
+msgid "language"
+msgstr "ਭਾਸ਼ਾ"
+#: ../gui/settings.py:54
+msgid "Implement"
+msgstr "ਲਾਗੂ"
+#: ../gui/settings.py:57
+msgid "Revert"
+msgstr "ਵਾਪਸ"

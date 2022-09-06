@@ -1,0 +1,254 @@
+# Translation for WebCam Enhancer.
+
+# Copyleft. Provided AS IS.
+
+# Matouš Polauf <matous@polauf.cz>, 2022.
+
+#
+
+msgid ""
+
+msgstr ""
+
+"Project-Id-Version: 0.5.0\n"
+
+"POT-Creation-Date: 2022-09-06 11:20+0200\n"
+
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+
+"Language-Team: GOOGLE-TRANSLATOR-arabic <AR@ar.org>\n"
+
+"MIME-Version: 1.0\n"
+
+"Content-Type: text/plain; charset=UTF-8\n"
+
+"Content-Transfer-Encoding: 8bit\n"
+
+"Generated-By: pygettext.py 1.5\n"
+
+
+
+
+
+#: ../gui/controler.py:39
+
+msgid "Webcam Enhancer"
+
+msgstr "محسن كاميرا الويب"
+
+
+#: ../gui/controler.py:45 ../gui/controler.py:217 ../gui/preview.py:48
+
+#: ../gui/preview.py:83
+
+msgid "Start"
+
+msgstr "بداية"
+
+
+#: ../gui/controler.py:48 ../gui/controler.py:247
+
+msgid "Stream"
+
+msgstr "مجرى"
+
+
+#: ../gui/controler.py:51 ../gui/controler.py:263
+
+msgid "Preview"
+
+msgstr "معاينة"
+
+
+#: ../gui/controler.py:54
+
+msgid "Configuration"
+
+msgstr "ترتيب"
+
+
+#: ../gui/controler.py:61
+
+msgid "Input"
+
+msgstr "إدخال"
+
+
+#: ../gui/controler.py:64 ../gui/controler.py:70 ../gui/controler.py:177
+
+#: ../gui/controler.py:204 ../gui/controler.py:206
+
+msgid "None"
+
+msgstr "لا أحد"
+
+
+#: ../gui/controler.py:67
+
+msgid "Output"
+
+msgstr "انتاج |"
+
+
+#: ../gui/controler.py:76
+
+msgid "FPS"
+
+msgstr "FPS"
+
+
+#: ../gui/controler.py:85
+
+msgid "Filters"
+
+msgstr "المرشحات"
+
+
+#: ../gui/controler.py:97
+
+msgid "name"
+
+msgstr "اسم"
+
+
+#: ../gui/controler.py:98
+
+msgid "order"
+
+msgstr "ترتيب"
+
+
+#: ../gui/controler.py:117
+
+msgid "Status"
+
+msgstr "حالة"
+
+
+#: ../gui/controler.py:117
+
+msgid "loading"
+
+msgstr "جار التحميل"
+
+
+#: ../gui/controler.py:120 ../gui/controler.py:218
+
+msgid "Stoped"
+
+msgstr "توقف"
+
+
+#: ../gui/controler.py:124
+
+msgid "Ready"
+
+msgstr "مستعد"
+
+
+#: ../gui/controler.py:237 ../gui/preview.py:48 ../gui/preview.py:86
+
+msgid "Stop"
+
+msgstr "قف"
+
+
+#: ../gui/controler.py:238
+
+msgid "Running"
+
+msgstr "ادارة"
+
+
+#: ../gui/controler.py:240
+
+msgid "Error"
+
+msgstr "خطأ"
+
+
+#: ../gui/controler.py:250
+
+msgid "Stop Stream"
+
+msgstr "توقف الدفق"
+
+
+#: ../gui/controler.py:257
+
+msgid "Close Preview"
+
+msgstr "إغلاق معاينة"
+
+
+#: ../gui/preview.py:34
+
+msgid "Webcam preview"
+
+msgstr "معاينة كاميرا الويب"
+
+
+#: ../gui/preview.py:52
+
+msgid "Save"
+
+msgstr "يحفظ"
+
+
+#: ../gui/preview.py:57 ../gui/preview.py:69
+
+msgid "Zoom"
+
+msgstr "تكبير"
+
+
+#: ../gui/preview.py:106
+
+msgid "Images"
+
+msgstr "الصور"
+
+
+#: ../gui/preview.py:107
+
+msgid "Save Screenshot As"
+
+msgstr "حفظ لقطة الشاشة كما"
+
+
+#: ../gui/settings.py:31
+
+msgid "Webcam Setting"
+
+msgstr "إعداد كاميرا الويب"
+
+
+#: ../gui/settings.py:38
+
+msgid "Main config"
+
+msgstr "التكوين الرئيسي"
+
+
+#: ../gui/settings.py:44
+
+msgid "language"
+
+msgstr "لغة"
+
+
+#: ../gui/settings.py:54
+
+msgid "Implement"
+
+msgstr "ينفذ"
+
+
+#: ../gui/settings.py:57
+
+msgid "Revert"
+
+msgstr "يرجع"
+
