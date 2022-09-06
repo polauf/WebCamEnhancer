@@ -35,13 +35,13 @@ class Setting:
 
         self._mainsetting = {}
 
-        self.module_frame = ttk.Labelframe(self.settings_frame, text="Main config")
+        self.module_frame = ttk.Labelframe(self.settings_frame, text=tt("Main config"))
         self._mainsetting["input_cam"] = self._make_row(self.module_frame, 0, "input_cam", self.config["input_cam"])
         self._mainsetting["output_cam"] = self._make_row(self.module_frame, 1, "output_cam", self.config["output_cam"])
         self._mainsetting["width"] = self._make_row(self.module_frame, 2, "width", self.config["width"], tk.IntVar)
         self._mainsetting["height"] = self._make_row(self.module_frame, 3, "height", self.config["height"], tk.IntVar)
         self._mainsetting["fps"] = self._make_row(self.module_frame, 4, "fps", self.config["fps"], tk.DoubleVar)
-        self._mainsetting["language"] = self._make_row(self.module_frame, 5, "language", self.config["language"])
+        self._mainsetting["language"] = self._make_row(self.module_frame, 5, tt("language"), self.config["language"])
         self.module_frame.pack(side="top", fill="x", padx=10, pady=5)
 
         for group in ModuleController.MODULES.values():
@@ -51,10 +51,10 @@ class Setting:
         self.settings_frame.pack(expand="true", fill="both", side="top")
         button_frame = ttk.Frame(self.root)
 
-        self.implement_buton = ttk.Button(button_frame, text="Implement", command=self.on_implement)
+        self.implement_buton = ttk.Button(button_frame, text=tt("Implement"), command=self.on_implement)
         self.implement_buton.pack(side="right")
 
-        self.revert_button = ttk.Button(button_frame, text="Revert", command=self.on_revert)
+        self.revert_button = ttk.Button(button_frame, text=tt("Revert"), command=self.on_revert)
         self.revert_button.pack(side="left")
         button_frame.pack(fill="x", side="top")
 
@@ -126,5 +126,3 @@ class Setting:
         self.root.destroy()
 
 Configuration.CUSTOM_CLASSES.append(Setting)
-
-LANGUAGES = [("cs",tt("Czech"))]
