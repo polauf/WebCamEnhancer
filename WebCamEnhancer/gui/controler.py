@@ -35,7 +35,7 @@ class Controler:
         self.root.maxsize(800, 600)
         self.root.minsize(400, 300)
         self.root.resizable(True, True)
-        self.root.title(tt("Enhacing Webcam"))
+        self.root.title(tt("Webcam Enhancer"))
         self.root.protocol("WM_DELETE_WINDOW", self._exit)
         m_frame = ttk.Frame(self.root)
 

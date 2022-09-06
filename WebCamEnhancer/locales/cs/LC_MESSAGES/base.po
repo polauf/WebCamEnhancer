@@ -16,7 +16,7 @@ msgstr ""
 
 
 #: ../gui/controler.py:35
-msgid "Enhacing Webcam"
+msgid "Webcam Enhancer"
 msgstr "Webkamerový vylepšovač"
 
 #: ../gui/controler.py:41 ../gui/controler.py:234 ../gui/preview.py:46
