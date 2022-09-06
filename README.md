@@ -9,9 +9,7 @@ CustomCam uses [pyvirtualcamera](https://github.com/letmaik/pyvirtualcam) to int
 ## Usage
 ### On-Launch
 
-Temporarly:
 
- if you want to run it, in root dir `WebCameraEnhancer` run `python -m CustomCam` + arguments. (Need work to become package again ... TODO for now.)
 
 
 ```text

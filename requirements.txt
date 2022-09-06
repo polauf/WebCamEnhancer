@@ -3,3 +3,7 @@ numpy
 opencv-python
 pyvirtualcam
 numba
+appdirs
+PySimpleGUI
+mergedeep
+pillow

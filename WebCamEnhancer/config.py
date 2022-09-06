@@ -1,70 +1,107 @@
-import cv2
+from typing import Optional
+
+import cv2, json
 from pathlib import Path
-import numpy as np
+from collections import UserDict
+from copy import deepcopy
+from threading import Lock
+from mergedeep import  merge
+import distutils.dir_util
 
-base = Path(__file__).parent
+from .constants import CONFIG_DIR, BASE_CONFIG, PICTURES_DIR, FALLBACK_PICTURES_DIR
+from .core.base import ModuleController
 
-class Config:
+class ConfigEncoder(json.JSONEncoder):
+    "Encodes ConfigGroups and Paths to JSON."
 
-    # Webcam image corrections
-    HUE = 1.
-    SATURATION = 1.1
-    VALUE = 1.15
-
-    RED = 1.25
-    GREEN = .95
-    BLUE = .85
-
-    GAMMA = 1.68
-
-    # initial zoom
-    ZOOM = 1.6
-    # sharpen
-    SHARPEN = False
-
-    # LMan How fast it will rotate
-    ROTATION_RATE = -2.5
-    # LMan Where is face picture. 
-    FACE_IMAGE_PATH = str(Path(base, "img/face.png").absolute())
-    # LMan Where is rolling background picture.
-    TEXT_IMAGE_PATH = str(Path(base, "img/plate.png").absolute())
-    # LMan Upscale RAAL rectangle. (Cover face)
-    SCALE = 1.65
-    # LMan Stop blocking after n frames. -1 is don't stop.
-    LIFETIME = -1
-    # Background path or RGB color tuple
-    #TODO: Add gif support.
-    BACKGROUND = str(Path(base, "img/atlantropa.png").absolute())
-    # Background fallback color
-    BACKGROUND_FALLBACK = (0,200,0)
-    # Pixelate size
-    PIXELATE_SIZE = (45, 45)
-    # Away overlay
-    AWAY_IMG = str(Path(base, "img/away.png").absolute())
-
-    # Away switch treshold
-    AWAY_TRESHOLD = 0.2
-    # Away after frames
-    AWAY_FRAMES = 30
-    PRESET_FRAMES = 80
-
-    # Present default filter (also default start filter)
-    PRESENT_FILTER = "Background"
-    # Away default filter
-    AWAY_FILTER = "Away"
-    # prints state change in N seconds. 
-    WARNING_SECS=4
-
-
-def get_background(background_img=[]):
-    """Evaluate if color shoud be returned or picture
-      Default argument is storage. 
-    """
-    if not len(background_img):
-        if Config.BACKGROUND is not None and len(Config.BACKGROUND) == 3: # color
-            background_img.append(np.array([[list(Config.BACKGROUND)]],dtype='uint8'))
-        elif isinstance(Config.BACKGROUND, (str, Path)) and Path(Config.BACKGROUND).is_file(): # path
-            background_img.append(cv2.imread(Config.BACKGROUND))
+    def default(self, item):
+        if isinstance(item, ConfigGroup):
+            return item.data
+        elif isinstance(item, Path):
+            try:
+                return str(item.relative_to(CONFIG_DIR))
+            except ValueError:
+                return str(item)
         else:
-            background_img.append(np.array([[list(Config.BACKGROUND_FALLBACK)]],dtype='uint8'))
-    return background_img[0]
+            raise TypeError(f"Unexpected type {item.__class__.__name__}")
+
+class ConfigGroup(UserDict):
+    "Dict with lock and unability to make new keys. Used for Config."
+    def __init__(self, data: Optional[dict] = None):
+        self.data = data or {}
+        self._lock = Lock()
+
+    def __getitem__(self, key):
+        with self._lock:
+            value = self.data[key]
+        return value
+
+    def __setitem__(self, key, value) -> None:
+        try:
+            item = self.data[key]
+        except KeyError:
+            raise KeyError("Config keys are frozen.")
+        with self._lock:
+            self.data[key] = value
+
+def config_decoder(obj: dict) -> ConfigGroup:
+    "Cast ConfigGroups and relative Paths sets absolute from config directory."
+    for key, value in obj.items():
+        if isinstance(value, str) and key.endswith("_path"):
+            path = Path(value)
+            if not path.is_absolute():
+                path = CONFIG_DIR / path
+            obj[key] = path
+    return ConfigGroup(obj)
+
+
+class Config(ConfigGroup):
+    "Main config. Handles loading and default values."
+
+    CUSTOM_CLASSES = []
+
+    def generate_default(self) -> dict:
+        template = {}
+        for group_name, modules in ModuleController.MODULES.items():
+            template[group_name] = {}
+            for module in modules:
+                if module.CONFIG_TEMPLATE:
+                    template[group_name][module.__name__] = config_decoder(deepcopy(module.CONFIG_TEMPLATE))
+        for klass in Configuration.CUSTOM_CLASSES:
+            if hasattr(klass, "CONFIG_TEMPLATE"):
+                template[klass.__name__] = config_decoder(deepcopy(klass.CONFIG_TEMPLATE))
+        return template
+
+    def get_custom_config(self, klass) -> dict:
+        return self.get(klass.__name__, {})
+
+    def _make_user_setting(self):
+        CONFIG_DIR.mkdir(parents=True, exist_ok=True)
+        distutils.dir_util.copy_tree(str(FALLBACK_PICTURES_DIR), str(PICTURES_DIR))
+
+    def load_config(self, path: Optional[Path] = None) -> None:
+        defaults = self.generate_default()
+        if path is None and not BASE_CONFIG.exists():
+            self._make_user_setting()
+            self.data = defaults
+        else:
+            try:
+                with open(path or BASE_CONFIG) as fh:
+                    data = json.JSONDecoder(object_hook=config_decoder).decode(fh.read())
+                    merge(defaults, dict(data)) # Develop merge config with new items
+                    with self._lock:
+                        self.data = defaults
+            except json.JSONDecodeError:
+                self._make_user_setting()
+                raise ValueError("Corrupted config file. Re-run the applicattion.")
+
+    def save_config(self, path: Optional[Path] = None) -> None:
+        with open(path or BASE_CONFIG,'w') as fh:
+            with self._lock:
+                data = dict(self.data)
+            json.dump(data, fh, indent=4, cls=ConfigEncoder)
+
+
+# one global
+Configuration = Config()
+

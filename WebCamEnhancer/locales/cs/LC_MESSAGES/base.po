@@ -1,0 +1,126 @@
+# Translation for WebCam Enhancer.
+# Copyleft. Provided AS IS.
+# Matouš Polauf <matous@polauf.cz>, 2022.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: 0.5.0\n"
+"POT-Creation-Date: 2022-09-06 03:15+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Czech <CS@cs.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: pygettext.py 1.5\n"
+
+
+#: ../gui/controler.py:35
+msgid "Enhacing Webcam"
+msgstr "Webkamerový vylepšovač"
+
+#: ../gui/controler.py:41 ../gui/controler.py:234 ../gui/preview.py:46
+#: ../gui/preview.py:81
+msgid "Start"
+msgstr "Startuj"
+
+#: ../gui/controler.py:44 ../gui/controler.py:241
+msgid "Stream"
+msgstr "Streamuj"
+
+#: ../gui/controler.py:47 ../gui/controler.py:257
+msgid "Preview"
+msgstr "Koukačka"
+
+#: ../gui/controler.py:50
+msgid "Configuration"
+msgstr "Nastavení"
+
+#: ../gui/controler.py:57
+msgid "Input"
+msgstr "Vstup"
+
+#: ../gui/controler.py:60 ../gui/controler.py:66
+msgid "None"
+msgstr "-"
+
+#: ../gui/controler.py:63
+msgid "Output"
+msgstr "Výstup"
+
+#: ../gui/controler.py:72
+msgid "FPS"
+msgstr "FPS"
+
+#: ../gui/controler.py:81
+msgid "Filters"
+msgstr "Filtry"
+
+#: ../gui/controler.py:93
+msgid "name"
+msgstr "jméno"
+
+#: ../gui/controler.py:94
+msgid "order"
+msgstr "pořadí"
+
+#: ../gui/controler.py:113
+msgid "Status"
+msgstr "Stav"
+
+#: ../gui/controler.py:113
+msgid "loading"
+msgstr "načítám"
+
+#: ../gui/controler.py:116 ../gui/controler.py:235
+msgid "Stoped"
+msgstr "Zastaveno"
+
+#: ../gui/controler.py:120
+msgid "Ready"
+msgstr "Připraven"
+
+#: ../gui/controler.py:223 ../gui/preview.py:46 ../gui/preview.py:84
+msgid "Stop"
+msgstr "Zastav"
+
+#: ../gui/controler.py:224
+msgid "Running"
+msgstr "Běží"
+
+#: ../gui/controler.py:226
+msgid "Error"
+msgstr "Chyba"
+
+#: ../gui/controler.py:244
+msgid "Stop Stream"
+msgstr "Zastav Stream"
+
+#: ../gui/controler.py:251
+msgid "Close Preview"
+msgstr "Vypni Koukačku"
+
+#: ../gui/preview.py:32
+msgid "Webcam preview"
+msgstr "Koukačka"
+
+#: ../gui/preview.py:50
+msgid "Save"
+msgstr "Ulož"
+
+#: ../gui/preview.py:55 ../gui/preview.py:67
+msgid "Zoom"
+msgstr "Zvětšení"
+
+#: ../gui/preview.py:104
+msgid "Images"
+msgstr "Obrázky"
+
+#: ../gui/preview.py:105
+msgid "Save Screenshot As"
+msgstr "Ulož snímek jako"
+
+#: ../gui/settings.py:21
+msgid "Czech"
+msgstr "Čeština"
+
