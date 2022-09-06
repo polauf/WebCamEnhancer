@@ -1,66 +1,117 @@
-# CustomCam
+# Webcam Enhancer
 
-Extendable webcam customisation in Python.
+Lets take control what you can do with your **stream** from your WebCam! **Tkinter** base **GUI** application with simple and extensible interface. 
 
-Fork of [CustomCam](https://github.com/mattravenhall/CustomCam).
-
-CustomCam uses [pyvirtualcamera](https://github.com/letmaik/pyvirtualcam) to interact with virtual output devices. As this package was primarily developed for Linux, the Quick Start commands address that use case. To set up virtual output devices for other platforms, check the [pyvirtualcam docs](https://github.com/letmaik/pyvirtualcam/blob/master/README.md).
-
-## Usage
-### On-Launch
+![screenshot](images/screenshot.png)
 
 
+Yes, it looks like *90s* Dephi Pascal RAD whatever. But why not to remember ****old times****.
 
+Fork of [CustomCam](https://github.com/mattravenhall/CustomCam). I will probably reimplement command-line option as well. because it is faster to setup. With GUI you can mess around more easily with numbers.
 
-```text
-CustomCam. Extendable webcam modification on your commandline.
+## Problems
 
-options:
-  -h, --help            show this help message and exit
-  --input INPUT, -i INPUT
-                        ID of webcam device (default: 0)
-  --output OUTPUT, -o OUTPUT
-                        Dummy output device (default: /dev/video2)
-  --width WIDTH, -cw WIDTH
-                        Overwrite camera width. (default: 1024)
-  --height HEIGHT, -ch HEIGHT
-                        Overwrite camera height. (default: 768)
-  --fps FPS             Overwrite camera fps. (default: None)
-  --filter {LMan,Pixel,Cascade,Away,Anonymous,NoFilter,Gray,Selfie,Background,SelfieCascade,Config,Sepia,Shake,LaughingMan}, -f {LMan,Pixel,Cascade,Away,Anonymous,NoFilter,Gray,Selfie,Background,SelfieCascade,Config,Sepia,Shake,LaughingMan}
-  --verbose, -v         Enable verbose logging. (default: False)
-  --logfile, -lf        Write log to disk. (default: False)           Write log to disk. (default: False)
+It is not [OBS](https://obsproject.com/) but on Linux it is simple to use. Should work on Windows and Mac but consult [PyVirtualCam](https://github.com/letmaik/pyvirtualcam) how to run **loopback** dummy device on your computer.
+
+# Usage
+
+First you need to get loopback device running, then ,for example on linux, it shoud appear as new video device like: ```/dev/video2```.
+Yes, you need to load it:
+
+```bash
+sudo modprobe v4l2loopback devices=1 card_label="My DUMMY"
 ```
 
-### Mid-Run
-Users are able to change the active filter, display statistics, flip the camera, close the program etc. whilst CustomCam is running by entering the appropriate command in the terminal in which CustomCam was launched.
+For example. There is option ```exclusive_caps=1``` witch helped some people. 
 
-```text
-Filters:
-	Anonymous       Pixalated person with background picture.
-	Away            Away sign with background picture.
-	Background      Repleaces background with a picture.
-	Gray            Grayscale image.
-	LMan            Pixalated rest of the person with background picture and Laughing man overlay.
-	LaughingMan     Only Laughing man overlay.
-	NoFilter        Nothing.
-	Pixel           Blur foreground person.
-	Sepia           Classic sepia filter.
-	Shake           Shake two channels horizontally every frame.
+OK, everithing should be straight forward with one exception ,how to hadle Filter view. 
 
-Options:
-	f, flip         Flip the camera.
-	s, stats        Display information about stream.
-	z+, z-          Zoom picture.
-	a, p            Fast switch between default filters: Away (Away) or Present (Background).
-	h, help         Get this help.
-	q, quit         Exits the application.
+### Filter view
 
+**Left Double-click**
+  - Adds selected filter to the processiong queue. 
+  - More double-clicks icrease its order when it should be applied.
+
+**Right-click**
+ - Decrease order of selected filter or remove it. (Not working *TODO*)
+
+ **Middle-click**
+ - Removes selected filter from the queue.
+
+### Setting window
+
+**Be aware:** there are almost no safeties what you set, so don't be suprised when it crashes, or starts to disobey.
+
+### Data (Images)
+ - Uses [AppDirs](https://github.com/ActiveState/appdirs) package to determine where to makecopy of images included in the package. So don't mess with package data. It is not a good idea.
+
+ Main directory with settings and stuff should be:
+ ```
+Linux:   /home/<user>/.local/share/WebCamEnhancer
+Windows: C:\\Users\\<user>\\AppData\\Local\\MPStuff\\WebCam
+Mac:     /Users/<user>/Library/Application Support/WebCamEnhancer
 ```
 
-## Creating your own filters
-User-defined filters can be added to `filters.py`.
+# Extending
 
-Filter classes must:
-- Inherit from `middleware.Filter`
-- Implement an `apply` method which takes a frame (as a `np.array`), applies filter logic and returns that a `np.array`.
-- Not share a name with any existing class or input command.
+There are 3 types of **'modules'**:
+
+## *Filter*
+
+Class inherited from **Filter**
+
+```python
+class MyÜberFilter(Filter):
+	...
+```
+If you need ```Configuration```:
+
+```python
+	...
+
+	CONFIG_TEMPLATE = {
+		"item": 1
+	}
+
+	...
+```
+Add default values dict, then in ```self.config``` you will have ```self.config["item"]```. There is other variable ```self.middleware``` where you can access **Result** of computaion by ```self.middleware["<name_if class>"].get()```. More about later.
+
+Must implement:
+
+```python
+	...
+
+def apply(self, frame: np.array)-> np.array:
+	...
+```
+
+Can be usesfull. For loading, pre-computing and stuff...
+
+```python
+	...
+
+def prepare(self, resolution: tuple[int, int]):
+	...
+```
+
+- Look for inspiration what is already written.
+- Don't mess with ```def __init__(self, ...):```. You don't need to.
+- Crazier = Better
+- 
+
+## *Middleware*
+
+Implementation is similar as ```Filter``` but this class is designed to do more **expensive calculations** which are computed only once per **Frame**
+
+As said in **Filters** there is **Must** method ```apply(frame: np.array)-> Any``` where you can access the result of computation from multiple filters.
+
+
+## *Driver*
+
+### TODOO ...
+
+Will be used to register new behaviours, like stop streaming when ```Segmentator``` will not detect you for, lets say 30 seconds.
+
+
+# HOPE YOU ENJOY IT. CHEERS!
