@@ -6,7 +6,7 @@ from appdirs import user_data_dir
 APP_NAME = "WebCam Enhancer"
 APP_AUTHOR = "Matouš Polauf"
 APP_AUTHOR_SHORT = "MPStuff"
-APP_VERSION = "0.5.0"
+APP_VERSION = "0.5.1"
 
 CONFIG_DIR = Path(user_data_dir(APP_NAME, APP_AUTHOR_SHORT))
 BASE_CONFIG = CONFIG_DIR / "config.json"
