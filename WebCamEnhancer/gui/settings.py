@@ -12,10 +12,12 @@ cfg = {
     "width": 1024,
     "height": 726,
     "fps": None,
-    "lang": "cz"
+    "lang": "en"
 }
 
-
-tt = gettext.translation('base', localedir=TRANSLATIONS_DIR, languages=[cfg["lang"]]).gettext
+try:
+    tt = gettext.translation('base', localedir=TRANSLATIONS_DIR, languages=[cfg["lang"]]).gettext
+except FileNotFoundError:
+    tt = gettext.gettext
 
 LANGUAGES = [("cs",tt("Czech"))]

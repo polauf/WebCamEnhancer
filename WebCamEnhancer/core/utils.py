@@ -2,14 +2,8 @@ import cv2, sys
 import numpy as np
 import logging
 import logging.handlers
-from ..constants import APP_NAME, TRANSLATIONS_DIR
+from ..constants import APP_NAME
 
-import gettext
-
-gettext.bindtextdomain(APP_NAME, TRANSLATIONS_DIR)
-gettext.textdomain(APP_NAME)
-
-tt = gettext.gettext
 
 class LoggingFormater(logging.Formatter):
     def formatException(self, exc_info):
