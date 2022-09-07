@@ -1,4 +1,4 @@
-import cv2, pyvirtualcam, threading, queue, copy
+import cv2, pyvirtualcam, threading, queue, copy, time
 import numpy as np
 from typing import Optional
 from pathlib import Path
@@ -56,7 +56,13 @@ def start_output(output_device: str, width: int, height: int, fps: int,
 
 class CamerasWorker:
 
+    CONFIG_TEMPLATE = {
+        "error_frames_max": 10,
+        "frame_delay_max": 0.1
+    }
+
     def __init__(self, in_cam, out_cam, width=None, height=None, fps=None, preview=True, stream=True):
+        self.config = Configuration.get_custom_config(self.__class__)
         self.in_cam_name = in_cam
         self.out_cam_name = out_cam
         self._setup_data = {"width": width, "height": height, "fps": fps}
@@ -79,8 +85,6 @@ class CamerasWorker:
         
         self._errors = []
         self._threads = []
-
-        self._max_error_frames = 10
 
     @property
     def filters(self):
@@ -168,7 +172,7 @@ class CamerasWorker:
         logger.info("Stoped.")
 
     def start(self):
-        self._max_error_frames = 10
+        max_error_frames = self.config["error_frames_max"]
         self.prepare()
         input_queue = queue.Queue()
         self._image_queue = queue.Queue()
@@ -178,21 +182,26 @@ class CamerasWorker:
             while not self._stop.is_set():
                 ret, frame = self._input_cam.read()
                 if not ret:
-                    logger.warning("Unsuccessful aquisition of frame. %d until exit", self._max_error_frames - error_counter)
-                    if error_counter > self._max_error_frames:
-                        self._errors.append((CameraError, "Unable to capture frame from camera."))
+                    logger.warning("Unsuccessful aquisition of frame. %d until stop.", max_error_frames - error_counter)
+                    if error_counter > max_error_frames:
+                        self._errors.append((e, e.args))
                         self._error.set()
                         break
                     error_counter += 1
-                input_queue.put(frame)
+                input_queue.put((frame, time.perf_counter()))
 
         input_thread = threading.Thread(target=input_worker,daemon=True)
 
         def processing_worker():
+            max_error_frames = self.config["error_frames_max"]
+            frame_delay_max = self.config["frame_delay_max"]
+
             error_counter = 0
             raw_frame = None
             while not self._stop.is_set():
-                frame = input_queue.get()
+                frame, when = input_queue.get()
+                if (time.perf_counter() - when) > frame_delay_max:
+                    continue
                 if frame is not None:
                     try:
                         # middleware
@@ -215,13 +224,13 @@ class CamerasWorker:
                         for d in self._drivers.values():
                             d.resolve()
                     except Exception as e:
-                        logger.error(e)
+                        logger.warning("Badly processed of frame. %d until stop. %s: %s", 
+                        max_error_frames - error_counter,
+                        e, ", ".join(e.args)
+                        )
                         # fail if to mutch error frames
-                        if error_counter > self._max_error_frames:
-                            try:
-                                self._errors.append((e, e.msg))
-                            except Exception:
-                                self._errors.append((CameraError, "Unable to process frame from camera."))
+                        if error_counter > max_error_frames:
+                            self._errors.append((e, e.args))
                             self._error.set()
                             break
                         break
@@ -243,10 +252,12 @@ class CamerasWorker:
             if frame is None and self._error.is_set():
                 try:
                     err = self.errors.pop()
-                    raise CameraError(f"{err[0]}: {err[1]}")
+                    raise CameraError(f"Error in CameraWorker threads: {err[0]}: {', '.join(err[1])}")
                 except IndexError:
                     raise CameraError("Unable to fetch frame.")
             return frame
         except queue.Empty:
             # return None if timeouted
             pass
+
+Configuration.CUSTOM_CLASSES.append(CamerasWorker)
