@@ -15,9 +15,10 @@ class Controler:
 
     CONFIG_TEMPLATE = {
         "geometry": "600x300",
-        "start": False,
-        "stream": False,
-        "preview": False,
+        "colection_at_start": False,
+        "stream_at_start": False,
+        "show_preview_at_start": False,
+        "show_setting_at_start": False,
         "active_filters": []
     }
 
@@ -48,7 +49,7 @@ class Controler:
         self.stream_button = ttk.Button(buttom_frame, state="disabled", text=tt("Stream"), width=15, command=self.toggle_stream)
         self.stream_button.pack(pady=2, side="top")
 
-        self.preview_button = ttk.Button(buttom_frame, state="disabled", text=tt("Preview"), width=15, command=self.toggle_preview)
+        self.preview_button = ttk.Button(buttom_frame, text=tt("Preview"), width=15, command=self.toggle_preview)
         self.preview_button.pack(pady=2, side="top")
 
         self.config_button = ttk.Button(buttom_frame, text=tt("Configuration"), width=15, command=self.toggle_setting)
@@ -121,11 +122,28 @@ class Controler:
         self.right_status.pack(side="right")
         
         bottom_view.pack(anchor="s", fill="x", side="bottom")
-        self.left_status["text"] = tt("Ready")
 
     def run(self):
         self.resolve_state()
+        self.left_status["text"] = tt("Ready")
+        if self.config["colection_at_start"]:
+            self.toggle_worker()
+        if self.config["show_preview_at_start"]:
+            self.toggle_preview()
+        if self.config["show_setting_at_start"]:
+            self.toggle_setting()
+
         self.root.mainloop()
+
+    def _exit(self):
+        if self._worker is not None:
+            self._worker.stop()
+        self.config["geometry"] = self.root.geometry()
+        self.config["colection_at_start"] = self._worker is not None
+        self.config["stream_at_start"] = self._worker is not None and self._worker.streaming
+        self.config["show_preview_at_start"] = self.previewer is not None and self.previewer.opened
+        self.config["show_setting_at_start"] = self.settings is not None and self.settings.opened
+        self.root.destroy()  
 
 
     def _update_filters(self):
@@ -181,7 +199,6 @@ class Controler:
     def resolve_state(self):
         if self._worker is not None:
             self.stream_button["state"] = "normal"
-            self.preview_button["state"] = "normal"
 
             if self._worker.input_cam_properties:
                 self.label_input["state"] = "normal"
@@ -198,7 +215,6 @@ class Controler:
 
         else:
             self.stream_button["state"] = "disabled"
-            self.preview_button["state"] = "disabled"
 
             self.label_input["state"] = "disabled"
             self.label_input["text"] = tt("None")
@@ -225,9 +241,9 @@ class Controler:
                     width = setting["width"] or None,
                     height = setting["height"] or None,
                     fps = setting["fps"] or None,
-                    preview = self.config["preview"],
-                    stream = self.config["stream"]
+                    preview = self.config["show_preview_at_start"],
                     )
+                self.toggle_stream()
                 self._update_filters()
                 self._worker.start()
                 self.resolve_state()
@@ -250,17 +266,21 @@ class Controler:
                 self.stream_button["text"] = tt("Stop Stream")
 
     def toggle_preview(self, stop=None):
-        if self._worker is not None:
-            if not stop and (self.previewer is None or not self.previewer.opened):
+        if not stop and (self.previewer is None or not self.previewer.opened):
+            if self._worker:
                 self._worker.preview = True
-                self.previewer = WebcamPreview(self._worker, self)
-                self.preview_button["text"] = tt("Close Preview")
-                self.previewer.run()
-            else:
+            self.previewer = WebcamPreview(self._worker, self)
+            self.preview_button["text"] = tt("Close Preview")
+            self.root.after(1, self.previewer.run)
+        else:
+            if self._worker:
                 self._worker.preview = False
-                if self.previewer:
-                    self.previewer._exit()
-                self.preview_button["text"] = tt("Preview")
+            if self.previewer:
+                try:
+                    self.previewer._exit()      
+                except tk.TclError:
+                    pass     
+            self.preview_button["text"] = tt("Preview")
 
     def settings_changed(self):
         if self._worker:
@@ -268,18 +288,14 @@ class Controler:
             self.toggle_worker()
 
 
-    def toggle_setting(self, ):
+    def toggle_setting(self):
             if self.settings is None or not self.settings.opened:
                 self.settings = Setting(self)
-                self.settings.run()
-            else:
-                if self.settings:
-                    self.settings._exit()
-
-    def _exit(self):
-        if self._worker is not None:
-            self._worker.stop()
-        self.config["geometry"] = self.root.geometry()
-        self.root.destroy()        
+                self.root.after(1, self.settings.run)
+            elif self.settings:
+                    try:
+                        self.settings._exit()      
+                    except tk.TclError:
+                        pass     
 
 Configuration.CUSTOM_CLASSES.append(Controler)

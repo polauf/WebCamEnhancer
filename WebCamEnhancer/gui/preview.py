@@ -25,6 +25,8 @@ class WebcamPreview:
         self.config = Configuration.get_custom_config(self.__class__)
         self.build(master)
         self.opened = True
+        self.canvas_img_id = None
+        self._image = None
 
     def build(self, master=None):
         # build ui
@@ -45,7 +47,7 @@ class WebcamPreview:
 
         buttons = ttk.Frame(self.root, height=30)
         self.start_button = ttk.Button(buttons, command=self.toggle_collection)
-        self.start_button.configure(text=tt("Stop") if self._camera_worker.preview else tt("Start"))
+        self.start_button.configure(text=tt("Stop"))
         self.start_button.pack(side="right")
 
         self.save_button = ttk.Button(buttons, command=self.save_canvas)
@@ -78,24 +80,31 @@ class WebcamPreview:
         self.root.destroy()
 
     def toggle_collection(self):
-        if self._camera_worker.preview:
+        if self._camera_worker.preview and self._camera_worker.preview:
             self._camera_worker.preview = False
             self.start_button.configure(text=tt("Start"))
         else:
             self._camera_worker.preview = True
-            self.start_button.configure(text=tt("Stop"))
-            self.update_canvas()
+            self.start_button.configure(text=tt("Pause"))
 
     def update_canvas(self):
-        if self._camera_worker.preview:
+        if self._camera_worker and self._camera_worker.preview:
+            self.start_button["state"] = "normal"
             frame = self._camera_worker.get_frame(False)
             if frame is not None:
                 ratio = self.zoom.get()
                 frame = cv2.cvtColor(cv2.resize(frame, (int(frame.shape[1]/ratio), int(frame.shape[0]/ratio))), cv2.COLOR_BGR2RGB)
                 self.canvas.configure(width=frame.shape[1], height=frame.shape[0])
-                self.image = ImageTk.PhotoImage(image=Image.fromarray(frame))
-                self.canvas.create_image(0, 0, image=self.image, anchor=tk.NW)
-            self.root.after(1, self.update_canvas)
+                self._image = ImageTk.PhotoImage(image=Image.fromarray(frame))
+                if self.canvas_img_id is None:
+                    self.canvas_img_id = self.canvas.create_image(0, 0, image=self._image, anchor=tk.NW)
+                else:
+                    self.canvas.itemconfig(self.canvas_img_id,image=self._image)
+        else:
+            self.start_button["state"] = "disabled"
+            self.start_button.configure(text=tt("Start"))
+
+        self.root.after(1, self.update_canvas)
 
     def save_canvas(self):
         ps = self.canvas.postscript(colormode='color')

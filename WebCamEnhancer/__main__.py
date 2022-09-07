@@ -9,8 +9,6 @@ from WebCamEnhancer.config import Configuration
 import WebCamEnhancer.modules.middleware
 import WebCamEnhancer.modules.filters
 
-from WebCamEnhancer.core.camera import CamerasWorker
-from WebCamEnhancer.gui.preview import WebcamPreview
 from WebCamEnhancer.gui.controler import Controler
 from WebCamEnhancer.gui.settings import Setting
 

@@ -16,16 +16,16 @@ class Setting:
         "language": "en"
     }
 
-    def __init__(self, master=None):
+    def __init__(self, master):
         self.opened = True
         self.config = Configuration.get_custom_config(self.__class__)
         self.master = master
         self._settings = {}
         self.build(master)
 
-    def build(self, master=None):
+    def build(self, master):
         # build ui
-        self.root = tk.Tk() if master is None else tk.Toplevel(master.root)
+        self.root = tk.Toplevel(master.root)
         self.root.configure(height=200, width=200)
         self.root.geometry(self.config["geometry"])
         self.root.title(tt("Webcam Setting"))
@@ -121,8 +121,8 @@ class Setting:
         self.opened = False
         try:
             self.config["geometry"] = self.root.geometry()
+            self.root.destroy()
         except tk.TclError:
             pass
-        self.root.destroy()
 
 Configuration.CUSTOM_CLASSES.append(Setting)
