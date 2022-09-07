@@ -110,3 +110,24 @@ msgstr "Megvalósít"
 #: ../gui/settings.py:57
 msgid "Revert"
 msgstr "Visszaszáll"
+
+msgid "Pause"
+msgstr "Szünet"
+
+msgid "Input Camera device"
+msgstr "Bemeneti kameraeszköz"
+
+msgid "Output Stream device"
+msgstr "Kimeneti adatfolyam -eszköz"
+
+msgid "Prefered width"
+msgstr "Előnyben részesített szélesség"
+
+msgid "Prefered height"
+msgstr "Előnyben részesített magasság"
+
+msgid "Prefered FPS"
+msgstr "Előnyben részesített FPS"
+
+msgid "Language"
+msgstr "Nyelv"

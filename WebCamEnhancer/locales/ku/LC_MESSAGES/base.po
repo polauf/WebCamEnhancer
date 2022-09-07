@@ -110,3 +110,24 @@ msgstr "Bicîanîn"
 #: ../gui/settings.py:57
 msgid "Revert"
 msgstr "Şûndehatin"
+
+msgid "Pause"
+msgstr "Mizdan"
+
+msgid "Input Camera device"
+msgstr "Amûra kamera têkel"
+
+msgid "Output Stream device"
+msgstr "DESTPKA STREAM"
+
+msgid "Prefered width"
+msgstr "Berfirehiya bijare"
+
+msgid "Prefered height"
+msgstr "Bilindahiya bijare"
+
+msgid "Prefered FPS"
+msgstr "FPS tercîh kir"
+
+msgid "Language"
+msgstr "Ziman"

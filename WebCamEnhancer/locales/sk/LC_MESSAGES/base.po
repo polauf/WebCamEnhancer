@@ -110,3 +110,24 @@ msgstr "Zaviesť"
 #: ../gui/settings.py:57
 msgid "Revert"
 msgstr "Prejsť späť"
+
+msgid "Pause"
+msgstr "Pauza"
+
+msgid "Input Camera device"
+msgstr "Vstupné fotoaparát"
+
+msgid "Output Stream device"
+msgstr "Zariadenie výstupného toku"
+
+msgid "Prefered width"
+msgstr "Preferovaná šírka"
+
+msgid "Prefered height"
+msgstr "Preferovaná výška"
+
+msgid "Prefered FPS"
+msgstr "Preferovaný FPS"
+
+msgid "Language"
+msgstr "Jazyk"

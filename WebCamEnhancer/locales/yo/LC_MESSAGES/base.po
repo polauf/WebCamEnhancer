@@ -110,3 +110,24 @@ msgstr "Ṣe"
 #: ../gui/settings.py:57
 msgid "Revert"
 msgstr "Pada"
+
+msgid "Pause"
+msgstr "Sinmi"
+
+msgid "Input Camera device"
+msgstr "Ẹrọ kamẹra titẹ sii"
+
+msgid "Output Stream device"
+msgstr "Ẹrọ ṣiṣan ṣiṣan"
+
+msgid "Prefered width"
+msgstr "Fifẹ gbooro"
+
+msgid "Prefered height"
+msgstr "Iga ti o fẹ"
+
+msgid "Prefered FPS"
+msgstr "Fẹs FPS"
+
+msgid "Language"
+msgstr "Ede"

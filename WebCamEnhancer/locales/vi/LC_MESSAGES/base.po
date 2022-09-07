@@ -110,3 +110,24 @@ msgstr "Thực hiện"
 #: ../gui/settings.py:57
 msgid "Revert"
 msgstr "Hoàn nguyên"
+
+msgid "Pause"
+msgstr "Tạm ngừng"
+
+msgid "Input Camera device"
+msgstr "Thiết bị máy ảnh đầu vào"
+
+msgid "Output Stream device"
+msgstr "Thiết bị luồng đầu ra"
+
+msgid "Prefered width"
+msgstr "Chiều rộng ưa thích"
+
+msgid "Prefered height"
+msgstr "Chiều cao ưa thích"
+
+msgid "Prefered FPS"
+msgstr "FPS ưa thích"
+
+msgid "Language"
+msgstr "Ngôn ngữ"

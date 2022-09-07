@@ -110,3 +110,24 @@ msgstr "ਲਾਗੂ"
 #: ../gui/settings.py:57
 msgid "Revert"
 msgstr "ਵਾਪਸ"
+
+msgid "Pause"
+msgstr "ਵਿਰਾਮ"
+
+msgid "Input Camera device"
+msgstr "ਇੰਪੁੱਟ ਕੈਮਰਾ ਡਿਵਾਈਸ"
+
+msgid "Output Stream device"
+msgstr "ਆਉਟਪੁੱਟ ਸਟ੍ਰੀਮ ਡਿਵਾਈਸ"
+
+msgid "Prefered width"
+msgstr "ਤਰਜੀਹ ਚੌੜਾਈ"
+
+msgid "Prefered height"
+msgstr "ਤਰਜੀਹ ਉਚਾਈ"
+
+msgid "Prefered FPS"
+msgstr "ਤਰਜੀਹ FPS"
+
+msgid "Language"
+msgstr "ਭਾਸ਼ਾ"

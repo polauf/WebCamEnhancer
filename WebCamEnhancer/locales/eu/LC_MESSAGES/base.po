@@ -252,3 +252,24 @@ msgid "Revert"
 
 msgstr "Lehengoratu"
 
+
+msgid "Pause"
+msgstr "Gelditu"
+
+msgid "Input Camera device"
+msgstr "Sarrerako kameraren gailua"
+
+msgid "Output Stream device"
+msgstr "Irteera korronte gailua"
+
+msgid "Prefered width"
+msgstr "Zabalera hobetsia"
+
+msgid "Prefered height"
+msgstr "Hobetsitako altuera"
+
+msgid "Prefered FPS"
+msgstr "Nahiago FPS"
+
+msgid "Language"
+msgstr "Mintzaira"

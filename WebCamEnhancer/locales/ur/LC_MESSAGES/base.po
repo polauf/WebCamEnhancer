@@ -110,3 +110,24 @@ msgstr "نافذ کریں"
 #: ../gui/settings.py:57
 msgid "Revert"
 msgstr "ریورٹ"
+
+msgid "Pause"
+msgstr "توقف"
+
+msgid "Input Camera device"
+msgstr "ان پٹ کیمرا ڈیوائس"
+
+msgid "Output Stream device"
+msgstr "آؤٹ پٹ اسٹریم ڈیوائس"
+
+msgid "Prefered width"
+msgstr "ترجیحی چوڑائی"
+
+msgid "Prefered height"
+msgstr "ترجیحی اونچائی"
+
+msgid "Prefered FPS"
+msgstr "ترجیحی ایف پی ایس"
+
+msgid "Language"
+msgstr "زبان"

@@ -110,3 +110,24 @@ msgstr "Tanteraho"
 #: ../gui/settings.py:57
 msgid "Revert"
 msgstr "hiverina"
+
+msgid "Pause"
+msgstr "Pause"
+
+msgid "Input Camera device"
+msgstr "Fitaovana fampidirana Input"
+
+msgid "Output Stream device"
+msgstr "Fitaovana famoretana"
+
+msgid "Prefered width"
+msgstr "Ny sakany alefa"
+
+msgid "Prefered height"
+msgstr "Ny haavony kokoa"
+
+msgid "Prefered FPS"
+msgstr "FPS safidy"
+
+msgid "Language"
+msgstr "Fiteny"

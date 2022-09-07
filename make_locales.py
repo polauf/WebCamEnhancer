@@ -8,7 +8,7 @@ from WebCamEnhancer.constants import APP_NAME, APP_AUTHOR, APP_VERSION
 from WebCamEnhancer.core.utils import init_gettext
 init_gettext()
 from googletrans import LANGUAGES, Translator
-#from WebCamEnhancer.gui.settings import LANGUAGES
+from copy import deepcopy
 
 tools_path = Path('/usr/lib/python3.10/Tools/i18n/')
 
@@ -41,6 +41,11 @@ def g_translate(fh, lang):
         out.append(line)
     return "".join(out)
 
+codes = []
+with open(there/ 'base.pot','r') as fh:
+    for line in fh.readlines():
+        if line.startswith("msgid"):
+            codes.append(line.split("\"")[1])
 
 for l, name in LANGUAGES.items():
     if l == 'en':
@@ -60,12 +65,27 @@ for l, name in LANGUAGES.items():
         with open(lang_dir / 'base.po','w') as fh:
             fh.write(d)
     else:
-        pass
-        # tryied to merge to add new words. maybe with little bt of more tinkering
-        # os.chdir(lang_dir)
-        # #git merge-file -p <current> <common> <other> > <dest>
-        # os.system(f"touch empty.po")
-        # os.system(f"git merge-file -p base.po empty.po ../../base.pot > test.po")
+        out = []
+        has = deepcopy(codes)
+        with open(lang_dir/ 'base.po') as fh:
+            for line in fh.readlines():
+                if line.startswith("msgid"):
+                    try:
+                        has.remove(line.split("\"")[1])
+                    except ValueError:
+                        pass
+                out.append(line)
+            if has:
+                for code in has:
+                    try:
+                        word = translator.translate(code, src="en",dest=l).text
+                        out.append('\n')
+                        out.append(f"msgid \"{code}\"\n")
+                        out.append(f"msgstr \"{word}\"\n")
+                    except Exception as e:
+                        print(f"Translate not working: {e}: {e.args}")
+        with open(lang_dir/ 'base.po', 'w') as fh:
+            fh.write("".join(out))
 
     os.chdir(lang_dir)
     os.system(f"python {tools_path/'msgfmt.py'} -o base.mo base")

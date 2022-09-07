@@ -252,3 +252,24 @@ msgid "Revert"
 
 msgstr "Rikthehem"
 
+
+msgid "Pause"
+msgstr "Bëj pauzë"
+
+msgid "Input Camera device"
+msgstr "Pajisje e kamerës hyrëse"
+
+msgid "Output Stream device"
+msgstr "Pajisja e rrjedhës së daljes"
+
+msgid "Prefered width"
+msgstr "Gjerësia e preferuar"
+
+msgid "Prefered height"
+msgstr "Lartësia e preferuar"
+
+msgid "Prefered FPS"
+msgstr "FPS të preferuar"
+
+msgid "Language"
+msgstr "Gjuhe"

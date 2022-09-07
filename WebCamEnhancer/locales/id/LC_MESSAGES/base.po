@@ -110,3 +110,24 @@ msgstr "Melaksanakan"
 #: ../gui/settings.py:57
 msgid "Revert"
 msgstr "Kembali"
+
+msgid "Pause"
+msgstr "Berhenti sebentar"
+
+msgid "Input Camera device"
+msgstr "Input perangkat kamera"
+
+msgid "Output Stream device"
+msgstr "Perangkat aliran output"
+
+msgid "Prefered width"
+msgstr "Lebar yang disukai"
+
+msgid "Prefered height"
+msgstr "Tinggi lebih disukai"
+
+msgid "Prefered FPS"
+msgstr "FPS yang disukai"
+
+msgid "Language"
+msgstr "Bahasa"

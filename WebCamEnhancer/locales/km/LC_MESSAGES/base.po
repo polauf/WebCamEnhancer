@@ -110,3 +110,24 @@ msgstr "របតិបត្ដិ"
 #: ../gui/settings.py:57
 msgid "Revert"
 msgstr "រតលប់តោដុចដើម"
+
+msgid "Pause"
+msgstr "បេលឈប់សរមាក"
+
+msgid "Input Camera device"
+msgstr "ឧបករណ៍ភ្ជាប់ម៉ាស៊ីនថតបញ្ចូល"
+
+msgid "Output Stream device"
+msgstr "ឧបករណ៍ចាក់ផ្សាយព័ត៌មាន"
+
+msgid "Prefered width"
+msgstr "ទទឹងដែលពេញចិត្ត"
+
+msgid "Prefered height"
+msgstr "កម្ពស់ដែលពេញចិត្ត"
+
+msgid "Prefered FPS"
+msgstr "FPS ដែលពេញចិត្ត"
+
+msgid "Language"
+msgstr "ផាសា"

@@ -110,3 +110,24 @@ msgstr "Багаж"
 #: ../gui/settings.py:57
 msgid "Revert"
 msgstr "Харих"
+
+msgid "Pause"
+msgstr "Завсарлах"
+
+msgid "Input Camera device"
+msgstr "Instry камерын төхөөрөмж"
+
+msgid "Output Stream device"
+msgstr "Гаралтын урсгалын төхөөрөмж"
+
+msgid "Prefered width"
+msgstr "Илүүд үздэг өргөн"
+
+msgid "Prefered height"
+msgstr "Илүүд үздэг өндөр"
+
+msgid "Prefered FPS"
+msgstr "FPS-ийг илүүд үздэг FPS"
+
+msgid "Language"
+msgstr "Хэл"

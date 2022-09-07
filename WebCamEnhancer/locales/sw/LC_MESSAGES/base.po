@@ -110,3 +110,24 @@ msgstr "Kutekeleza"
 #: ../gui/settings.py:57
 msgid "Revert"
 msgstr "Rejea"
+
+msgid "Pause"
+msgstr "Sitisha"
+
+msgid "Input Camera device"
+msgstr "Kifaa cha Kuingiza Kamera"
+
+msgid "Output Stream device"
+msgstr "Kifaa cha mkondo wa pato"
+
+msgid "Prefered width"
+msgstr "Upana unaopendelea"
+
+msgid "Prefered height"
+msgstr "Urefu uliopendekezwa"
+
+msgid "Prefered FPS"
+msgstr "FPS iliyopendekezwa"
+
+msgid "Language"
+msgstr "Lugha"

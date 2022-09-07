@@ -110,3 +110,24 @@ msgstr "અમલમાં મૂકવું"
 #: ../gui/settings.py:57
 msgid "Revert"
 msgstr "પાછું બદલવું"
+
+msgid "Pause"
+msgstr "તલવાર"
+
+msgid "Input Camera device"
+msgstr "ઇનપુટ કેમેરા ઉપકરણ"
+
+msgid "Output Stream device"
+msgstr "આઉટપુટ ઉપકરણ"
+
+msgid "Prefered width"
+msgstr "પસંદીદા પહોળાઈ"
+
+msgid "Prefered height"
+msgstr "પસંદગીની .ંચાઈ"
+
+msgid "Prefered FPS"
+msgstr "પસંદીદા એફ.પી.એસ."
+
+msgid "Language"
+msgstr "ભાષા"

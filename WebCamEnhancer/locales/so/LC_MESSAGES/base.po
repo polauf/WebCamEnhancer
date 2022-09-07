@@ -110,3 +110,24 @@ msgstr "Qalabayn"
 #: ../gui/settings.py:57
 msgid "Revert"
 msgstr "Dib ugu laabasho"
+
+msgid "Pause"
+msgstr "Hakin"
+
+msgid "Input Camera device"
+msgstr "Aaladda kaameeraha gelitaanka"
+
+msgid "Output Stream device"
+msgstr "Qalabka wax soo saarka"
+
+msgid "Prefered width"
+msgstr "Ballacyada doorbiday"
+
+msgid "Prefered height"
+msgstr "Dhererkii la doorbiday"
+
+msgid "Prefered FPS"
+msgstr "FPS doorbiday"
+
+msgid "Language"
+msgstr "Af"

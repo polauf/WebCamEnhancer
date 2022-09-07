@@ -110,3 +110,24 @@ msgstr "Υλοποιώ, εφαρμόζω"
 #: ../gui/settings.py:57
 msgid "Revert"
 msgstr "Επαναστρέφω"
+
+msgid "Pause"
+msgstr "Παύση"
+
+msgid "Input Camera device"
+msgstr "Συσκευή κάμερας εισόδου"
+
+msgid "Output Stream device"
+msgstr "Συσκευή ροής εξόδου"
+
+msgid "Prefered width"
+msgstr "Προτιμώμενο πλάτος"
+
+msgid "Prefered height"
+msgstr "Προτιμώμενο ύψος"
+
+msgid "Prefered FPS"
+msgstr "Προτιμώμενο FPS"
+
+msgid "Language"
+msgstr "Γλώσσα"

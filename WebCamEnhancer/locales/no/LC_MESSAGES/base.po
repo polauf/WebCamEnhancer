@@ -110,3 +110,24 @@ msgstr "Implementere"
 #: ../gui/settings.py:57
 msgid "Revert"
 msgstr "Gå tilbake"
+
+msgid "Pause"
+msgstr "Pause"
+
+msgid "Input Camera device"
+msgstr "Inngangskameraenhet"
+
+msgid "Output Stream device"
+msgstr "Utgangsstrømmenhet"
+
+msgid "Prefered width"
+msgstr "Foretrukket bredde"
+
+msgid "Prefered height"
+msgstr "Foretrukket høyde"
+
+msgid "Prefered FPS"
+msgstr "Foretrukket FPS"
+
+msgid "Language"
+msgstr "Språk"

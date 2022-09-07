@@ -252,3 +252,24 @@ msgid "Revert"
 
 msgstr "አዝናኝ"
 
+
+msgid "Pause"
+msgstr "ለአፍታ አቁም"
+
+msgid "Input Camera device"
+msgstr "የግቤት ካሜራ መሣሪያ"
+
+msgid "Output Stream device"
+msgstr "የውጤት ፍሰት መሣሪያ"
+
+msgid "Prefered width"
+msgstr "ተመራጭ ስፋት"
+
+msgid "Prefered height"
+msgstr "ተመራጭ ቁመት"
+
+msgid "Prefered FPS"
+msgstr "ተመራጭ FPS"
+
+msgid "Language"
+msgstr "ቋንቋ"

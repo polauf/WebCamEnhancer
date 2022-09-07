@@ -110,3 +110,24 @@ msgstr "Amalga oshirmoq"
 #: ../gui/settings.py:57
 msgid "Revert"
 msgstr "Qaytarmoq"
+
+msgid "Pause"
+msgstr "Pauza"
+
+msgid "Input Camera device"
+msgstr "Kamera Kamera qurilmasi"
+
+msgid "Output Stream device"
+msgstr "Chiqish oqimi qurilmasi"
+
+msgid "Prefered width"
+msgstr "Afzal kenglik"
+
+msgid "Prefered height"
+msgstr "Afzal ko'rgan balandlik"
+
+msgid "Prefered FPS"
+msgstr "Afzal ko'rilgan FPS"
+
+msgid "Language"
+msgstr "Til"

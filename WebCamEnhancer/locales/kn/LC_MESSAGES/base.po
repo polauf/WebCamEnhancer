@@ -110,3 +110,24 @@ msgstr "ಕಾರ್ಯರೂಪಕ್ಕೆ ತರು"
 #: ../gui/settings.py:57
 msgid "Revert"
 msgstr "ಮರಳು"
+
+msgid "Pause"
+msgstr "ವಿರಾಮ"
+
+msgid "Input Camera device"
+msgstr "ಇನ್ಪುಟ್ ಕ್ಯಾಮೆರಾ ಸಾಧನ"
+
+msgid "Output Stream device"
+msgstr "Stree ಟ್ಪುಟ್ ಸ್ಟ್ರೀಮ್ ಸಾಧನ"
+
+msgid "Prefered width"
+msgstr "ಆದ್ಯತೆಯ ಅಗಲ"
+
+msgid "Prefered height"
+msgstr "ಆದ್ಯತೆಯ ಎತ್ತರ"
+
+msgid "Prefered FPS"
+msgstr "ಆದ್ಯತೆಯ ಎಫ್‌ಪಿಎಸ್"
+
+msgid "Language"
+msgstr "ಭಾಷೆ"

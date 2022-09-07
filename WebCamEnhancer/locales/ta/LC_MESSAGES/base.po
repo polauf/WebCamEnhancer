@@ -110,3 +110,24 @@ msgstr "செயல்படுத்தவும்"
 #: ../gui/settings.py:57
 msgid "Revert"
 msgstr "திரும்பவும்"
+
+msgid "Pause"
+msgstr "இடைநிறுத்தம்"
+
+msgid "Input Camera device"
+msgstr "உள்ளீட்டு கேமரா சாதனம்"
+
+msgid "Output Stream device"
+msgstr "வெளியீட்டு ஸ்ட்ரீம் சாதனம்"
+
+msgid "Prefered width"
+msgstr "விருப்பமான அகலம்"
+
+msgid "Prefered height"
+msgstr "விருப்பமான உயரம்"
+
+msgid "Prefered FPS"
+msgstr "விருப்பமான FPS"
+
+msgid "Language"
+msgstr "மொழி"

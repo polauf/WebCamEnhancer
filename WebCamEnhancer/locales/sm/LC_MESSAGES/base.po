@@ -110,3 +110,24 @@ msgstr "Faʻatinoga"
 #: ../gui/settings.py:57
 msgid "Revert"
 msgstr "Toe foi"
+
+msgid "Pause"
+msgstr "Malolo"
+
+msgid "Input Camera device"
+msgstr "Mea faigaluega mea faigaluega"
+
+msgid "Output Stream device"
+msgstr "O le masini i fafo atu"
+
+msgid "Prefered width"
+msgstr "Sili ona fiafia"
+
+msgid "Prefered height"
+msgstr "Fiafia maualuga"
+
+msgid "Prefered FPS"
+msgstr "Sili ona fiafia i ai"
+
+msgid "Language"
+msgstr "Gagana"

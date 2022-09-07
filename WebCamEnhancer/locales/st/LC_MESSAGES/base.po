@@ -110,3 +110,24 @@ msgstr "Ho kenya tšebetsong"
 #: ../gui/settings.py:57
 msgid "Revert"
 msgstr "Khutlela"
+
+msgid "Pause"
+msgstr "Khefutsa"
+
+msgid "Input Camera device"
+msgstr "Sesebelisoa sa kh'amera ea ho kenya"
+
+msgid "Output Stream device"
+msgstr "Sesebelisoa sa ho hlahisa thepa"
+
+msgid "Prefered width"
+msgstr "Bophara bo ratoang"
+
+msgid "Prefered height"
+msgstr "Bophahamo bo ratehang"
+
+msgid "Prefered FPS"
+msgstr "O ratile FPS"
+
+msgid "Language"
+msgstr "Puo"

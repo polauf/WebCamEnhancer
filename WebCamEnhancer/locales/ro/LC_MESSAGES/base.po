@@ -110,3 +110,24 @@ msgstr "Pune în aplicare"
 #: ../gui/settings.py:57
 msgid "Revert"
 msgstr "Reveni"
+
+msgid "Pause"
+msgstr "Pauză"
+
+msgid "Input Camera device"
+msgstr "Dispozitiv de introducere a camerei"
+
+msgid "Output Stream device"
+msgstr "Dispozitiv de flux de ieșire"
+
+msgid "Prefered width"
+msgstr "Lățimea preferată"
+
+msgid "Prefered height"
+msgstr "Înălțimea preferată"
+
+msgid "Prefered FPS"
+msgstr "FPS preferat"
+
+msgid "Language"
+msgstr "Limba"

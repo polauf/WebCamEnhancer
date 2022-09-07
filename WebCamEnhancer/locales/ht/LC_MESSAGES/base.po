@@ -110,3 +110,24 @@ msgstr "Akonpli"
 #: ../gui/settings.py:57
 msgid "Revert"
 msgstr "Retounen"
+
+msgid "Pause"
+msgstr "Pòze"
+
+msgid "Input Camera device"
+msgstr "Aparèy kamera opinyon"
+
+msgid "Output Stream device"
+msgstr "Sòti aparèy kouran"
+
+msgid "Prefered width"
+msgstr "Lajè prefere"
+
+msgid "Prefered height"
+msgstr "Wotè prefere"
+
+msgid "Prefered FPS"
+msgstr "FPS prefere"
+
+msgid "Language"
+msgstr "Lang"

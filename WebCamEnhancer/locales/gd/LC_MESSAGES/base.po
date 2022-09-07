@@ -110,3 +110,24 @@ msgstr "Cuir an gnìomh"
 #: ../gui/settings.py:57
 msgid "Revert"
 msgstr "Revert"
+
+msgid "Pause"
+msgstr "Stad"
+
+msgid "Input Camera device"
+msgstr "Inneal camara cuir a-steach"
+
+msgid "Output Stream device"
+msgstr "Inneal tarraing toraidh"
+
+msgid "Prefered width"
+msgstr "Leud bèithe"
+
+msgid "Prefered height"
+msgstr "An àirde as fheàrr leotha"
+
+msgid "Prefered FPS"
+msgstr "Bps bps"
+
+msgid "Language"
+msgstr "Cànan"

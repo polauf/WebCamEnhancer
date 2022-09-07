@@ -252,3 +252,24 @@ msgid "Revert"
 
 msgstr "Qayıtmaq"
 
+
+msgid "Pause"
+msgstr "Fasilə vermək"
+
+msgid "Input Camera device"
+msgstr "Giriş kamera cihazı"
+
+msgid "Output Stream device"
+msgstr "Çıxış axın cihazı"
+
+msgid "Prefered width"
+msgstr "Üstünlük"
+
+msgid "Prefered height"
+msgstr "Üstün hündürlüyü"
+
+msgid "Prefered FPS"
+msgstr "FPS-ə üstünlük verildi"
+
+msgid "Language"
+msgstr "Dil"

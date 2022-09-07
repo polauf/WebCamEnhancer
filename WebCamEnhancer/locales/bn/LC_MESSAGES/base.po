@@ -141,3 +141,24 @@ msgstr ""
 msgid "Revert"
 msgstr ""
 
+
+msgid "Pause"
+msgstr "বিরতি"
+
+msgid "Input Camera device"
+msgstr "ইনপুট ক্যামেরা ডিভাইস"
+
+msgid "Output Stream device"
+msgstr "আউটপুট স্ট্রিম ডিভাইস"
+
+msgid "Prefered width"
+msgstr "পছন্দসই প্রস্থ"
+
+msgid "Prefered height"
+msgstr "পছন্দসই উচ্চতা"
+
+msgid "Prefered FPS"
+msgstr "পছন্দসই এফপিএস"
+
+msgid "Language"
+msgstr "ভাষা"

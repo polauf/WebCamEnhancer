@@ -110,3 +110,24 @@ msgstr "అమలు"
 #: ../gui/settings.py:57
 msgid "Revert"
 msgstr "తిరగండి"
+
+msgid "Pause"
+msgstr "పాజ్"
+
+msgid "Input Camera device"
+msgstr "ఇన్పుట్ కెమెరా పరికరం"
+
+msgid "Output Stream device"
+msgstr "అవుట్పుట్ స్ట్రీమ్ పరికరం"
+
+msgid "Prefered width"
+msgstr "ఇష్టపడే వెడల్పు"
+
+msgid "Prefered height"
+msgstr "ఇష్టపడే ఎత్తు"
+
+msgid "Prefered FPS"
+msgstr "ఇష్టపడే FPS"
+
+msgid "Language"
+msgstr "భాష"

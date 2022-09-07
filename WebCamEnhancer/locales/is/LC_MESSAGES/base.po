@@ -110,3 +110,24 @@ msgstr "Framkvæmd"
 #: ../gui/settings.py:57
 msgid "Revert"
 msgstr "Snúa aftur"
+
+msgid "Pause"
+msgstr "Hlé"
+
+msgid "Input Camera device"
+msgstr "Inntak myndavélartæki"
+
+msgid "Output Stream device"
+msgstr "Output Stream tæki"
+
+msgid "Prefered width"
+msgstr "Æskileg breidd"
+
+msgid "Prefered height"
+msgstr "Æskileg hæð"
+
+msgid "Prefered FPS"
+msgstr "Valinn fps"
+
+msgid "Language"
+msgstr "Tungumál"

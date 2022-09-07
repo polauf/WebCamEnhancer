@@ -252,3 +252,24 @@ msgid "Revert"
 
 msgstr "Tagasi pöörduma"
 
+
+msgid "Pause"
+msgstr "Paus"
+
+msgid "Input Camera device"
+msgstr "Sisestage kaamera seade"
+
+msgid "Output Stream device"
+msgstr "Väljundvoo seade"
+
+msgid "Prefered width"
+msgstr "Eelistatud laius"
+
+msgid "Prefered height"
+msgstr "Eelistatud kõrgus"
+
+msgid "Prefered FPS"
+msgstr "Eelistatud FPS"
+
+msgid "Language"
+msgstr "Keel"

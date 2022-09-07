@@ -110,3 +110,24 @@ msgstr "埋め込む"
 #: ../gui/settings.py:57
 msgid "Revert"
 msgstr "戻る"
+
+msgid "Pause"
+msgstr "一時停止"
+
+msgid "Input Camera device"
+msgstr "入力カメラデバイス"
+
+msgid "Output Stream device"
+msgstr "出力ストリームデバイス"
+
+msgid "Prefered width"
+msgstr "優先幅"
+
+msgid "Prefered height"
+msgstr "好ましい高さ"
+
+msgid "Prefered FPS"
+msgstr "優先fps"
+
+msgid "Language"
+msgstr "言語"

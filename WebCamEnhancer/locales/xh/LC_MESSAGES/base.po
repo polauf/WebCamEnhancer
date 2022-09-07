@@ -110,3 +110,24 @@ msgstr "Ukumiliselwa"
 #: ../gui/settings.py:57
 msgid "Revert"
 msgstr "Buyisela"
+
+msgid "Pause"
+msgstr "Nquma"
+
+msgid "Input Camera device"
+msgstr "Isixhobo seMemera yeNqaku"
+
+msgid "Output Stream device"
+msgstr "Isixhobo semveliso yemveliso"
+
+msgid "Prefered width"
+msgstr "Ububanzi obukhethiweyo"
+
+msgid "Prefered height"
+msgstr "Ukuphakama okukhethiweyo"
+
+msgid "Prefered FPS"
+msgstr "I-FPS ekhethiweyo"
+
+msgid "Language"
+msgstr "Ulwimi"

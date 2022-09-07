@@ -124,3 +124,36 @@ msgstr "Ulož snímek jako"
 msgid "Czech"
 msgstr "Čeština"
 
+
+msgid "Pause"
+msgstr "Pauza"
+
+msgid "Webcam Setting"
+msgstr "Nastavení webové kamery"
+
+msgid "Main config"
+msgstr "Hlavní konfigurace"
+
+msgid "Input Camera device"
+msgstr "Vstupní kamerové zařízení"
+
+msgid "Output Stream device"
+msgstr "Výstupní kamerové zařízení"
+
+msgid "Prefered width"
+msgstr "Preferovaná šířka"
+
+msgid "Prefered height"
+msgstr "Preferovaná výška"
+
+msgid "Prefered FPS"
+msgstr "Preferované FPS"
+
+msgid "Language"
+msgstr "Jazyk"
+
+msgid "Implement"
+msgstr "Budiž"
+
+msgid "Revert"
+msgstr "Vrátit"

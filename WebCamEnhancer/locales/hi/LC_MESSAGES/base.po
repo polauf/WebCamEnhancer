@@ -110,3 +110,24 @@ msgstr "अमल में लाना"
 #: ../gui/settings.py:57
 msgid "Revert"
 msgstr "फिर लौट आना"
+
+msgid "Pause"
+msgstr "रोकना"
+
+msgid "Input Camera device"
+msgstr "इनपुट कैमरा युक्ति"
+
+msgid "Output Stream device"
+msgstr "आउटपुट स्ट्रीम डिवाइस"
+
+msgid "Prefered width"
+msgstr "पसंदीदा चौड़ाई"
+
+msgid "Prefered height"
+msgstr "पसंदीदा ऊंचाई"
+
+msgid "Prefered FPS"
+msgstr "पसंदीदा एफपीएस"
+
+msgid "Language"
+msgstr "भाषा"

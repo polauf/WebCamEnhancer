@@ -110,3 +110,24 @@ msgstr "Ишке ашыруу"
 #: ../gui/settings.py:57
 msgid "Revert"
 msgstr "Кайтаруу"
+
+msgid "Pause"
+msgstr "Тыным"
+
+msgid "Input Camera device"
+msgstr "Киргизүүчү камера шайманы"
+
+msgid "Output Stream device"
+msgstr "Чыгуу агымы"
+
+msgid "Prefered width"
+msgstr "Артыкчылыктуу туурасы"
+
+msgid "Prefered height"
+msgstr "Артыкчылыктуу бийиктик"
+
+msgid "Prefered FPS"
+msgstr "Артыкчылыктуу FPS"
+
+msgid "Language"
+msgstr "Тил"

@@ -110,3 +110,24 @@ msgstr "ליישם"
 #: ../gui/settings.py:57
 msgid "Revert"
 msgstr "לַחֲזוֹר"
+
+msgid "Pause"
+msgstr "הַפסָקָה"
+
+msgid "Input Camera device"
+msgstr "התקן מצלמת קלט"
+
+msgid "Output Stream device"
+msgstr "מכשיר זרם פלט"
+
+msgid "Prefered width"
+msgstr "רוחב מועדף"
+
+msgid "Prefered height"
+msgstr "גובה מועדף"
+
+msgid "Prefered FPS"
+msgstr "FPS מועדף"
+
+msgid "Language"
+msgstr "שפה"

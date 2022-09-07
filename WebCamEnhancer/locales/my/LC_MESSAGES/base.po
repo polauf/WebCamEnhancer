@@ -110,3 +110,24 @@ msgstr "ကရိယာတန်းဆာ"
 #: ../gui/settings.py:57
 msgid "Revert"
 msgstr "နောက်ပြန်"
+
+msgid "Pause"
+msgstr "ခေတ္တရပ်ဆိုင်းခြင်း"
+
+msgid "Input Camera device"
+msgstr "Input ကင်မရာကိရိယာကိုထည့်သွင်းပါ"
+
+msgid "Output Stream device"
+msgstr "output ကိုစီးကိရိယာ"
+
+msgid "Prefered width"
+msgstr "ပိုမိုနှစ်သက်သောအကျယ်"
+
+msgid "Prefered height"
+msgstr "ဦး စားပေးအမြင့်"
+
+msgid "Prefered FPS"
+msgstr "ပိုမိုနှစ်သက်သော fps"
+
+msgid "Language"
+msgstr "ဘာသာစကား"

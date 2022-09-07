@@ -110,3 +110,24 @@ msgstr "پیاده سازی"
 #: ../gui/settings.py:57
 msgid "Revert"
 msgstr "بازگشت"
+
+msgid "Pause"
+msgstr "مکث"
+
+msgid "Input Camera device"
+msgstr "دستگاه دوربین ورودی"
+
+msgid "Output Stream device"
+msgstr "دستگاه جریان خروجی"
+
+msgid "Prefered width"
+msgstr "عرض ترجیحی"
+
+msgid "Prefered height"
+msgstr "ارتفاع ترجیحی"
+
+msgid "Prefered FPS"
+msgstr "fps ترجیحی"
+
+msgid "Language"
+msgstr "زبان"

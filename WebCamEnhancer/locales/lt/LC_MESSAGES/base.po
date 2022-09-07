@@ -110,3 +110,24 @@ msgstr "Įgyvendinti"
 #: ../gui/settings.py:57
 msgid "Revert"
 msgstr "Sugrąžinti"
+
+msgid "Pause"
+msgstr "Pauzė"
+
+msgid "Input Camera device"
+msgstr "Įvesties fotoaparato įrenginys"
+
+msgid "Output Stream device"
+msgstr "Išvesties srauto įrenginys"
+
+msgid "Prefered width"
+msgstr "Pageidaujamas plotis"
+
+msgid "Prefered height"
+msgstr "Pageidaujamas ūgis"
+
+msgid "Prefered FPS"
+msgstr "Pageidaujami FPS"
+
+msgid "Language"
+msgstr "Kalba"

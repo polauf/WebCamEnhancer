@@ -110,3 +110,24 @@ msgstr "Nerapkeun"
 #: ../gui/settings.py:57
 msgid "Revert"
 msgstr "Malikeun"
+
+msgid "Pause"
+msgstr "Reureuh sakeudeung"
+
+msgid "Input Camera device"
+msgstr "Input Alat Unduhan"
+
+msgid "Output Stream device"
+msgstr "Alat aliran output"
+
+msgid "Prefered width"
+msgstr "Lebar langkung pikaresep"
+
+msgid "Prefered height"
+msgstr "Jangkungna pikaresep"
+
+msgid "Prefered FPS"
+msgstr "Fps pikaresep"
+
+msgid "Language"
+msgstr "Basana"

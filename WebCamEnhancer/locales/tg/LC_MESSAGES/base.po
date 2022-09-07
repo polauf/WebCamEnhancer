@@ -110,3 +110,24 @@ msgstr "Татбищ кардан"
 #: ../gui/settings.py:57
 msgid "Revert"
 msgstr "Баргаштан"
+
+msgid "Pause"
+msgstr "Ист"
+
+msgid "Input Camera device"
+msgstr "Дастгоҳи камераи ворид"
+
+msgid "Output Stream device"
+msgstr "Дастгоҳи ҷараёни баромади баромад"
+
+msgid "Prefered width"
+msgstr "Васеъгии афзалиятнок"
+
+msgid "Prefered height"
+msgstr "Баландии бартарӣ"
+
+msgid "Prefered FPS"
+msgstr "FPS PRICTER"
+
+msgid "Language"
+msgstr "Забон"

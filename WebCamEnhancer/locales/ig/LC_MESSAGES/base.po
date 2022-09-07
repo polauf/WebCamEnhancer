@@ -110,3 +110,24 @@ msgstr "Ime eme"
 #: ../gui/settings.py:57
 msgid "Revert"
 msgstr "Biaghachi"
+
+msgid "Pause"
+msgstr "Kwusi"
+
+msgid "Input Camera device"
+msgstr "Ngwaọrụ igwefoto Input"
+
+msgid "Output Stream device"
+msgstr "Ngwaọrụ iyi"
+
+msgid "Prefered width"
+msgstr "Obosara dị obosara"
+
+msgid "Prefered height"
+msgstr "Dị elu dị elu"
+
+msgid "Prefered FPS"
+msgstr "FPS FOTEDED"
+
+msgid "Language"
+msgstr "Asusu"

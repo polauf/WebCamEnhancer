@@ -110,3 +110,24 @@ msgstr "നടപ്പിലാക്കുക"
 #: ../gui/settings.py:57
 msgid "Revert"
 msgstr "തിരിച്ചയയ്ക്കുക"
+
+msgid "Pause"
+msgstr "വിരാമമിടുക"
+
+msgid "Input Camera device"
+msgstr "ക്യാമറ ഉപകരണം ഇൻപുട്ട് ചെയ്യുക"
+
+msgid "Output Stream device"
+msgstr "Put ട്ട്പുട്ട് സ്ട്രീം ഉപകരണം"
+
+msgid "Prefered width"
+msgstr "തിരഞ്ഞെടുത്ത വീതി"
+
+msgid "Prefered height"
+msgstr "തിരഞ്ഞെടുത്ത ഉയരം"
+
+msgid "Prefered FPS"
+msgstr "തിരഞ്ഞെടുത്ത എഫ്പിഎസ്"
+
+msgid "Language"
+msgstr "ഭാഷ"

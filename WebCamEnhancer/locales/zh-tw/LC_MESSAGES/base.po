@@ -252,3 +252,24 @@ msgid "Revert"
 
 msgstr "恢復"
 
+
+msgid "Pause"
+msgstr "暫停"
+
+msgid "Input Camera device"
+msgstr "輸入攝像頭設備"
+
+msgid "Output Stream device"
+msgstr "輸出流設備"
+
+msgid "Prefered width"
+msgstr "首選寬度"
+
+msgid "Prefered height"
+msgstr "首選高度"
+
+msgid "Prefered FPS"
+msgstr "首選FPS"
+
+msgid "Language"
+msgstr "語"

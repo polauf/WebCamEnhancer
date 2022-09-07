@@ -110,3 +110,24 @@ msgstr "ປະຕິບັດການ"
 #: ../gui/settings.py:57
 msgid "Revert"
 msgstr "ສົ່ງລາງວັນໄດ້"
+
+msgid "Pause"
+msgstr "ຢຸດ​ຊົ່ວ​ຄາວ"
+
+msgid "Input Camera device"
+msgstr "ອຸປະກອນກ້ອງເຂົ້າ"
+
+msgid "Output Stream device"
+msgstr "ອຸປະກອນສາຍນ້ໍາສົ່ງອອກ"
+
+msgid "Prefered width"
+msgstr "ຄວາມກວ້າງທີ່ຕ້ອງການ"
+
+msgid "Prefered height"
+msgstr "ຄວາມສູງທີ່ມັກ"
+
+msgid "Prefered FPS"
+msgstr "fps ທີ່ຕ້ອງການ"
+
+msgid "Language"
+msgstr "ພາສາ"

@@ -252,3 +252,24 @@ msgid "Revert"
 
 msgstr "Vende tilbage"
 
+
+msgid "Pause"
+msgstr "Pause"
+
+msgid "Input Camera device"
+msgstr "Input kameraenhed"
+
+msgid "Output Stream device"
+msgstr "Output Stream Device"
+
+msgid "Prefered width"
+msgstr "Foretrukket bredde"
+
+msgid "Prefered height"
+msgstr "Foretrukket højde"
+
+msgid "Prefered FPS"
+msgstr "Foretrukket FPS"
+
+msgid "Language"
+msgstr "Sprog"

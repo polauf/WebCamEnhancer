@@ -110,3 +110,24 @@ msgstr "Kuita"
 #: ../gui/settings.py:57
 msgid "Revert"
 msgstr "Dzokera"
+
+msgid "Pause"
+msgstr "Kumbomira"
+
+msgid "Input Camera device"
+msgstr "Input kamera kamera"
+
+msgid "Output Stream device"
+msgstr "Output STEAM Chigadzirwa"
+
+msgid "Prefered width"
+msgstr "Yakasarudzika Upamhi"
+
+msgid "Prefered height"
+msgstr "Kureba Kureba"
+
+msgid "Prefered FPS"
+msgstr "Inoda FPS"
+
+msgid "Language"
+msgstr "Mutauro"

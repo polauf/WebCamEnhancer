@@ -110,3 +110,24 @@ msgstr "ක්රියාත්මක කිරීම"
 #: ../gui/settings.py:57
 msgid "Revert"
 msgstr "ආපසු යන්න"
+
+msgid "Pause"
+msgstr "විරාමය"
+
+msgid "Input Camera device"
+msgstr "ආදාන කැමරා උපාංගය"
+
+msgid "Output Stream device"
+msgstr "නිමැවුම් ප්රවාහ උපාංගය"
+
+msgid "Prefered width"
+msgstr "කැමති පළල"
+
+msgid "Prefered height"
+msgstr "කැමති උස"
+
+msgid "Prefered FPS"
+msgstr "කැමති fps"
+
+msgid "Language"
+msgstr "භාෂාව"

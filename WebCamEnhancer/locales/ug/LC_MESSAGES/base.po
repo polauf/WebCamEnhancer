@@ -110,3 +110,24 @@ msgstr "ئەمەلىيلەشتۈرۈش"
 #: ../gui/settings.py:57
 msgid "Revert"
 msgstr "قايتىش"
+
+msgid "Pause"
+msgstr "توختاپ"
+
+msgid "Input Camera device"
+msgstr "كامېرا ئۈسكۈنىسى"
+
+msgid "Output Stream device"
+msgstr "چىقىرىش ئېكىسپورت ئۈسكۈنىسى"
+
+msgid "Prefered width"
+msgstr "ياقتۇرىدىغان كەڭلىك"
+
+msgid "Prefered height"
+msgstr "ياخشى كۆرىدىغان ئېگىزلىك"
+
+msgid "Prefered FPS"
+msgstr "Fopsed fps"
+
+msgid "Language"
+msgstr "تىل"

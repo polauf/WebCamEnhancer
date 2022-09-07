@@ -252,3 +252,24 @@ msgid "Revert"
 
 msgstr "Vratiti se"
 
+
+msgid "Pause"
+msgstr "Pauza"
+
+msgid "Input Camera device"
+msgstr "Uređaj za unos kamere"
+
+msgid "Output Stream device"
+msgstr "Uređaj izlaza"
+
+msgid "Prefered width"
+msgstr "Preferirana širina"
+
+msgid "Prefered height"
+msgstr "Preferirana visina"
+
+msgid "Prefered FPS"
+msgstr "Preferirani fps"
+
+msgid "Language"
+msgstr "Jezik"

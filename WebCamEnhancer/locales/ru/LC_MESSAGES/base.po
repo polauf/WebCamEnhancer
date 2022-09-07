@@ -110,3 +110,24 @@ msgstr "Осуществлять"
 #: ../gui/settings.py:57
 msgid "Revert"
 msgstr "Возвращаться"
+
+msgid "Pause"
+msgstr "Пауза"
+
+msgid "Input Camera device"
+msgstr "Введите устройство камеры"
+
+msgid "Output Stream device"
+msgstr "Устройство потока вывода"
+
+msgid "Prefered width"
+msgstr "Предпочтительная ширина"
+
+msgid "Prefered height"
+msgstr "Предпочтительная высота"
+
+msgid "Prefered FPS"
+msgstr "Предпочтительный FPS"
+
+msgid "Language"
+msgstr "Язык"

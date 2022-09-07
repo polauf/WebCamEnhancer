@@ -110,3 +110,24 @@ msgstr "Ëm de- ëmsetzen"
 #: ../gui/settings.py:57
 msgid "Revert"
 msgstr "Z'ersetzen"
+
+msgid "Pause"
+msgstr "Posementéngschtste"
+
+msgid "Input Camera device"
+msgstr "Input Kamera Apparat"
+
+msgid "Output Stream device"
+msgstr "Ausgab Stream Apparat"
+
+msgid "Prefered width"
+msgstr "Präventiounsblatz"
+
+msgid "Prefered height"
+msgstr "Preferreg Héicht"
+
+msgid "Prefered FPS"
+msgstr "Preferenz FPS"
+
+msgid "Language"
+msgstr "Sprooche"

@@ -110,3 +110,24 @@ msgstr "Орындау"
 #: ../gui/settings.py:57
 msgid "Revert"
 msgstr "Қайту"
+
+msgid "Pause"
+msgstr "Ұзіліс"
+
+msgid "Input Camera device"
+msgstr "Камера құрылғысы"
+
+msgid "Output Stream device"
+msgstr "Шығу ағынының құрылғысы"
+
+msgid "Prefered width"
+msgstr "Қалаулы ені"
+
+msgid "Prefered height"
+msgstr "Артықшылықты биіктік"
+
+msgid "Prefered FPS"
+msgstr "FPS артықшылықты"
+
+msgid "Language"
+msgstr "Тіл"

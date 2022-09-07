@@ -252,3 +252,24 @@ msgid "Revert"
 
 msgstr "Mobalik"
 
+
+msgid "Pause"
+msgstr "Mohunong"
+
+msgid "Input Camera device"
+msgstr "Ang aparato sa input camera"
+
+msgid "Output Stream device"
+msgstr "Output Stream Device"
+
+msgid "Prefered width"
+msgstr "Gipili nga gilapdon"
+
+msgid "Prefered height"
+msgstr "Gipili nga Taas"
+
+msgid "Prefered FPS"
+msgstr "Gipili nga FPS"
+
+msgid "Language"
+msgstr "Sinultihan"

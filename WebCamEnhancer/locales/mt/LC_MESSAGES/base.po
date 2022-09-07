@@ -110,3 +110,24 @@ msgstr "Implimentat"
 #: ../gui/settings.py:57
 msgid "Revert"
 msgstr "Jerġa 'lura"
+
+msgid "Pause"
+msgstr "Pawża"
+
+msgid "Input Camera device"
+msgstr "Apparat tal-kamera tal-input"
+
+msgid "Output Stream device"
+msgstr "Apparat tal-fluss tal-ħruġ"
+
+msgid "Prefered width"
+msgstr "Wisa 'preferuta"
+
+msgid "Prefered height"
+msgstr "Għoli preferut"
+
+msgid "Prefered FPS"
+msgstr "Fps preferuti"
+
+msgid "Language"
+msgstr "Lingwa"

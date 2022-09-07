@@ -110,3 +110,24 @@ msgstr "Tapasse"
 #: ../gui/settings.py:57
 msgid "Revert"
 msgstr "Weromfalle"
+
+msgid "Pause"
+msgstr "Skoft"
+
+msgid "Input Camera device"
+msgstr "Ynfier kamera-apparaat"
+
+msgid "Output Stream device"
+msgstr "Útfier stream apparaat"
+
+msgid "Prefered width"
+msgstr "Foarkar breedte"
+
+msgid "Prefered height"
+msgstr "Foarkar hichte"
+
+msgid "Prefered FPS"
+msgstr "Foarkar FPS"
+
+msgid "Language"
+msgstr "Taal"

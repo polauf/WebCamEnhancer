@@ -110,3 +110,24 @@ msgstr "Ieviests"
 #: ../gui/settings.py:57
 msgid "Revert"
 msgstr "Atgriezties"
+
+msgid "Pause"
+msgstr "Pauze"
+
+msgid "Input Camera device"
+msgstr "Ievades kameras ierīce"
+
+msgid "Output Stream device"
+msgstr "Izvades straumes ierīce"
+
+msgid "Prefered width"
+msgstr "Vēlamais platums"
+
+msgid "Prefered height"
+msgstr "Vēlamais augstums"
+
+msgid "Prefered FPS"
+msgstr "Vēlamais FPS"
+
+msgid "Language"
+msgstr "Valoda"

@@ -110,3 +110,24 @@ msgstr "Wprowadzić w życie"
 #: ../gui/settings.py:57
 msgid "Revert"
 msgstr "Odwracać"
+
+msgid "Pause"
+msgstr "Pauza"
+
+msgid "Input Camera device"
+msgstr "Wejście urządzenia aparatu"
+
+msgid "Output Stream device"
+msgstr "Wyjściowe urządzenie strumienia"
+
+msgid "Prefered width"
+msgstr "Preferowana szerokość"
+
+msgid "Prefered height"
+msgstr "Preferowana wysokość"
+
+msgid "Prefered FPS"
+msgstr "Preferowane FPS"
+
+msgid "Language"
+msgstr "Język"

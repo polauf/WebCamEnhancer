@@ -110,3 +110,24 @@ msgstr "پلي کول"
 #: ../gui/settings.py:57
 msgid "Revert"
 msgstr "بيرته وګرځوئ"
+
+msgid "Pause"
+msgstr "وقفه"
+
+msgid "Input Camera device"
+msgstr "د ننوت کیمرې وسیله"
+
+msgid "Output Stream device"
+msgstr "د بریښنا جریان آله"
+
+msgid "Prefered width"
+msgstr "غوره سور"
+
+msgid "Prefered height"
+msgstr "غوره شوی قد"
+
+msgid "Prefered FPS"
+msgstr "غوره fps"
+
+msgid "Language"
+msgstr "ژبه"

@@ -110,3 +110,24 @@ msgstr "Cuir i láthair"
 #: ../gui/settings.py:57
 msgid "Revert"
 msgstr "Téigh ar ais"
+
+msgid "Pause"
+msgstr "Sos"
+
+msgid "Input Camera device"
+msgstr "Gléas Ceamara Ionchuir"
+
+msgid "Output Stream device"
+msgstr "Gléas Sruth Aschuir"
+
+msgid "Prefered width"
+msgstr "An leithead is fearr"
+
+msgid "Prefered height"
+msgstr "Airde is fearr"
+
+msgid "Prefered FPS"
+msgstr "FPS is fearr"
+
+msgid "Language"
+msgstr "Teanga"

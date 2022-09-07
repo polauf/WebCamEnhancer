@@ -110,3 +110,24 @@ msgstr "Gweithredon"
 #: ../gui/settings.py:57
 msgid "Revert"
 msgstr "Ddychwelais"
+
+msgid "Pause"
+msgstr "Ymbwyllwyf"
+
+msgid "Input Camera device"
+msgstr "Dyfais Camera Mewnbwn"
+
+msgid "Output Stream device"
+msgstr "Dyfais Ffrwd Allbwn"
+
+msgid "Prefered width"
+msgstr "Lled a ffefrir"
+
+msgid "Prefered height"
+msgstr "Uchder a ffefrir"
+
+msgid "Prefered FPS"
+msgstr "Fps a ffefrir"
+
+msgid "Language"
+msgstr "Iaith"

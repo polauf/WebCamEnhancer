@@ -110,3 +110,24 @@ msgstr "କାର୍ଯ୍ୟକାରୀ କର |"
 #: ../gui/settings.py:57
 msgid "Revert"
 msgstr "ଓଲଟା"
+
+msgid "Pause"
+msgstr "ବିରାମ"
+
+msgid "Input Camera device"
+msgstr "ଇନପୁଟ୍ କ୍ୟାମେରା ଉପକରଣ |"
+
+msgid "Output Stream device"
+msgstr "ଆଉଟପୁଟ୍ ଷ୍ଟ୍ରିମ୍ ଡିଭାଇସ୍ |"
+
+msgid "Prefered width"
+msgstr "ପସନ୍ଦିତ ମୋଟେଇ |"
+
+msgid "Prefered height"
+msgstr "ପସନ୍ଦିତ ଉଚ୍ଚତା |"
+
+msgid "Prefered FPS"
+msgstr "ପସନ୍ଦ FPS"
+
+msgid "Language"
+msgstr "ଭାଷା"

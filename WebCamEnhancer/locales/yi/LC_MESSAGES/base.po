@@ -110,3 +110,24 @@ msgstr "ינסטרומענט"
 #: ../gui/settings.py:57
 msgid "Revert"
 msgstr "צוריקקומען"
+
+msgid "Pause"
+msgstr "פּויזע"
+
+msgid "Input Camera device"
+msgstr "אַרייַנשרייַב אַפּאַראַט מיטל"
+
+msgid "Output Stream device"
+msgstr "רעזולטאַט טייַך מיטל"
+
+msgid "Prefered width"
+msgstr "בילכער ברייט"
+
+msgid "Prefered height"
+msgstr "בילכער הייך"
+
+msgid "Prefered FPS"
+msgstr "בילכער פפּס"
+
+msgid "Language"
+msgstr "שפּראַך"

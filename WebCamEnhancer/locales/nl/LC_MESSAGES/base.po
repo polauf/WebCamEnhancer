@@ -252,3 +252,24 @@ msgid "Revert"
 
 msgstr "Terugdraaien"
 
+
+msgid "Pause"
+msgstr "Pauze"
+
+msgid "Input Camera device"
+msgstr "Invoercamera -apparaat invoeren"
+
+msgid "Output Stream device"
+msgstr "Uitvoerstroomapparaat"
+
+msgid "Prefered width"
+msgstr "Voorkeursbreedte"
+
+msgid "Prefered height"
+msgstr "Voorkeurshoogte"
+
+msgid "Prefered FPS"
+msgstr "Preferred FPS"
+
+msgid "Language"
+msgstr "Taal"

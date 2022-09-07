@@ -252,3 +252,24 @@ msgid "Revert"
 
 msgstr "Вяртацца"
 
+
+msgid "Pause"
+msgstr "Перапынак"
+
+msgid "Input Camera device"
+msgstr "Прылада камеры ўводу"
+
+msgid "Output Stream device"
+msgstr "Прылада выходнага патоку"
+
+msgid "Prefered width"
+msgstr "Пераважная шырыня"
+
+msgid "Prefered height"
+msgstr "Пераважная вышыня"
+
+msgid "Prefered FPS"
+msgstr "Перавага FPS"
+
+msgid "Language"
+msgstr "Мова"

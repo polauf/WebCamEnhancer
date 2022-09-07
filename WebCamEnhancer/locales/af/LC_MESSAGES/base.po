@@ -1,254 +1,130 @@
 # Translation for WebCam Enhancer.
-
 # Copyleft. Provided AS IS.
-
 # Matouš Polauf <matous@polauf.cz>, 2022.
-
 #
-
 msgid ""
-
 msgstr ""
-
-"Project-Id-Version: 0.5.0\n"
-
-"POT-Creation-Date: 2022-09-06 11:20+0200\n"
-
+"Project-Id-Version: 0.5.1\n"
+"POT-Creation-Date: 2022-09-07 22:25+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-
 "Language-Team: GOOGLE-TRANSLATOR-afrikaans <AF@af.org>\n"
-
 "MIME-Version: 1.0\n"
-
 "Content-Type: text/plain; charset=UTF-8\n"
-
 "Content-Transfer-Encoding: 8bit\n"
-
 "Generated-By: pygettext.py 1.5\n"
 
 
-
-
-
-#: ../gui/controler.py:39
-
+#: ../gui/controler.py:43
 msgid "Webcam Enhancer"
-
 msgstr "Webcam Enhancer"
-
-
-#: ../gui/controler.py:45 ../gui/controler.py:217 ../gui/preview.py:48
-
-#: ../gui/preview.py:83
-
+#: ../gui/controler.py:49 ../gui/controler.py:236 ../gui/preview.py:84
+#: ../gui/preview.py:104
 msgid "Start"
-
 msgstr "Aanskakel"
-
-
-#: ../gui/controler.py:48 ../gui/controler.py:247
-
+#: ../gui/controler.py:52 ../gui/controler.py:266
 msgid "Stream"
-
 msgstr "Stroom"
-
-
-#: ../gui/controler.py:51 ../gui/controler.py:263
-
+#: ../gui/controler.py:55 ../gui/controler.py:286
 msgid "Preview"
-
 msgstr "Voorskou"
-
-
-#: ../gui/controler.py:54
-
+#: ../gui/controler.py:58
 msgid "Configuration"
-
 msgstr "Opset"
-
-
-#: ../gui/controler.py:61
-
+#: ../gui/controler.py:65
 msgid "Input"
-
 msgstr "Inset lewer"
-
-
-#: ../gui/controler.py:64 ../gui/controler.py:70 ../gui/controler.py:177
-
-#: ../gui/controler.py:204 ../gui/controler.py:206
-
+#: ../gui/controler.py:68 ../gui/controler.py:74 ../gui/controler.py:198
+#: ../gui/controler.py:223 ../gui/controler.py:225
 msgid "None"
-
 msgstr "Geen"
-
-
-#: ../gui/controler.py:67
-
+#: ../gui/controler.py:71
 msgid "Output"
-
 msgstr "Produksie"
-
-
-#: ../gui/controler.py:76
-
+#: ../gui/controler.py:80
 msgid "FPS"
-
 msgstr "Fp"
-
-
-#: ../gui/controler.py:85
-
+#: ../gui/controler.py:89
 msgid "Filters"
-
 msgstr "Filters"
-
-
-#: ../gui/controler.py:97
-
+#: ../gui/controler.py:101
 msgid "name"
-
 msgstr "naam"
-
-
-#: ../gui/controler.py:98
-
+#: ../gui/controler.py:102
 msgid "order"
-
 msgstr "orde"
-
-
-#: ../gui/controler.py:117
-
+#: ../gui/controler.py:121
 msgid "Status"
-
 msgstr "Status"
-
-
-#: ../gui/controler.py:117
-
+#: ../gui/controler.py:121
 msgid "loading"
-
 msgstr "laai"
-
-
-#: ../gui/controler.py:120 ../gui/controler.py:218
-
+#: ../gui/controler.py:124 ../gui/controler.py:237
 msgid "Stoped"
-
 msgstr "Gestop"
-
-
-#: ../gui/controler.py:124
-
+#: ../gui/controler.py:131
 msgid "Ready"
-
 msgstr "Gereed"
-
-
-#: ../gui/controler.py:237 ../gui/preview.py:48 ../gui/preview.py:86
-
+#: ../gui/controler.py:256 ../gui/preview.py:49
 msgid "Stop"
-
 msgstr "Stop"
-
-
-#: ../gui/controler.py:238
-
-msgid "Running"
-
-msgstr "Lenging"
-
-
-#: ../gui/controler.py:240
-
-msgid "Error"
-
-msgstr "Fout"
-
-
-#: ../gui/controler.py:250
-
-msgid "Stop Stream"
-
-msgstr "Stop stroom"
-
-
 #: ../gui/controler.py:257
-
+msgid "Running"
+msgstr "Lenging"
+#: ../gui/controler.py:259
+msgid "Error"
+msgstr "Fout"
+#: ../gui/controler.py:269
+msgid "Stop Stream"
+msgstr "Stop stroom"
+#: ../gui/controler.py:276
 msgid "Close Preview"
-
 msgstr "Sluit voorskou"
-
-
-#: ../gui/preview.py:34
-
+#: ../gui/preview.py:36
 msgid "Webcam preview"
-
 msgstr "Webcam -voorskou"
-
-
-#: ../gui/preview.py:52
-
+#: ../gui/preview.py:53
 msgid "Save"
-
 msgstr "Red"
-
-
-#: ../gui/preview.py:57 ../gui/preview.py:69
-
+#: ../gui/preview.py:58 ../gui/preview.py:70
 msgid "Zoom"
-
 msgstr "Zoem"
-
-
-#: ../gui/preview.py:106
-
+#: ../gui/preview.py:87
+msgid "Pause"
+msgstr "Pouse"
+#: ../gui/preview.py:114
 msgid "Images"
-
 msgstr "Boots"
-
-
-#: ../gui/preview.py:107
-
+#: ../gui/preview.py:115
 msgid "Save Screenshot As"
-
 msgstr "Stoor skermkiekie as"
-
-
-#: ../gui/settings.py:31
-
+#: ../gui/settings.py:49
 msgid "Webcam Setting"
-
 msgstr "Webcam -instelling"
-
-
-#: ../gui/settings.py:38
-
-msgid "Main config"
-
-msgstr "Hoofkonfig"
-
-
-#: ../gui/settings.py:44
-
-msgid "language"
-
-msgstr "Taal"
-
-
-#: ../gui/settings.py:54
-
-msgid "Implement"
-
-msgstr "Implementeer"
-
-
 #: ../gui/settings.py:57
-
+msgid "Main config"
+msgstr "Hoofkonfig"
+#: ../gui/settings.py:58
+msgid "Input Camera device"
+msgstr "Insetkamera -toestel"
+#: ../gui/settings.py:59
+msgid "Output Stream device"
+msgstr "Uitvoerstroomtoestel"
+#: ../gui/settings.py:60
+msgid "Prefered width"
+msgstr "Voorkeurbreedte"
+#: ../gui/settings.py:61
+msgid "Prefered height"
+msgstr "Voorkeurhoogte"
+#: ../gui/settings.py:62
+msgid "Prefered FPS"
+msgstr "Voorkeur FPS"
+#: ../gui/settings.py:63
+msgid "Language"
+msgstr "Taal"
+#: ../gui/settings.py:74
+msgid "Implement"
+msgstr "Implementeer"
+#: ../gui/settings.py:77
 msgid "Revert"
-
 msgstr "Teruggaan"
-

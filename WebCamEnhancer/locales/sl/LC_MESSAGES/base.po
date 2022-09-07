@@ -110,3 +110,24 @@ msgstr "Izvesti"
 #: ../gui/settings.py:57
 msgid "Revert"
 msgstr "Vrnitev"
+
+msgid "Pause"
+msgstr "Pavza"
+
+msgid "Input Camera device"
+msgstr "Naprava vhodne kamere"
+
+msgid "Output Stream device"
+msgstr "Naprava izhodnega toka"
+
+msgid "Prefered width"
+msgstr "Prednostna širina"
+
+msgid "Prefered height"
+msgstr "Prednostna višina"
+
+msgid "Prefered FPS"
+msgstr "Prednostni fps"
+
+msgid "Language"
+msgstr "Jezik"

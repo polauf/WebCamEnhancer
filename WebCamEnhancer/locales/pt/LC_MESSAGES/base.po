@@ -110,3 +110,24 @@ msgstr "Implemento"
 #: ../gui/settings.py:57
 msgid "Revert"
 msgstr "Reverter"
+
+msgid "Pause"
+msgstr "Pausa"
+
+msgid "Input Camera device"
+msgstr "Dispositivo de câmera de entrada"
+
+msgid "Output Stream device"
+msgstr "Dispositivo de fluxo de saída"
+
+msgid "Prefered width"
+msgstr "Largura preferida"
+
+msgid "Prefered height"
+msgstr "Altura preferida"
+
+msgid "Prefered FPS"
+msgstr "FPS preferido"
+
+msgid "Language"
+msgstr "Linguagem"

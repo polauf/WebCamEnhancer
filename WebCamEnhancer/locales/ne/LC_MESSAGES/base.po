@@ -110,3 +110,24 @@ msgstr "कार्यमा परिणत गर्नु"
 #: ../gui/settings.py:57
 msgid "Revert"
 msgstr "पहिले को अवस्थामा फर्कनु"
+
+msgid "Pause"
+msgstr "विराम"
+
+msgid "Input Camera device"
+msgstr "इनपुट क्यामेरा उपकरण"
+
+msgid "Output Stream device"
+msgstr "आउटपुट स्ट्रिम उपकरण"
+
+msgid "Prefered width"
+msgstr "चौडाइ चौडाई"
+
+msgid "Prefered height"
+msgstr "रक्त उचाई"
+
+msgid "Prefered FPS"
+msgstr "मनपर्दो fps"
+
+msgid "Language"
+msgstr "भाषा"

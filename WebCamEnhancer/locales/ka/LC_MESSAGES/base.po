@@ -110,3 +110,24 @@ msgstr "განხორციელება"
 #: ../gui/settings.py:57
 msgid "Revert"
 msgstr "დაბრუნება"
+
+msgid "Pause"
+msgstr "პაუზა"
+
+msgid "Input Camera device"
+msgstr "შეყვანის კამერის მოწყობილობა"
+
+msgid "Output Stream device"
+msgstr "გამომავალი ნაკადის მოწყობილობა"
+
+msgid "Prefered width"
+msgstr "სასურველი სიგანე"
+
+msgid "Prefered height"
+msgstr "სასურველი სიმაღლე"
+
+msgid "Prefered FPS"
+msgstr "სასურველი FPS"
+
+msgid "Language"
+msgstr "Ენა"

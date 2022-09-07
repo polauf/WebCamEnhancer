@@ -252,3 +252,24 @@ msgid "Revert"
 
 msgstr "Վերադառնալ"
 
+
+msgid "Pause"
+msgstr "Դադար"
+
+msgid "Input Camera device"
+msgstr "Մուտքային տեսախցիկի սարք"
+
+msgid "Output Stream device"
+msgstr "Արդյունքային հոսքի սարք"
+
+msgid "Prefered width"
+msgstr "Նախընտրելի լայնությունը"
+
+msgid "Prefered height"
+msgstr "Նախընտրելի բարձրությունը"
+
+msgid "Prefered FPS"
+msgstr "Նախընտրելի FPS"
+
+msgid "Language"
+msgstr "Լեզու"

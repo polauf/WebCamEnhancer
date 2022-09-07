@@ -110,3 +110,24 @@ msgstr "Strumento"
 #: ../gui/settings.py:57
 msgid "Revert"
 msgstr "Ripristina"
+
+msgid "Pause"
+msgstr "Pausa"
+
+msgid "Input Camera device"
+msgstr "Dispositivo della fotocamera di ingresso"
+
+msgid "Output Stream device"
+msgstr "Dispositivo di flusso di output"
+
+msgid "Prefered width"
+msgstr "Larghezza preferita"
+
+msgid "Prefered height"
+msgstr "Altezza preferita"
+
+msgid "Prefered FPS"
+msgstr "FPS preferito"
+
+msgid "Language"
+msgstr "Lingua"

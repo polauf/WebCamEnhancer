@@ -110,3 +110,24 @@ msgstr "Реалізація"
 #: ../gui/settings.py:57
 msgid "Revert"
 msgstr "Повертати"
+
+msgid "Pause"
+msgstr "Пауза"
+
+msgid "Input Camera device"
+msgstr "Пристрій вхідної камери"
+
+msgid "Output Stream device"
+msgstr "Пристрій вихідного потоку"
+
+msgid "Prefered width"
+msgstr "Бажана ширина"
+
+msgid "Prefered height"
+msgstr "Бажана висота"
+
+msgid "Prefered FPS"
+msgstr "Бажаний FPS"
+
+msgid "Language"
+msgstr "Мову"

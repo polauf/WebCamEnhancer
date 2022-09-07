@@ -252,3 +252,24 @@ msgid "Revert"
 
 msgstr "Revertir"
 
+
+msgid "Pause"
+msgstr "Fer una pausa"
+
+msgid "Input Camera device"
+msgstr "Dispositiu de càmera d'entrada"
+
+msgid "Output Stream device"
+msgstr "Dispositiu de flux de sortida"
+
+msgid "Prefered width"
+msgstr "Amplada preferida"
+
+msgid "Prefered height"
+msgstr "Alçada preferida"
+
+msgid "Prefered FPS"
+msgstr "FPS preferit"
+
+msgid "Language"
+msgstr "Llenguatge"

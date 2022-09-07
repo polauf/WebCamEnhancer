@@ -110,3 +110,24 @@ msgstr "Whakatinana"
 #: ../gui/settings.py:57
 msgid "Revert"
 msgstr "Hoki"
+
+msgid "Pause"
+msgstr "Nā wai ā"
+
+msgid "Input Camera device"
+msgstr "Pūrere Input"
+
+msgid "Output Stream device"
+msgstr "Pūrere Putanga"
+
+msgid "Prefered width"
+msgstr "Whanui Whanui"
+
+msgid "Prefered height"
+msgstr "Te teitei pai"
+
+msgid "Prefered FPS"
+msgstr "FPS pai ake"
+
+msgid "Language"
+msgstr "Reo"

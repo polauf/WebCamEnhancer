@@ -110,3 +110,24 @@ msgstr "구현하다"
 #: ../gui/settings.py:57
 msgid "Revert"
 msgstr "돌아가는 것"
+
+msgid "Pause"
+msgstr "정지시키다"
+
+msgid "Input Camera device"
+msgstr "입력 카메라 장치"
+
+msgid "Output Stream device"
+msgstr "출력 스트림 장치"
+
+msgid "Prefered width"
+msgstr "선호하는 너비"
+
+msgid "Prefered height"
+msgstr "선호하는 높이"
+
+msgid "Prefered FPS"
+msgstr "선호하는 FPS"
+
+msgid "Language"
+msgstr "언어"

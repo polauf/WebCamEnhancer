@@ -110,3 +110,24 @@ msgstr "لاڳو ڪرڻ"
 #: ../gui/settings.py:57
 msgid "Revert"
 msgstr "واپس موٽايو"
+
+msgid "Pause"
+msgstr "روڪيو"
+
+msgid "Input Camera device"
+msgstr "ڪئميرا ڊيوائس داخل ڪريو"
+
+msgid "Output Stream device"
+msgstr "آئوٽ اسٽريم ڊيوائس"
+
+msgid "Prefered width"
+msgstr "ترجيحي چوڻي"
+
+msgid "Prefered height"
+msgstr "ترجيحي اوچائي"
+
+msgid "Prefered FPS"
+msgstr "ترجيحي ايف پي ايس"
+
+msgid "Language"
+msgstr "ٻولي"

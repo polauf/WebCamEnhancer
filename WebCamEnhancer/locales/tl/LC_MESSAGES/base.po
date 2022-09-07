@@ -252,3 +252,24 @@ msgid "Revert"
 
 msgstr "Bumalik"
 
+
+msgid "Pause"
+msgstr "I -pause"
+
+msgid "Input Camera device"
+msgstr "Aparato ng input camera"
+
+msgid "Output Stream device"
+msgstr "Output stream aparato"
+
+msgid "Prefered width"
+msgstr "Ginustong lapad"
+
+msgid "Prefered height"
+msgstr "Ginustong taas"
+
+msgid "Prefered FPS"
+msgstr "Ginustong FPS"
+
+msgid "Language"
+msgstr "Wika"

@@ -110,3 +110,24 @@ msgstr "Gcwalisa"
 #: ../gui/settings.py:57
 msgid "Revert"
 msgstr "Phindela emuva"
+
+msgid "Pause"
+msgstr "Thula kancane"
+
+msgid "Input Camera device"
+msgstr "Idivaysi yekhamera yokufaka"
+
+msgid "Output Stream device"
+msgstr "Khipha kudivayisi yokusakazwa komthombo"
+
+msgid "Prefered width"
+msgstr "Ububanzi obukhethiweyo"
+
+msgid "Prefered height"
+msgstr "Ukuphakama okuthandwayo"
+
+msgid "Prefered FPS"
+msgstr "I-FPS encanyelwe"
+
+msgid "Language"
+msgstr "Ulimi"

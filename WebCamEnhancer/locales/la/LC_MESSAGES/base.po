@@ -110,3 +110,24 @@ msgstr "Ecfectio"
 #: ../gui/settings.py:57
 msgid "Revert"
 msgstr "Revinco"
+
+msgid "Pause"
+msgstr "Pausa"
+
+msgid "Input Camera device"
+msgstr "Initus camera fabrica"
+
+msgid "Output Stream device"
+msgstr "Output amnis fabrica"
+
+msgid "Prefered width"
+msgstr "Maluit Width"
+
+msgid "Prefered height"
+msgstr "Maluit altitudo"
+
+msgid "Prefered FPS"
+msgstr "Maluit FPS"
+
+msgid "Language"
+msgstr "Lingua"

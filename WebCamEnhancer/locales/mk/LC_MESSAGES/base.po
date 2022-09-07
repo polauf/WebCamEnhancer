@@ -110,3 +110,24 @@ msgstr "Спроведување"
 #: ../gui/settings.py:57
 msgid "Revert"
 msgstr "Врати"
+
+msgid "Pause"
+msgstr "Пауза"
+
+msgid "Input Camera device"
+msgstr "Влезен уред за камера"
+
+msgid "Output Stream device"
+msgstr "Уред за излез на проток"
+
+msgid "Prefered width"
+msgstr "Преферирана ширина"
+
+msgid "Prefered height"
+msgstr "Преферирана висина"
+
+msgid "Prefered FPS"
+msgstr "Преферирани FPS"
+
+msgid "Language"
+msgstr "Јазик"

@@ -110,3 +110,24 @@ msgstr "Uygulamak"
 #: ../gui/settings.py:57
 msgid "Revert"
 msgstr "Geri dönmek"
+
+msgid "Pause"
+msgstr "Duraklat"
+
+msgid "Input Camera device"
+msgstr "Giriş Kamera Cihazı"
+
+msgid "Output Stream device"
+msgstr "Çıktı akışı cihazı"
+
+msgid "Prefered width"
+msgstr "Tercih edilen genişlik"
+
+msgid "Prefered height"
+msgstr "Tercih edilen yükseklik"
+
+msgid "Prefered FPS"
+msgstr "Tercih edilen FPS"
+
+msgid "Language"
+msgstr "Dil"

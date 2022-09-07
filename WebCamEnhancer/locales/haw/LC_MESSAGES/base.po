@@ -110,3 +110,24 @@ msgstr "Hana"
 #: ../gui/settings.py:57
 msgid "Revert"
 msgstr "Hoʻohuli"
+
+msgid "Pause"
+msgstr "Pause"
+
+msgid "Input Camera device"
+msgstr "Nā kelepona kāmera"
+
+msgid "Output Stream device"
+msgstr "Nā kikowaena kikowaena kikowaena"
+
+msgid "Prefered width"
+msgstr "ʻO ka laulā maikaʻi"
+
+msgid "Prefered height"
+msgstr "Ke kiʻekiʻe kiʻekiʻe"
+
+msgid "Prefered FPS"
+msgstr "Makemake i nā fps"
+
+msgid "Language"
+msgstr "Kanakai"

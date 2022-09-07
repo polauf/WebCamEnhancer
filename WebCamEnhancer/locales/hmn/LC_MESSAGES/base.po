@@ -110,3 +110,24 @@ msgstr "Hloov kev"
 #: ../gui/settings.py:57
 msgid "Revert"
 msgstr "Rov mus"
+
+msgid "Pause"
+msgstr "Tos"
+
+msgid "Input Camera device"
+msgstr "Lub Koob Yees Duab Ntaus"
+
+msgid "Output Stream device"
+msgstr "Tso zis ntws"
+
+msgid "Prefered width"
+msgstr "Nyiam dav"
+
+msgid "Prefered height"
+msgstr "Nyiam qhov siab"
+
+msgid "Prefered FPS"
+msgstr "Nyiam FPS"
+
+msgid "Language"
+msgstr "Yam lus"

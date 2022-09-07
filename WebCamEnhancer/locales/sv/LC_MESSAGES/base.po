@@ -110,3 +110,24 @@ msgstr "Genomföra"
 #: ../gui/settings.py:57
 msgid "Revert"
 msgstr "Återgå"
+
+msgid "Pause"
+msgstr "Paus"
+
+msgid "Input Camera device"
+msgstr "Inmatningskamera"
+
+msgid "Output Stream device"
+msgstr "Utgångsström"
+
+msgid "Prefered width"
+msgstr "Föredragen bredd"
+
+msgid "Prefered height"
+msgstr "Föredragen höjd"
+
+msgid "Prefered FPS"
+msgstr "Föredragen FPS"
+
+msgid "Language"
+msgstr "Språk"

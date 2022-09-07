@@ -110,3 +110,24 @@ msgstr "Cika"
 #: ../gui/settings.py:57
 msgid "Revert"
 msgstr "Koma"
+
+msgid "Pause"
+msgstr "Ɗan hutu"
+
+msgid "Input Camera device"
+msgstr "Na'urar kyamarar Inpire"
+
+msgid "Output Stream device"
+msgstr "Na'urar fitarwa na fitarwa"
+
+msgid "Prefered width"
+msgstr "Faɗin Farko"
+
+msgid "Prefered height"
+msgstr "Da kuka fi so"
+
+msgid "Prefered FPS"
+msgstr "FPS da aka fi so"
+
+msgid "Language"
+msgstr "Harshe"
