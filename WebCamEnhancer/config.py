@@ -40,7 +40,7 @@ class ConfigGroup(UserDict):
         try:
             item = self.data[key]
         except KeyError:
-            raise KeyError("Config keys are frozen.")
+            raise KeyError(f"Config keys are frozen. Atempted add '{key}.'")
         with self._lock:
             self.data[key] = value
 

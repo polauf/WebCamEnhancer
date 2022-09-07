@@ -6,6 +6,7 @@ from ..core.camera import CamerasWorker, CameraError
 from ..core.base import ModuleController
 from ..config import Configuration
 from .settings import Setting
+from ..constants import ICON
 
 
 class Controler:
@@ -32,7 +33,9 @@ class Controler:
 
     def build(self, master=None):
         self.root = tk.Tk() if master is None else tk.Toplevel(master.root)
+        self.icon = tk.PhotoImage(file=ICON)
         self.root.configure(height=400, width=600)
+        self.root.iconphoto(True, self.icon)
         self.root.geometry(self.config["geometry"])
         self.root.maxsize(800, 600)
         self.root.minsize(400, 300)
@@ -93,11 +96,11 @@ class Controler:
             "names_column", anchor="w", stretch="true", width=200, minwidth=20
         )
         self.filters_view.column(
-            "order_column", anchor="w", stretch="false", width=60, minwidth=60
+            "order_column", anchor="w", stretch="false", width=80, minwidth=80
         )
         self.filters_view.heading("names_column", anchor="w", text=tt("name"))
         self.filters_view.heading("order_column", anchor="center", text=tt("order"))
-        self.filters_view.pack(expand="true", fill="both", side="top")
+        self.filters_view.pack(expand="true", fill="both", side="top", ipadx=2, ipady=2, pady=2)
 
         self.filters_view.bind('<Double-1>', self.double_filter)
         self.filters_view.bind('<Button-2>', self.middle_filter) 

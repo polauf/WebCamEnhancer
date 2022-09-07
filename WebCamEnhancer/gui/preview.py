@@ -35,7 +35,6 @@ class WebcamPreview:
         self.root.resizable(False, False)
         self.root.title(tt("Webcam preview"))
         self.root.protocol("WM_DELETE_WINDOW", self._exit)
-        #self.root.bind("<Configure>", self.conf)
 
         offset = self.config["offset"]
         if offset:

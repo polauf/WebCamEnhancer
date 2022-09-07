@@ -1,8 +1,26 @@
 import tkinter as tk
 import tkinter.ttk as ttk
 
+from .utils import make_simple_setting_row
 from ..config import Configuration
 from ..core.base import ModuleController
+
+class ScrollableFrame(ttk.Frame):
+    def __init__(self, container, *args, **kwargs):
+        super().__init__(container, *args, **kwargs)
+        canvas = tk.Canvas(self)
+        scrollbar = ttk.Scrollbar(self, orient="vertical", command=canvas.yview)
+        self.scrollable_frame = ttk.Frame(canvas)
+        self.scrollable_frame.bind(
+            "<Configure>",
+            lambda e: canvas.configure(
+                scrollregion=canvas.bbox("all")
+            )
+        )
+        canvas.create_window((0, 0), window=self.scrollable_frame, anchor="nw")
+        canvas.configure(yscrollcommand=scrollbar.set)
+        canvas.pack(side="left", fill="both", expand=True)
+        scrollbar.pack(side="right", fill="y")
 
 class Setting:
 
@@ -29,26 +47,28 @@ class Setting:
         self.root.configure(height=200, width=200)
         self.root.geometry(self.config["geometry"])
         self.root.title(tt("Webcam Setting"))
+        self.root.minsize(425, 400)
         self.root.protocol("WM_DELETE_WINDOW", self._exit)
 
-        self.settings_frame = ttk.Frame(self.root)
-
+        settings_frame = ScrollableFrame(self.root)
+        scroll_frame = settings_frame.scrollable_frame
         self._mainsetting = {}
 
-        self.module_frame = ttk.Labelframe(self.settings_frame, text=tt("Main config"))
-        self._mainsetting["input_cam"] = self._make_row(self.module_frame, 0, "input_cam", self.config["input_cam"])
-        self._mainsetting["output_cam"] = self._make_row(self.module_frame, 1, "output_cam", self.config["output_cam"])
-        self._mainsetting["width"] = self._make_row(self.module_frame, 2, "width", self.config["width"], tk.IntVar)
-        self._mainsetting["height"] = self._make_row(self.module_frame, 3, "height", self.config["height"], tk.IntVar)
-        self._mainsetting["fps"] = self._make_row(self.module_frame, 4, "fps", self.config["fps"], tk.DoubleVar)
-        self._mainsetting["language"] = self._make_row(self.module_frame, 5, tt("language"), self.config["language"])
+        self.module_frame = ttk.Labelframe(scroll_frame, text=tt("Main config"))
+        self._mainsetting["input_cam"] = make_simple_setting_row(self.module_frame, 0, tt("Input Camera device"), self.config["input_cam"])
+        self._mainsetting["output_cam"] = make_simple_setting_row(self.module_frame, 1, tt("Output Stream device"), self.config["output_cam"])
+        self._mainsetting["width"] = make_simple_setting_row(self.module_frame, 2, tt("Prefered width"), self.config["width"], tk.IntVar)
+        self._mainsetting["height"] = make_simple_setting_row(self.module_frame, 3, tt("Prefered height"), self.config["height"], tk.IntVar)
+        self._mainsetting["fps"] = make_simple_setting_row(self.module_frame, 4, tt("Prefered FPS"), self.config["fps"], tk.DoubleVar)
+        self._mainsetting["language"] = make_simple_setting_row(self.module_frame, 5, tt("Language"), self.config["language"])
+        self.module_frame.columnconfigure(0, minsize=200)
         self.module_frame.pack(side="top", fill="x", padx=10, pady=5)
 
         for group in ModuleController.MODULES.values():
-            for mod in group:
-                self._make_module(self.settings_frame, mod)
+            for mod in sorted(group, key=lambda x: x.__name__):
+                self._make_module(scroll_frame, mod)
 
-        self.settings_frame.pack(expand="true", fill="both", side="top")
+        settings_frame.pack(expand="true", fill="both", side="top")
         button_frame = ttk.Frame(self.root)
 
         self.implement_buton = ttk.Button(button_frame, text=tt("Implement"), command=self.on_implement)
@@ -56,26 +76,21 @@ class Setting:
 
         self.revert_button = ttk.Button(button_frame, text=tt("Revert"), command=self.on_revert)
         self.revert_button.pack(side="left")
-        button_frame.pack(fill="x", side="top")
-
-    def _make_row(self, master, i, key, default_value, var_class=tk.StringVar):
-        label = ttk.Label(master, text=key)
-        label.grid(column=0, row=i)
-        var = var_class(master)
-        entry = tk.Entry(master, textvariable=var)
-        entry.grid(column=1, padx=10, row=i)
-        var.set(default_value or 0)
-        return var
+        button_frame.pack(fill="x", side="top", padx=5, pady=5)
 
     def _make_module(self, master, module):
         self._settings[module] = {}
         config = Configuration.get_module_config(module)
         if config:
-            frame = ttk.Labelframe(self.settings_frame, text=module.__name__, )
+            frame = ttk.Labelframe(master, text=f"{module.__mro__[1].__name__} - {module.__name__}", )
+            frame.columnconfigure(0, minsize=200)
             defaults = module.CONFIG_TEMPLATE
             for i,(k, default) in enumerate(defaults.items()):
-                self._settings[module][k] = self._make_row(frame, i, k, config.get(k, default), self._resolve_var(k, default))
-            frame.pack(side="top", fill="x", padx=10, pady=5)
+                self._settings[module][k] = make_simple_setting_row(
+                    frame, i, " ".join(k.split("_")).capitalize(), 
+                    config.get(k, default), self._resolve_var(k, default)
+                    )
+            frame.pack(side="top", fill="x", padx=10, pady=5, ipady=3)
 
     @staticmethod
     def _resolve_var(key, default):

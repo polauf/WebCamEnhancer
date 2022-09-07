@@ -51,10 +51,6 @@ class ImageQuality(Filter):
 
     CONFIG_TEMPLATE = {
         "gamma": 1.68,
-        "zoom": 1.,
-        "zoom_center_x": 0,
-        "zoom_center_y": 0,
-
         "hue": 1.,
         "saturation":1.1,
         "value": 1.15,
@@ -64,6 +60,9 @@ class ImageQuality(Filter):
         "blue": .85
     }
 
+    def make_setting(self, ):
+        pass
+
     def prepare(self, resolution):
         self.lookUpTable = np.empty((1,256), np.uint8)
         for i in range(256):
@@ -71,34 +70,9 @@ class ImageQuality(Filter):
 
         self.hsv = np.array([self.config["hue"], self.config["saturation"], self.config["value"]])
         self.bgr = np.array([self.config["blue"], self.config["green"], self.config["red"]])
-        self.coord = (self.config["zoom_center_y"], self.config["zoom_center_x"])
-        if not any(self.coord):
-            self.coord = None
-
-    @staticmethod
-    def zoom_at(img, zoom, coord=None, method=cv2.INTER_CUBIC):
-        """
-        Simple image zooming without boundary checking.
-        Centered at "coord", if given, else the image center.
-
-        img: numpy.ndarray of shape (h,w,:)
-        zoom: float
-        coord: (float, float)
-        """
-        # Translate to zoomed coordinates
-        h, w, _ = [ zoom * i for i in img.shape ]
-        
-        if coord is None: cx, cy = w/2, h/2
-        else: cx, cy = [ zoom*c for c in coord ]
-        
-        img = cv2.resize( img, (0, 0), fx=zoom, fy=zoom, interpolation=method)
-        return img[ int(round(cy - h/zoom * .5)) : int(round(cy + h/zoom * .5)),
-                int(round(cx - w/zoom * .5)) : int(round(cx + w/zoom * .5)),
-                : ]
 
     def apply(self, frame):
             # gamma
-            frame = self.zoom_at(frame, self.config["zoom"], self.coord)
             frame = cv2.LUT(frame, self.lookUpTable)
             if (self.hsv/1).any():
                 (h, s, v) = cv2.split(cv2.cvtColor(frame, cv2.COLOR_BGR2HSV).astype("float32"))

@@ -1,5 +1,6 @@
 from pathlib import Path
 from appdirs import user_data_dir 
+import tkinter as tk
 
 
 
@@ -14,3 +15,5 @@ LOGGING_FILE = CONFIG_DIR / "log.log"
 PICTURES_DIR = CONFIG_DIR / "img"
 FALLBACK_PICTURES_DIR = Path(__file__).parent / "img"
 TRANSLATIONS_DIR = Path(__file__).parent / "locales"
+
+ICON = str(Path(__file__).parent / "icons/48x48.png")
