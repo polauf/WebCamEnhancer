@@ -13,13 +13,24 @@ Fork of [CustomCam](https://github.com/mattravenhall/CustomCam). I will probably
 
 It is not [OBS](https://obsproject.com/) but on Linux it is simple to use. Should work on Windows and Mac but consult [PyVirtualCam](https://github.com/letmaik/pyvirtualcam) how to run **loopback** dummy device on your computer.
 
+# instalation
+```shell
+$ git clone {this repo}
+```
+Will make pip package. **TODO**
+
 # Usage
+
+Go to cloned dir and then:
+```shell
+$ python -m WebCamEnhancer
+```
 
 First you need to get loopback device running, then ,for example on linux, it shoud appear as new video device like: ```/dev/video2```.
 Yes, you need to load it:
 
 ```bash
-sudo modprobe v4l2loopback devices=1 card_label="My DUMMY"
+$ sudo modprobe v4l2loopback devices=1 card_label="My DUMMY"
 ```
 
 For example. There is option ```exclusive_caps=1``` witch helped some people. 
@@ -29,11 +40,12 @@ OK, everithing should be straight forward with one exception ,how to hadle Filte
 ### Filter view
 
 **Left Double-click**
-  - Adds selected filter to the processiong queue. 
+  - Adds selected filter to the **bottom** of processing queue. 
   - More double-clicks icrease its order when it should be applied.
 
 **Right-click**
- - Decrease order of selected filter or remove it. (Not working *TODO*)
+ - Adds selected filter to the **top** of processing queue. 
+ - Decrease order of selected filter or removes it if it is at the bottom of queue.
 
  **Middle-click**
  - Removes selected filter from the queue.
@@ -114,4 +126,4 @@ As said in **Filters** there is **Must** method ```apply(frame: np.array)-> Any`
 Will be used to register new behaviours, like stop streaming when ```Segmentator``` will not detect you for, lets say 30 seconds.
 
 
-# HOPE YOU ENJOY IT. CHEERS!
+## HOPE YOU ENJOY IT. CHEERS!
