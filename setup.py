@@ -5,7 +5,7 @@ from glob import glob
 
 setup(
     name='WebCamEnhancer',
-    version='0.5.0',
+    version='0.5.1',
     description='Webcam enhancement controler with Tkinter GUI and console.',
     long_description=open("README.md", 'r').read(),
     long_description_content_type="text/markdown",
@@ -13,13 +13,14 @@ setup(
     url='https://github.com/polauf/WebCamEnhancer',
     data_files=[
         ("pictures", glob('./WebCamEnhancer/img/*.*')),
+        ("icons", glob('./WebCamEnhancer/icons/*.png')),
         ("locales", glob('./WebCamEnhancer/locales/*/*/base.po'))
     ],
     include_package_data=True,
     packages=find_packages(),
     classifiers=[
           'Development Status :: 4 - Beta',
-          'Environment :: Console',
+          # 'Environment :: Console',
           'Environment :: X11 Applications',
           'Natural Language :: English',
           'Operating System :: POSIX :: Linux',
