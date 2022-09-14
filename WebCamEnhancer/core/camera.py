@@ -233,8 +233,7 @@ class CamerasWorker:
                             self._errors.append((e, e.args))
                             self._error.set()
                             break
-                        break
-                    error_counter += 1
+                        error_counter += 1
 
         process_thread = threading.Thread(target=processing_worker,daemon=True)
 
