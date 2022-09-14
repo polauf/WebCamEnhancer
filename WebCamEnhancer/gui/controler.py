@@ -158,25 +158,36 @@ class Controler:
         if self._worker is not None:
             self._worker.filters = tuple(self.active_filters)
 
-    def _move_filter(self, i):
+    def double_filter(self, _):
         try:
             name, val = self.filters_view.item(self.filters_view.focus())["values"]
         except ValueError:
             return
         index = self.active_filters.index(name) if name in self.active_filters else None
-        ii = 1 if i == -1 else 0
-        if index is not None and index < (len(self.active_filters) - ii):
-            self.active_filters.insert(index + i, self.active_filters.pop(index))
+        if index is not None and index < (len(self.active_filters) - 1):
+            self.active_filters.insert(index + 1, self.active_filters.pop(index))
             self._update_filters()
         elif index is None:
             self.active_filters.insert(0, name)
             self._update_filters()
 
-    def double_filter(self, _):
-        self._move_filter(1)
     
     def right_filter(self, _):
-        self._move_filter(-1)
+        try:
+            name, val = self.filters_view.item(self.filters_view.focus())["values"]
+        except ValueError:
+            return
+        index = self.active_filters.index(name) if name in self.active_filters else None
+        if index is not None and (0 < index) and index < len(self.active_filters):
+            self.active_filters.insert(index - 1, self.active_filters.pop(index))
+            self._update_filters()
+        elif index == 0:
+            self.active_filters.remove(name)
+            self._update_filters()
+        elif index is None:
+            self.active_filters.append(name)
+            self._update_filters()
+
 
     def middle_filter(self, _):
         try:
