@@ -26,12 +26,16 @@ class Shake(Filter):
 class Info(Filter):
 
     CONFIG_TEMPLATE = {
-        "color": "#FFF"
+        "color": "#FFF",
+        "scale": 1.5,
+        "thickness": 2
     }
 
     def prepare(self, resolution):
         self.last_time = time.perf_counter()
         self.color = self.hex2color(self.config["color"])
+        self.scale = self.config["scale"]
+        self.thickness = self.config["thickness"]
 
     def apply(self, frame):
         text = [f"FPS: {int(1 / (time.perf_counter() - self.last_time))}"]
@@ -40,10 +44,10 @@ class Info(Filter):
         text.append(f"Resolution: {props['width']}x{props['height']}")
         self.last_time = time.perf_counter()
 
-        y0, dy = 50, 30
+        y0, dy = 50, int(30*self.scale)
         for i, line in enumerate(text):
             y = y0 + i*dy
-            cv2.putText(frame, line, (5, y), cv2.FONT_HERSHEY_PLAIN, 1,self.color.tolist(), 1)
+            cv2.putText(frame, line, (5, y), cv2.FONT_HERSHEY_PLAIN, self.scale, self.color.tolist(), self.thickness)
         return frame
 
 class ImageQuality(Filter):
@@ -178,21 +182,15 @@ class LaughingMan(Filter):
 
         for (x, y, w, h) in faces:
             # Scale image to be larger then detected face
-            ws = int(w * self.scale)
-            hs = int(h * self.scale)
+            ws, hs = int(w * self.scale), int(h * self.scale)
             ratio = ws/self.face_img.shape[0]
             size = (int(self.face_img.shape[1]*ratio), int(self.face_img.shape[0]*ratio))
-            
-            # TODO: Wrong hadling of negaitve corners in draw_on_image()
-            xs = int(x - hs/4 - 20)
-            if xs < 0: xs = 0
-            ys = int(y - ws/4 + 45)
-            if ys < 0: ys = 0
+            xc, yc = int(x + w/2), int(y + h/2.42)
 
             combo = np.zeros(self.face_img.shape)
-            draw_on_image(combo, rotate_image(self.text_img, self.rotation), 0, 0)
-            draw_on_image(combo, self.face_img)
-            draw_on_image(frame, cv2.resize(combo, size), xs, ys)
+            draw_on_image(combo, rotate_image(self.text_img, self.rotation), xy=(0, 0))
+            draw_on_image(combo, self.face_img, xy=(0,0))
+            draw_on_image(frame, cv2.resize(combo, size), center=(xc, yc))
 
             # Debug rectangle
             # cv2.rectangle(frame, (x,y), (x+w, y+h), (0,255,0),2)
@@ -266,7 +264,13 @@ class ASCII(Filter):
     """
 
     CONFIG_TEMPLATE = {
-        "character_color": "#FFFF00"
+        "character_color": "#FFFF00",
+        "canny_threshold_1": 35,
+        "canny_threshold_2": 14,
+        "canny_aperture_size": 3,
+        "canny_l2_enabled": False,
+        "gaussian_kernel": 5
+
     }
 
     def prepare(self, resolution):
@@ -278,6 +282,13 @@ class ASCII(Filter):
         self.coeficient = 1
         self.box = (6*self.coeficient, 8*self.coeficient)
         self.images = self.generate_ascii_letters(*self.box)
+        self.canny_kwargs = {
+            "threshold1": self.config["canny_threshold_1"],
+            "threshold2": self.config["canny_threshold_2"],
+            "apertureSize": int(self.config["canny_aperture_size"]),
+            "L2gradient": bool(self.config["canny_l2_enabled"])
+            }
+        self.gaussian_kernel = (self.config["gaussian_kernel"], self.config["gaussian_kernel"])
 
     @staticmethod
     @jit(nopython=True)
@@ -315,9 +326,8 @@ class ASCII(Filter):
 
         ascii = self.to_ascii_art(
             cv2.Canny(
-                cv2.GaussianBlur(frame, (5, 5), 4),
-                35,
-                14),
+                cv2.GaussianBlur(frame, self.gaussian_kernel, 4),
+                **self.canny_kwargs),
             self.images,
             *self.box
         )
